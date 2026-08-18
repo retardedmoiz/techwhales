@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { NAV_LINKS, SITE_CONFIG } from "@/lib/config";
 import { cn } from "@/lib/utils";
+import { TechWhalesLogo } from "@/components/ui/logo";
+import { CustomCursorTarget } from "@/components/ui/custom-cursor";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,44 +41,49 @@ export default function Navigation() {
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="group flex items-center gap-1.5 z-50">
-            <span className="text-[1.3rem] font-heading font-black tracking-tighter text-black uppercase">
-              {SITE_CONFIG.brand}
-            </span>
+            <CustomCursorTarget className="flex items-center">
+              <TechWhalesLogo width={180} className="text-black group-hover:text-red-600 transition-colors duration-300" />
+            </CustomCursorTarget>
           </Link>
 
           {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center gap-8">
             {NAV_LINKS.filter(link => link.name !== "Legal Terms" && link.name !== "Contact").map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={cn(
-                  "text-[0.75rem] font-medium uppercase tracking-widest transition-colors duration-200",
-                  pathname === link.href
-                    ? "text-black font-semibold"
-                    : "text-black/60 hover:text-black"
-                )}
-              >
-                {link.name}
-              </Link>
+              <CustomCursorTarget key={link.name}>
+                <Link
+                  href={link.href}
+                  className={cn(
+                    "text-[0.75rem] font-medium uppercase tracking-widest transition-colors duration-200 block py-2",
+                    pathname === link.href
+                      ? "text-red-600 font-semibold"
+                      : "text-black/60 hover:text-black"
+                  )}
+                >
+                  {link.name}
+                </Link>
+              </CustomCursorTarget>
             ))}
           </div>
 
           {/* CTA & Legal Links */}
           <div className="hidden lg:flex items-center gap-6">
-            <Link
-              href="/legal"
-              className="text-[0.75rem] font-medium uppercase tracking-widest text-black/60 hover:text-black transition-colors"
-            >
-              Legal Terms
-            </Link>
-            <Link
-              href="/#contact"
-              className="group inline-flex items-center gap-2 px-5 py-2.5 text-[0.75rem] font-bold uppercase tracking-wider text-white bg-black rounded-full hover:bg-black/90 transition-all duration-300"
-            >
-              Let&apos;s Talk
-              <ArrowUpRight size={14} className="group-hover:rotate-45 transition-transform duration-300" />
-            </Link>
+            <CustomCursorTarget>
+              <Link
+                href="/legal"
+                className="text-[0.75rem] font-medium uppercase tracking-widest text-black/60 hover:text-black transition-colors block py-2"
+              >
+                Legal Terms
+              </Link>
+            </CustomCursorTarget>
+            <CustomCursorTarget>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 text-[0.75rem] font-bold uppercase tracking-wider text-white bg-black rounded-full hover:bg-red-600 transition-all duration-300"
+              >
+                Let&apos;s Talk
+                <ArrowUpRight size={14} className="group-hover:rotate-45 transition-transform duration-300" />
+              </Link>
+            </CustomCursorTarget>
           </div>
 
           {/* Mobile Toggle */}

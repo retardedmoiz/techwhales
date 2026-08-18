@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+import { TechWhalesLogo } from "@/components/ui/logo";
 
 export default function PageLoader() {
   const [isLoading, setIsLoading] = useState(true);
@@ -40,15 +40,9 @@ export default function PageLoader() {
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative w-48 h-48 md:w-64 md:h-64 mb-8 overflow-hidden rounded-3xl"
+            className="mb-8"
           >
-            <Image
-              src="/icon.jpeg"
-              alt="TechWhales Logo"
-              fill
-              className="object-contain"
-              priority
-            />
+            <TechWhalesLogo width={350} className="text-black" />
           </motion.div>
           
           <motion.div

@@ -3,7 +3,7 @@ import { Inter, Syne } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
-import CustomCursor from "@/components/custom-cursor";
+import { CustomCursor } from "@/components/ui/custom-cursor";
 import SmoothScroll from "@/components/smooth-scroll";
 import PageLoader from "@/components/page-loader";
 import { SITE_CONFIG } from "@/lib/config";
@@ -114,14 +114,15 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <PageLoader />
-        <CustomCursor />
-        <SmoothScroll>
-          <Navigation />
-          <main className="relative z-10 w-full min-h-screen pt-20">
-            {children}
-          </main>
-          <Footer />
-        </SmoothScroll>
+        <CustomCursor color="#ff4c24">
+          <SmoothScroll>
+            <Navigation />
+            <main className="relative z-10 w-full min-h-screen pt-20">
+              {children}
+            </main>
+            <Footer />
+          </SmoothScroll>
+        </CustomCursor>
       </body>
     </html>
   );

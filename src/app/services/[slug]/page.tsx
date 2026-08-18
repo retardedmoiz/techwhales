@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowUpRight, CheckCircle, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight, Check, ChevronRight } from "lucide-react";
 import { SERVICES, SITE_CONFIG } from "@/lib/config";
+import { CustomCursorTarget } from "@/components/ui/custom-cursor";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -19,11 +21,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${service.title} | ${SITE_CONFIG.brand}`,
     description: `${SITE_CONFIG.brand} delivers expert ${service.title} services — ${service.description}`,
-    openGraph: {
-      title: `${service.title} — ${SITE_CONFIG.brand}`,
-      description: service.description,
-      url: `${SITE_CONFIG.siteUrl}/services/${slug}`,
-    },
   };
 }
 
@@ -33,16 +30,17 @@ const serviceDetails: Record<string, {
   benefits: string[];
   process: { step: string; description: string }[];
   faqs: { q: string; a: string }[];
+  image: string;
 }> = {
   "business-process-outsourcing": {
     headline: "Enterprise BPO. Startup Agility.",
     subheadline: "Outsource your operations to a team that treats them like their own — with zero compromise on quality.",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop",
     benefits: [
       "40–60% cost reduction vs. in-house teams",
       "Onboarding in under 2 weeks",
       "Dedicated account management",
       "SLA-backed performance guarantees",
-      "GDPR & compliance-ready workflows",
     ],
     process: [
       { step: "Audit", description: "We map your current operations and identify inefficiencies." },
@@ -52,79 +50,53 @@ const serviceDetails: Record<string, {
     ],
     faqs: [
       { q: "How quickly can you onboard?", a: "Most clients are fully operational within 10–14 business days." },
-      { q: "What industries do you support?", a: "We serve insurance, SaaS, e-commerce, healthcare, finance, and more." },
       { q: "Do you offer custom SLAs?", a: "Yes — all engagements include custom SLAs tailored to your KPIs." },
     ],
   },
-  "outbound-sales": {
-    headline: "Your Pipeline. Our Problem.",
-    subheadline: "A dedicated outbound sales team that fills your calendar with qualified opportunities — so your closers can close.",
+  "digital-marketing": {
+    headline: "Full-Funnel. Full-Scale.",
+    subheadline: "Integrated digital marketing strategy connecting brand awareness to bottom-line revenue — across every channel.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
     benefits: [
-      "Trained, dedicated SDRs per campaign",
-      "Multi-channel outreach (call, email, LinkedIn)",
-      "CRM integration and full pipeline visibility",
-      "Weekly performance reporting",
-      "Proven scripts and objection-handling playbooks",
+      "Multi-channel strategy and execution",
+      "Content marketing and distribution",
+      "Paid, organic, and social media",
+      "Analytics and attribution setup",
     ],
     process: [
-      { step: "ICP Definition", description: "We define your ideal customer profile and targeting criteria." },
-      { step: "Sequence Build", description: "We craft high-converting multi-touch outreach sequences." },
-      { step: "Launch & Dial", description: "Outreach begins across all channels with full tracking." },
-      { step: "Optimize", description: "Weekly analysis and A/B testing to improve conversion rates." },
+      { step: "Audit", description: "Full audit of your current digital presence and channels." },
+      { step: "Strategy", description: "Integrated channel strategy built around your goals." },
+      { step: "Execute", description: "Campaigns launched and managed across all channels." },
+      { step: "Report", description: "Transparent reporting with full attribution." },
     ],
-    faqs: [
-      { q: "How many calls does your team make per day?", a: "Our SDRs average 80–120 quality touchpoints per day." },
-      { q: "Can you integrate with our CRM?", a: "Yes — we integrate with Salesforce, HubSpot, Pipedrive, and most major CRMs." },
-    ],
+    faqs: [],
   },
-  "lead-generation": {
-    headline: "High-Intent Leads. Delivered.",
-    subheadline: "Stop buying spray-and-pray data. We generate qualified leads with verified intent across every channel you need.",
+  "affiliate-marketing": {
+    headline: "Partnerships That Scale.",
+    subheadline: "End-to-end management of affiliate networks and publishers, tracking campaigns for maximum profitability.",
+    image: "https://images.unsplash.com/photo-1552581234-26160860f376?q=80&w=2070&auto=format&fit=crop",
     benefits: [
-      "Multi-channel lead acquisition (paid, organic, outbound)",
-      "Intent-based targeting and segmentation",
-      "Real-time lead delivery to your team",
-      "Lead qualification and scoring included",
-      "Cost-per-lead pricing available",
+      "Affiliate network integrations (Everflow, etc.)",
+      "Publisher recruitment and vetting",
+      "Commission structure optimization",
+      "Fraud prevention and quality control",
     ],
     process: [
-      { step: "Define", description: "We profile your ideal lead by demographics, behavior, and intent signals." },
-      { step: "Source", description: "We activate paid, content, and outbound channels simultaneously." },
-      { step: "Qualify", description: "Every lead is verified and scored before delivery." },
-      { step: "Deliver", description: "Leads flow directly into your CRM in real-time." },
+      { step: "Setup", description: "We configure your affiliate platform and tracking." },
+      { step: "Recruit", description: "We recruit top-tier publishers for your offers." },
+      { step: "Manage", description: "Daily management of payouts, relationships, and fraud." },
+      { step: "Scale", description: "We scale performing partners and kill underperforming ones." },
     ],
-    faqs: [
-      { q: "What is your average lead quality?", a: "Our leads average 3–4x higher conversion rates vs. typical list providers." },
-    ],
-  },
-  "appointment-setting": {
-    headline: "Qualified Meetings. Every Week.",
-    subheadline: "We handle the prospecting, follow-up, and scheduling so your sales team shows up to interested buyers.",
-    benefits: [
-      "Trained appointment setters per vertical",
-      "Multi-touch follow-up sequences",
-      "Calendar integration (Calendly, Google, Outlook)",
-      "Guaranteed show-up rates",
-      "Full call recordings for training",
-    ],
-    process: [
-      { step: "Prospecting", description: "We identify and contact your ideal buyer profile." },
-      { step: "Outreach", description: "Personalized multi-channel sequences drive response." },
-      { step: "Set", description: "Qualified prospects are booked directly into your calendar." },
-      { step: "Confirm", description: "Automated reminders ensure maximum show-up rates." },
-    ],
-    faqs: [
-      { q: "What industries do you specialize in?", a: "Insurance, SaaS, home improvement, finance, and B2B services." },
-    ],
+    faqs: [],
   },
   "media-buying": {
     headline: "Every Dollar. Placed With Purpose.",
     subheadline: "Strategic media acquisition engineered to maximize reach, minimize waste, and deliver measurable cost-per-acquisition.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
     benefits: [
       "Cross-channel media planning and placement",
       "Real-time bid optimization",
       "Audience segmentation and targeting",
-      "Brand safety and viewability monitoring",
       "Transparent reporting with attribution",
     ],
     process: [
@@ -137,75 +109,33 @@ const serviceDetails: Record<string, {
       { q: "What platforms do you buy on?", a: "Meta, Google, YouTube, TikTok, programmatic, and premium direct placements." },
     ],
   },
-  "performance-marketing": {
-    headline: "Results or Nothing.",
-    subheadline: "Data-driven campaigns where every dollar is tracked, every result is accountable, and performance is the only metric that matters.",
+  "search-monetization": {
+    headline: "Unlocking Search Revenue.",
+    subheadline: "Optimize domains and run high-yield search arbitrage campaigns (RSOC) using platforms like System1 and Bodis.",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1974&auto=format&fit=crop",
     benefits: [
-      "Full-funnel campaign strategy and execution",
-      "Creative development and testing",
-      "Real-time performance dashboards",
-      "Multi-channel attribution modeling",
-      "CRO (Conversion Rate Optimization)",
+      "RSOC (Search Arbitrage) campaign management",
+      "AFD (Ads for Domains) monetization",
+      "Domain portfolio optimization",
+      "Real-time reporting and bidding",
     ],
     process: [
-      { step: "Audit", description: "We assess your current performance and identify gaps." },
-      { step: "Strategy", description: "We build a data-backed performance roadmap." },
-      { step: "Launch", description: "Campaigns go live with full tracking and creative testing." },
-      { step: "Scale", description: "We scale winners and kill losers systematically." },
+      { step: "Analyze", description: "We analyze your domain portfolio and traffic sources." },
+      { step: "Deploy", description: "We deploy optimized feeds and landing pages." },
+      { step: "Acquire", description: "We drive high-intent arbitrage traffic." },
+      { step: "Yield", description: "Daily optimization to maximize RPC and RPM." },
     ],
-    faqs: [
-      { q: "What is your average ROAS?", a: "Our clients average 4–8x ROAS depending on vertical and funnel stage." },
-    ],
-  },
-  "meta-advertising": {
-    headline: "Meta That Actually Performs.",
-    subheadline: "Creative-led, algorithm-optimized Facebook and Instagram campaigns that scale profitably at every stage of growth.",
-    benefits: [
-      "Full campaign setup and optimization",
-      "Creative strategy and production",
-      "Audience research and custom audiences",
-      "Pixel and conversion API setup",
-      "Weekly performance and creative reporting",
-    ],
-    process: [
-      { step: "Research", description: "Audience analysis and competitor creative audit." },
-      { step: "Creative", description: "High-performing ad creatives designed and produced." },
-      { step: "Launch", description: "Campaigns launched with proper tracking and structure." },
-      { step: "Optimize", description: "Daily optimization based on early performance signals." },
-    ],
-    faqs: [
-      { q: "Do you create the ad creatives?", a: "Yes — our team handles copy, design, and video production." },
-    ],
-  },
-  "email-marketing": {
-    headline: "Email That Earns.",
-    subheadline: "High-converting email systems that nurture, retain, and reactivate your audience at every lifecycle stage — automatically.",
-    benefits: [
-      "Full email system design and setup",
-      "Welcome, nurture, and retention flows",
-      "List segmentation and personalization",
-      "A/B testing and performance optimization",
-      "Deliverability management",
-    ],
-    process: [
-      { step: "Audit", description: "We audit your current list, flows, and deliverability." },
-      { step: "Strategy", description: "We map a complete email funnel from acquisition to retention." },
-      { step: "Build", description: "Flows and templates designed and deployed in your ESP." },
-      { step: "Optimize", description: "Ongoing testing to improve open rates, clicks, and revenue." },
-    ],
-    faqs: [
-      { q: "Which email platforms do you work with?", a: "Klaviyo, Mailchimp, ActiveCampaign, HubSpot, ConvertKit, and more." },
-    ],
+    faqs: [],
   },
   "web-development": {
     headline: "Sites That Sell.",
     subheadline: "Conversion-obsessed web development — from landing pages to full platforms — built for performance, speed, and measurable ROI.",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop",
     benefits: [
       "Next.js, React, and modern stack development",
       "Core Web Vitals optimization (90+ scores)",
       "Mobile-first responsive design",
       "SEO-ready architecture from day one",
-      "CMS integration and easy content management",
     ],
     process: [
       { step: "Discovery", description: "We map goals, audience, and technical requirements." },
@@ -215,101 +145,62 @@ const serviceDetails: Record<string, {
     ],
     faqs: [
       { q: "What is your typical project timeline?", a: "Most projects deliver in 4–10 weeks depending on scope." },
-      { q: "Do you provide ongoing support?", a: "Yes — we offer monthly retainer packages for maintenance and growth." },
     ],
   },
-  "ui-ux-design": {
-    headline: "Design That Converts.",
-    subheadline: "User experiences crafted with precision — intuitive, beautiful, and optimized for the action you need your visitor to take.",
+  "branding": {
+    headline: "Brand Systems That Lead.",
+    subheadline: "Define your company's market positioning and create beautiful identity systems that command authority.",
+    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop",
     benefits: [
-      "User research and persona development",
-      "Wireframes and interactive prototypes",
-      "Brand-aligned visual design systems",
-      "Usability testing and iteration",
-      "Handoff-ready Figma deliverables",
+      "Brand strategy and market positioning",
+      "Visual identity and logo design",
+      "Brand messaging and tone of voice",
+      "Comprehensive brand guidelines",
     ],
     process: [
-      { step: "Research", description: "We study your users, competitors, and conversion data." },
-      { step: "Wireframe", description: "Information architecture and flow mapped out." },
-      { step: "Design", description: "High-fidelity design built to your brand and goals." },
-      { step: "Test", description: "Usability tested and refined before development handoff." },
+      { step: "Discover", description: "Deep dive into your company values and market gaps." },
+      { step: "Position", description: "We define your unique angle and message." },
+      { step: "Design", description: "We build the visual system to match the positioning." },
+      { step: "Apply", description: "Rollout across all digital and physical touchpoints." },
     ],
     faqs: [],
   },
-  "seo-services": {
-    headline: "Own the Search.",
-    subheadline: "Organic growth strategies that build authority, drive qualified traffic, and compound in value — month after month.",
+  "human-resources": {
+    headline: "Elite Talent Acquisition.",
+    subheadline: "Source, onboard, and manage remote talent and dedicated teams. We handle vetting so you can focus on building.",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
     benefits: [
-      "Technical SEO audit and optimization",
-      "Keyword research and content strategy",
-      "On-page and off-page optimization",
-      "Link building and authority development",
-      "Monthly rank tracking and reporting",
+      "Global talent sourcing and vetting",
+      "Remote team onboarding",
+      "Payroll and compliance coordination",
+      "Performance management support",
     ],
     process: [
-      { step: "Audit", description: "Full technical, on-page, and off-page SEO audit." },
-      { step: "Strategy", description: "Keyword map and content roadmap aligned to revenue." },
-      { step: "Execute", description: "Implementation across technical, content, and authority." },
-      { step: "Report", description: "Monthly ranking reports with revenue attribution." },
-    ],
-    faqs: [
-      { q: "How long before I see results?", a: "Most clients see meaningful movement in 90–120 days, with compounding gains over 6–12 months." },
-    ],
-  },
-  "digital-marketing": {
-    headline: "Full-Funnel. Full-Scale.",
-    subheadline: "Integrated digital marketing strategy connecting brand awareness to bottom-line revenue — across every channel.",
-    benefits: [
-      "Multi-channel strategy and execution",
-      "Content marketing and distribution",
-      "Paid, organic, and social media",
-      "Analytics and attribution setup",
-      "Monthly performance reviews",
-    ],
-    process: [
-      { step: "Audit", description: "Full audit of your current digital presence and channels." },
-      { step: "Strategy", description: "Integrated channel strategy built around your goals." },
-      { step: "Execute", description: "Campaigns launched and managed across all channels." },
-      { step: "Report", description: "Transparent reporting with full attribution." },
+      { step: "Profile", description: "We define the exact skills and culture fit you need." },
+      { step: "Source", description: "We headhunt top candidates globally." },
+      { step: "Screen", description: "Rigorous technical and cultural interviews." },
+      { step: "Onboard", description: "Seamless transition into your company's workflow." },
     ],
     faqs: [],
   },
-  "it-consulting": {
-    headline: "Technology That Works For You.",
-    subheadline: "Strategic technology advisory that aligns your infrastructure with your growth trajectory — and eliminates what slows you down.",
+  "bookkeeping": {
+    headline: "Financial Clarity.",
+    subheadline: "Keep your company's financials clean, balanced, and compliant with our dedicated bookkeeping services.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
     benefits: [
-      "Technology stack audit and recommendations",
-      "Cloud infrastructure strategy",
-      "Automation and systems integration",
-      "Security and compliance advisory",
-      "Vendor selection and management",
+      "Daily transaction categorization",
+      "Monthly bank reconciliations",
+      "Accounts payable and receivable",
+      "Clean financial reporting",
     ],
     process: [
-      { step: "Assess", description: "We audit your current technology stack and workflows." },
-      { step: "Plan", description: "Technology roadmap aligned to business objectives." },
-      { step: "Implement", description: "Managed implementation with minimal operational disruption." },
-      { step: "Support", description: "Ongoing advisory and optimization." },
+      { step: "Audit", description: "We review and clean up your historical books." },
+      { step: "Systemize", description: "We connect software like QuickBooks or Xero." },
+      { step: "Manage", description: "Ongoing daily categorization and reconciliation." },
+      { step: "Report", description: "Monthly delivery of P&L and Balance Sheets." },
     ],
     faqs: [],
-  },
-  "business-consulting": {
-    headline: "Strategy. Execution. Growth.",
-    subheadline: "Executive-level business consulting that identifies the constraints holding your business back and builds the roadmap to break through them.",
-    benefits: [
-      "Business model and revenue analysis",
-      "Growth strategy and market positioning",
-      "Operations and process optimization",
-      "Organizational design and team structure",
-      "KPI framework and accountability systems",
-    ],
-    process: [
-      { step: "Diagnose", description: "Deep dive into your business model, metrics, and constraints." },
-      { step: "Design", description: "Strategic growth roadmap built for your market." },
-      { step: "Implement", description: "Hands-on support during execution." },
-      { step: "Review", description: "Quarterly reviews to track, adjust, and accelerate." },
-    ],
-    faqs: [],
-  },
+  }
 };
 
 export default async function ServiceDetailPage({ params }: Props) {
@@ -317,150 +208,147 @@ export default async function ServiceDetailPage({ params }: Props) {
   const service = SERVICES.find((s) => s.slug === slug);
   if (!service) notFound();
 
-  const details = serviceDetails[slug];
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: service.title,
-    provider: {
-      "@type": "Organization",
-      name: SITE_CONFIG.legalName,
-    },
-    description: service.description,
-    url: `${SITE_CONFIG.siteUrl}/services/${slug}`,
+  // Fallback to generic details if specific ones aren't mapped
+  const details = serviceDetails[slug] || {
+    headline: service.title,
+    subheadline: service.description,
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
+    benefits: ["Expert implementation", "Dedicated support", "Scalable solutions", "Data-driven results"],
+    process: [
+      { step: "Discovery", description: "Understanding your unique needs." },
+      { step: "Strategy", description: "Developing a tailored approach." },
+      { step: "Execution", description: "Implementing the solution flawlessly." },
+      { step: "Optimization", description: "Refining for maximum performance." }
+    ],
+    faqs: []
   };
 
   return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-
-      {/* Hero */}
-      <section className="min-h-[55vh] flex items-center relative overflow-hidden"
-        style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0, 212, 255, 0.07) 0%, transparent 60%), #04070F" }}>
-        <div className="container mx-auto py-20">
-          <nav className="flex items-center gap-2 text-sm text-white/30 mb-8">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <span>/</span>
-            <Link href="/services" className="hover:text-white transition-colors">Services</Link>
-            <span>/</span>
-            <span className="text-cyan-400">{service.shortTitle}</span>
+    <div className="bg-white text-black min-h-screen">
+      {/* HERO SECTION */}
+      <section className="pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden relative">
+        <div className="container mx-auto">
+          {/* Breadcrumbs */}
+          <nav className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-black/40 mb-12">
+            <CustomCursorTarget>
+              <Link href="/" className="hover:text-red-600 transition-colors">Home</Link>
+            </CustomCursorTarget>
+            <ChevronRight size={12} />
+            <CustomCursorTarget>
+              <Link href="/services" className="hover:text-red-600 transition-colors">Services</Link>
+            </CustomCursorTarget>
+            <ChevronRight size={12} />
+            <span className="text-black">{service.shortTitle}</span>
           </nav>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="text-5xl mb-6 block">{service.icon}</span>
-              <p className="trust-badge mb-4">{service.shortTitle}</p>
-              <h1 className="text-[clamp(2.5rem,5vw,5rem)] font-heading font-black tracking-tighter leading-[0.9] mb-6">
-                {details?.headline || service.title}
+
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-6 lg:pr-10">
+              <span className="text-xs font-bold uppercase tracking-widest text-red-600 mb-4 block">
+                {service.category}
+              </span>
+              <h1 className="text-[2.5rem] md:text-[4rem] font-heading font-black leading-[1.1] tracking-tighter uppercase mb-6 text-black">
+                {details.headline}
               </h1>
-              <p className="text-lg text-white/40 leading-relaxed mb-8">
-                {details?.subheadline || service.description}
+              <p className="text-black/60 text-lg leading-relaxed mb-10 max-w-xl">
+                {details.subheadline}
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Link href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 font-bold text-white rounded-xl hover:scale-105 transition-transform"
-                  style={{ background: "linear-gradient(135deg, #00D4FF 0%, #7B2FFF 100%)" }}>
-                  Get Started <ArrowUpRight size={16} />
-                </Link>
-                <a href={`mailto:${SITE_CONFIG.contact.general}`}
-                  className="inline-flex items-center gap-2 px-6 py-3 font-bold text-white/60 border border-white/10 hover:border-white/20 rounded-xl transition-all">
-                  Email Us
-                </a>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <CustomCursorTarget>
+                  <Link 
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-widest text-white bg-black rounded-full hover:bg-red-600 transition-all duration-300 w-full sm:w-auto"
+                  >
+                    Deploy {service.shortTitle} <ArrowUpRight size={16} />
+                  </Link>
+                </CustomCursorTarget>
               </div>
             </div>
 
-            {/* Benefits */}
-            {details?.benefits && (
-              <div className="glass rounded-2xl p-8 border border-white/5">
-                <h3 className="text-sm font-bold tracking-widest uppercase text-white/30 mb-6">What You Get</h3>
-                <ul className="space-y-4">
-                  {details.benefits.map((b, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-white/70">
-                      <CheckCircle size={16} className="text-cyan-400 flex-shrink-0 mt-0.5" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            {/* Right Image */}
+            <div className="lg:col-span-6 relative h-[400px] md:h-[600px] rounded-3xl overflow-hidden group shadow-2xl">
+              <Image 
+                src={details.image} 
+                alt={service.title} 
+                fill 
+                className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                priority
+              />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Process */}
-      {details?.process && (
-        <section className="section-padding border-t border-white/5">
-          <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-heading font-black tracking-tighter mb-12">
-              How it works.
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {details.process.map((step, i) => (
-                <div key={i} className="glass rounded-2xl p-6 border border-white/5 relative">
-                  <span className="text-5xl font-heading font-black text-white/5 absolute top-4 right-4">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-black text-white mb-4"
-                    style={{ background: "linear-gradient(135deg, #00D4FF, #7B2FFF)" }}>
-                    {i + 1}
-                  </div>
-                  <h3 className="font-heading font-black text-base mb-2">{step.step}</h3>
-                  <p className="text-sm text-white/40 leading-relaxed">{step.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* FAQs */}
-      {details?.faqs && details.faqs.length > 0 && (
-        <section className="section-padding border-t border-white/5">
-          <div className="container mx-auto max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-heading font-black tracking-tighter mb-12">
-              Frequently asked questions.
-            </h2>
-            <div className="space-y-6">
-              {details.faqs.map((faq, i) => (
-                <div key={i} className="glass rounded-2xl p-6 border border-white/5">
-                  <h3 className="font-heading font-black mb-3">{faq.q}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{faq.a}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Related Services */}
-      <section className="section-padding border-t border-white/5">
+      {/* CORE BENEFITS */}
+      <section className="py-24 bg-[#fafafa] border-y border-black/5">
         <div className="container mx-auto">
-          <h2 className="text-2xl font-heading font-black tracking-tighter mb-8">Related Services</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {SERVICES.filter((s) => s.slug !== slug).slice(0, 4).map((s) => (
-              <Link key={s.slug} href={`/services/${s.slug}`}
-                className="glass glass-hover rounded-xl p-5 border border-white/5 block">
-                <span className="text-2xl mb-2 block">{s.icon}</span>
-                <span className="text-sm font-heading font-black">{s.shortTitle}</span>
-              </Link>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="lg:col-span-4 mb-8">
+              <h2 className="text-3xl font-heading font-black tracking-tighter uppercase">The Advantage</h2>
+            </div>
+            {details.benefits.map((b, i) => (
+              <div key={i} className="bg-white p-8 rounded-2xl border border-black/5 hover:border-red-600/30 transition-colors shadow-sm">
+                <div className="w-10 h-10 bg-[#fafafa] rounded-full flex items-center justify-center mb-6 border border-black/5 text-red-600">
+                  <Check size={18} strokeWidth={3} />
+                </div>
+                <p className="font-bold text-sm leading-relaxed">{b}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section-padding border-t border-white/5">
-        <div className="container mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tighter mb-6">
-            Ready to get started?
-          </h2>
-          <Link href="/contact"
-            className="inline-flex items-center gap-3 px-8 py-4 font-bold text-white rounded-2xl hover:scale-105 transition-transform"
-            style={{ background: "linear-gradient(135deg, #00D4FF 0%, #7B2FFF 100%)" }}>
-            Book a Free Consultation <ArrowUpRight size={18} />
-          </Link>
+      {/* PROCESS FRAMEWORK */}
+      <section className="py-24 md:py-32 bg-white">
+        <div className="container mx-auto">
+          <div className="max-w-2xl mb-16">
+            <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tighter uppercase mb-4">
+              Execution Framework
+            </h2>
+            <p className="text-black/50">Our systematic approach to delivering measurable results.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-4 gap-8 relative">
+            {/* Connecting line for desktop */}
+            <div className="hidden md:block absolute top-8 left-12 right-12 h-[1px] bg-black/10 z-0" />
+            
+            {details.process.map((step, i) => (
+              <div key={i} className="relative z-10">
+                <div className="w-16 h-16 bg-white border-2 border-black rounded-full flex items-center justify-center text-xl font-heading font-black mb-6 shadow-xl">
+                  {i + 1}
+                </div>
+                <h3 className="text-xl font-heading font-black uppercase mb-3">{step.step}</h3>
+                <p className="text-sm text-black/60 leading-relaxed">{step.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
-    </>
+
+      {/* BOTTOM CTA */}
+      <section className="py-32 bg-[#04070f] text-white text-center relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <Image src="/abstract-growth.png" alt="Texture" fill className="object-cover grayscale" />
+        </div>
+        <div className="container mx-auto relative z-10">
+          <h2 className="text-4xl md:text-6xl font-heading font-black tracking-tighter uppercase mb-6">
+            Ready To Scale?
+          </h2>
+          <p className="text-white/60 mb-10 max-w-lg mx-auto">
+            Stop leaving revenue on the table. Let our team architect and execute your growth engine.
+          </p>
+          <CustomCursorTarget>
+            <Link 
+              href="/contact"
+              className="inline-flex items-center gap-3 px-10 py-5 text-sm font-bold uppercase tracking-widest text-black bg-white rounded-full hover:bg-red-600 hover:text-white transition-all duration-300"
+            >
+              Start The Conversation <ArrowUpRight size={18} />
+            </Link>
+          </CustomCursorTarget>
+        </div>
+      </section>
+    </div>
   );
 }
