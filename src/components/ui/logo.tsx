@@ -16,7 +16,7 @@ export function TechWhalesLogo({ className = "", width = 300 }: { className?: st
       }}
     >
       <Image
-        src="/Logo Techwhales.jpeg"
+        src="/logo-techwhales.jpeg"
         alt="TechWhales Digital Architecture & Advertising Systems"
         fill
         className="object-contain"
