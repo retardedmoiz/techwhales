@@ -143,8 +143,8 @@ function TrustedBySection() {
 function AboutSection() {
   return (
     <section className="py-20 md:py-32 bg-[#fafafa] border-y border-black/5 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.03]">
-        <Image src="/abstract-growth.png" alt="Background Texture" fill className="object-cover" />
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.04]">
+        <Image src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Background Texture" fill className="object-cover grayscale" unoptimized />
       </div>
       <div className="container mx-auto relative z-10">
         <FadeUp>
@@ -175,10 +175,11 @@ function VisualBreakOne() {
         <FadeUp>
           <div className="relative w-full h-[400px] md:h-[600px] rounded-3xl overflow-hidden group">
             <Image 
-              src="/modern-office.png" 
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" 
               alt="TechWhales Modern Operations Center" 
               fill 
               className="object-cover group-hover:scale-105 transition-transform duration-1000"
+              unoptimized
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
             <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 bg-white/90 backdrop-blur-md p-6 rounded-2xl max-w-sm">
