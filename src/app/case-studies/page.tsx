@@ -1,12 +1,10 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { SITE_CONFIG } from "@/lib/config";
+"use client";
 
-export const metadata: Metadata = {
-  title: `Case Studies | ${SITE_CONFIG.brand}`,
-  description: `Real results from real clients — explore ${SITE_CONFIG.brand} case studies showcasing measurable growth across BPO, performance marketing, and digital campaigns.`,
-};
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowUpRight, BarChart3, TrendingUp, DollarSign } from "lucide-react";
+import { SITE_CONFIG } from "@/lib/config";
+import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/fade-up";
 
 const caseStudies = [
   {
@@ -16,12 +14,12 @@ const caseStudies = [
     challenge: "Stagnant pipeline growth with high CAC and long sales cycles.",
     solution: "Built a dedicated outbound SDR program combined with intent-based lead generation.",
     results: [
-      { metric: "340%", label: "Pipeline Growth" },
-      { metric: "52%", label: "Reduction in CAC" },
-      { metric: "8 weeks", label: "Time to Results" },
+      { metric: "340%", label: "Pipeline Growth", icon: TrendingUp },
+      { metric: "52%", label: "Reduction in CAC", icon: DollarSign },
+      { metric: "8 weeks", label: "Time to Results", icon: BarChart3 },
     ],
     services: ["Lead Generation", "Outbound Sales"],
-    color: "#00D4FF",
+    image: "/performance-charts.png",
   },
   {
     id: "insurance-meta",
@@ -30,12 +28,12 @@ const caseStudies = [
     challenge: "Declining organic lead flow and over-reliance on referrals.",
     solution: "Launched a Meta advertising system with appointment setting integration.",
     results: [
-      { metric: "$2.1M", label: "New Premium Revenue" },
-      { metric: "3.2x", label: "Return on Ad Spend" },
-      { metric: "90 days", label: "Campaign Duration" },
+      { metric: "$2.1M", label: "New Premium Revenue", icon: DollarSign },
+      { metric: "3.2x", label: "Return on Ad Spend", icon: TrendingUp },
+      { metric: "90 days", label: "Campaign Duration", icon: BarChart3 },
     ],
     services: ["Meta Advertising", "Appointment Setting"],
-    color: "#7B2FFF",
+    image: "/business-meeting.png",
   },
   {
     id: "ecom-performance",
@@ -44,40 +42,12 @@ const caseStudies = [
     challenge: "Unprofitable Meta campaigns with poor creative performance.",
     solution: "Rebuilt campaign structure, creative strategy, and attribution model.",
     results: [
-      { metric: "8.2x", label: "Return on Ad Spend" },
-      { metric: "61%", label: "Lower CPM" },
-      { metric: "4x", label: "Revenue Growth" },
+      { metric: "8.2x", label: "Return on Ad Spend", icon: TrendingUp },
+      { metric: "61%", label: "Lower CPM", icon: DollarSign },
+      { metric: "4x", label: "Revenue Growth", icon: BarChart3 },
     ],
     services: ["Performance Marketing", "Media Buying"],
-    color: "#00B4D8",
-  },
-  {
-    id: "home-improvement-bpo",
-    company: "Home Improvement Franchise",
-    industry: "Home Improvement",
-    challenge: "High operational costs and inconsistent lead quality across locations.",
-    solution: "Implemented a centralized BPO call center with lead gen and appointment setting.",
-    results: [
-      { metric: "55%", label: "Cost Reduction" },
-      { metric: "200%", label: "More Appointments" },
-      { metric: "92%", label: "Show Rate" },
-    ],
-    services: ["BPO", "Lead Generation", "Appointment Setting"],
-    color: "#00D4FF",
-  },
-  {
-    id: "finance-seo",
-    company: "Financial Advisory Firm",
-    industry: "Finance",
-    challenge: "Near-zero organic visibility with high paid acquisition costs.",
-    solution: "12-month comprehensive SEO and content authority campaign.",
-    results: [
-      { metric: "1,200%", label: "Organic Traffic Growth" },
-      { metric: "#1", label: "Google Rankings (12 terms)" },
-      { metric: "67%", label: "Reduction in Paid CAC" },
-    ],
-    services: ["SEO Services", "Digital Marketing"],
-    color: "#7B2FFF",
+    image: "/abstract-growth.png",
   },
   {
     id: "startup-web",
@@ -86,98 +56,124 @@ const caseStudies = [
     challenge: "Legacy website with poor conversion rate and 6s+ page load time.",
     solution: "Complete redesign and rebuild in Next.js with CRO-focused architecture.",
     results: [
-      { metric: "312%", label: "Conversion Rate Lift" },
-      { metric: "98", label: "Core Web Vitals Score" },
-      { metric: "0.8s", label: "LCP Performance" },
+      { metric: "312%", label: "Conversion Rate Lift", icon: TrendingUp },
+      { metric: "98", label: "Core Web Vitals", icon: BarChart3 },
+      { metric: "0.8s", label: "LCP Performance", icon: Zap },
     ],
     services: ["Web Development", "UI/UX Design"],
-    color: "#00B4D8",
-  },
+    image: "/web-dev.png",
+  }
 ];
+
+// Placeholder for the missing icon in the array above
+function Zap({ size, className }: { size?: number; className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={size || 24} height={size || 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+    </svg>
+  );
+}
 
 export default function CaseStudiesPage() {
   return (
-    <>
-      <section className="min-h-[50vh] flex items-center relative"
-        style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0, 212, 255, 0.07) 0%, transparent 60%), #04070F" }}>
-        <div className="container mx-auto py-20">
-          <nav className="flex items-center gap-2 text-sm text-white/30 mb-8">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <span>/</span>
-            <span className="text-cyan-400">Case Studies</span>
-          </nav>
-          <p className="trust-badge mb-6">Proven Results</p>
-          <h1 className="text-[clamp(3rem,7vw,6rem)] font-heading font-black tracking-tighter leading-[0.9] mb-6">
-            Numbers that<br />
-            <span style={{ background: "linear-gradient(135deg, #00D4FF 0%, #7B2FFF 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-              don&apos;t lie.
-            </span>
-          </h1>
-          <p className="text-lg text-white/40 max-w-xl leading-relaxed">
-            Real clients. Real budgets. Real outcomes. Every number you see below is accountable.
-          </p>
+    <div className="bg-white min-h-screen">
+      {/* Hero */}
+      <section className="relative bg-[#fafafa] border-b border-black/10 py-24 md:py-32 overflow-hidden">
+        <div className="container mx-auto relative z-10">
+          <FadeUp>
+            <nav className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-black/40 mb-8">
+              <Link href="/" className="hover:text-black transition-colors">Home</Link>
+              <span>/</span>
+              <span className="text-red-600">Case Studies</span>
+            </nav>
+            <h1 className="text-4xl md:text-6xl lg:text-[7rem] font-heading font-black tracking-tighter text-black uppercase mb-6 leading-none max-w-5xl">
+              Numbers that <br />
+              <span className="text-transparent" style={{ WebkitTextStroke: "2px #000" }}>Don't Lie.</span>
+            </h1>
+            <p className="text-black/60 text-base md:text-lg max-w-2xl leading-relaxed font-medium">
+              Real clients. Real budgets. Real outcomes. Every metric displayed below is fully attributed and mathematically accountable.
+            </p>
+          </FadeUp>
         </div>
       </section>
 
-      <section className="section-padding border-t border-white/5">
+      {/* Case Studies */}
+      <section className="py-20 md:py-32 bg-white">
         <div className="container mx-auto">
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-24">
             {caseStudies.map((cs, i) => (
-              <div key={cs.id}
-                className="glass rounded-3xl p-8 md:p-12 border border-white/5 hover:border-white/10 transition-all duration-300 grid grid-cols-1 lg:grid-cols-3 gap-8">
-                {/* Left */}
-                <div className="lg:col-span-2">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-xs font-bold tracking-widest uppercase text-white/30">{cs.industry}</span>
-                    <span className="w-1 h-1 rounded-full bg-white/20" />
-                    <div className="flex flex-wrap gap-1">
+              <FadeUp key={cs.id} delay={0.1}>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                  
+                  {/* Image side - alternates based on index */}
+                  <div className={`relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
+                    <Image src={cs.image} alt={cs.company} fill className="object-cover hover:scale-105 transition-transform duration-1000 grayscale hover:grayscale-0" />
+                    <div className="absolute inset-0 bg-black/10" />
+                    <div className="absolute top-6 left-6 flex gap-2">
                       {cs.services.map((s) => (
-                        <span key={s} className="text-xs font-bold border border-white/8 text-white/30 px-2 py-0.5 rounded-full">{s}</span>
+                        <span key={s} className="bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-black/10 text-[0.65rem] font-bold uppercase tracking-widest text-black">
+                          {s}
+                        </span>
                       ))}
                     </div>
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-heading font-black mb-4">{cs.company}</h2>
 
-                  <div className="grid md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <h3 className="text-xs font-bold tracking-widest uppercase text-white/30 mb-2">Challenge</h3>
-                      <p className="text-sm text-white/50 leading-relaxed">{cs.challenge}</p>
+                  {/* Content Side */}
+                  <div className={`flex flex-col justify-center ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+                    <span className="text-xs font-bold tracking-widest uppercase text-red-600 mb-4 block">
+                      {cs.industry}
+                    </span>
+                    <h2 className="text-3xl md:text-5xl font-heading font-black text-black uppercase mb-8 leading-tight">
+                      {cs.company}
+                    </h2>
+                    
+                    <div className="space-y-6 mb-10">
+                      <div>
+                        <h3 className="text-[0.65rem] font-bold tracking-widest uppercase text-black/40 mb-2">The Constraint</h3>
+                        <p className="text-black/70 font-medium leading-relaxed">{cs.challenge}</p>
+                      </div>
+                      <div>
+                        <h3 className="text-[0.65rem] font-bold tracking-widest uppercase text-black/40 mb-2">The Architecture</h3>
+                        <p className="text-black/70 font-medium leading-relaxed">{cs.solution}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-xs font-bold tracking-widest uppercase text-white/30 mb-2">Solution</h3>
-                      <p className="text-sm text-white/50 leading-relaxed">{cs.solution}</p>
+
+                    {/* Metrics Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-black/10">
+                      {cs.results.map((r, idx) => (
+                        <div key={idx}>
+                          <div className="flex items-center gap-2 mb-2">
+                            <r.icon size={14} className="text-red-600" />
+                            <h4 className="text-[0.6rem] font-bold tracking-widest uppercase text-black/50">{r.label}</h4>
+                          </div>
+                          <span className="text-3xl font-heading font-black text-black">
+                            {r.metric}
+                          </span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
-
-                {/* Results */}
-                <div className="flex flex-col gap-4">
-                  <h3 className="text-xs font-bold tracking-widest uppercase text-white/30">Results</h3>
-                  {cs.results.map((r) => (
-                    <div key={r.label} className="flex items-end gap-3">
-                      <span className="text-3xl font-heading font-black" style={{ color: cs.color }}>
-                        {r.metric}
-                      </span>
-                      <span className="text-sm text-white/40 pb-1">{r.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              </FadeUp>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-padding border-t border-white/5">
-        <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-heading font-black tracking-tighter mb-4">Your results next.</h2>
-          <p className="text-white/40 mb-8">Join 200+ businesses that have scaled with {SITE_CONFIG.brand}.</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 font-bold text-white rounded-2xl hover:scale-105 transition-transform"
-            style={{ background: "linear-gradient(135deg, #00D4FF 0%, #7B2FFF 100%)" }}>
-            Get Free Consultation <ArrowUpRight size={16} />
-          </Link>
+      {/* CTA */}
+      <section className="py-24 bg-[#fafafa] border-t border-black/5 text-center">
+        <div className="container mx-auto">
+          <FadeUp>
+            <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tighter text-black uppercase mb-6">
+              Your Results <br />
+              <span className="text-red-600">Are Next.</span>
+            </h2>
+            <Link href="/contact" className="inline-flex items-center gap-3 px-10 py-5 text-sm font-bold uppercase tracking-widest text-white bg-black rounded-full hover:bg-red-600 transition-colors duration-300">
+              Get Free Consultation <ArrowUpRight size={18} />
+            </Link>
+          </FadeUp>
         </div>
       </section>
-    </>
+    </div>
   );
 }
