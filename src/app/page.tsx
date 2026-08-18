@@ -115,6 +115,29 @@ function Hero() {
 }
 
 /* ============================================================================
+   TRUSTED BY MARQUEE
+   ============================================================================ */
+function TrustedBySection() {
+  const partners = ["META", "GOOGLE", "EVERFLOW", "SYSTEM1", "BODIS", "TIKTOK"];
+  return (
+    <div className="bg-[#04070f] py-8 overflow-hidden border-y border-white/10 relative flex shadow-inner">
+      <div className="absolute inset-0 pointer-events-none opacity-[0.15]">
+        <Image src="/abstract-growth.png" alt="Texture" fill className="object-cover grayscale" />
+      </div>
+      <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-[#04070f] to-transparent z-10" />
+      <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-[#04070f] to-transparent z-10" />
+      
+      <div className="animate-marquee whitespace-nowrap flex gap-24 text-2xl md:text-3xl font-heading font-black uppercase tracking-[0.2em] text-white/40">
+        {partners.map((p, i) => <span key={i} className="hover:text-white transition-colors duration-300">{p}</span>)}
+      </div>
+      <div className="absolute top-0 animate-marquee2 whitespace-nowrap flex gap-24 text-2xl md:text-3xl font-heading font-black uppercase tracking-[0.2em] text-white/40 py-8" style={{ left: "100%" }}>
+        {partners.map((p, i) => <span key={`dup-${i}`} className="hover:text-white transition-colors duration-300">{p}</span>)}
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================================
    ABOUT / MISSION (TEXT REVEAL)
    ============================================================================ */
 function AboutSection() {
@@ -544,6 +567,7 @@ export default function HomePage() {
   return (
     <div className="bg-white min-h-screen text-black">
       <Hero />
+      <TrustedBySection />
       <AboutSection />
       <VisualBreakOne />
       <ServicesSection />

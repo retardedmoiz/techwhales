@@ -211,10 +211,10 @@ export const PORTFOLIO = [
 
 export const NAV_LINKS = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/#services" },
-  { name: "Portfolio", href: "/#portfolio" },
-  { name: "Why Partner", href: "/#why-partner" },
-  { name: "Careers", href: "/careers" },
-  { name: "Legal Terms", href: "/legal" },
-  { name: "Contact", href: "/#contact" }
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Portfolio", href: "/portfolio" },
+  { name: "Case Studies", href: "/case-studies" },
+  { name: "Industries", href: "/industries" },
+  { name: "Contact", href: "/contact" }
 ];

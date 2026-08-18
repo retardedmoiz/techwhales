@@ -5,6 +5,7 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import CustomCursor from "@/components/custom-cursor";
 import SmoothScroll from "@/components/smooth-scroll";
+import PageLoader from "@/components/page-loader";
 import { SITE_CONFIG } from "@/lib/config";
 
 const inter = Inter({
@@ -74,9 +75,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 const jsonLd = {
@@ -115,6 +113,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <PageLoader />
         <CustomCursor />
         <SmoothScroll>
           <Navigation />
