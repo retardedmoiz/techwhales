@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowUpRight, Zap, Target, Users, Shield } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/config";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/fade-up";
+import PaperImage from "@/components/ui/paper-image";
 
 export default function AboutPage() {
   const values = [
@@ -70,6 +71,64 @@ export default function AboutPage() {
                 </div>
               </FadeUp>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CEO Introduction */}
+      <section className="py-24 md:py-32 bg-[#04070f] text-white overflow-hidden relative">
+        <div className="absolute inset-0 pointer-events-none opacity-[0.1]">
+          <Image src="/abstract-growth.png" alt="Texture" fill className="object-cover grayscale" />
+        </div>
+        <div className="container mx-auto relative z-10 max-w-7xl">
+          <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+            
+            <div className="lg:col-span-7 order-2 lg:order-1 flex flex-col justify-center">
+              <FadeUp>
+                <span className="text-xs uppercase tracking-widest text-red-600 font-bold block mb-4">Leadership</span>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black uppercase tracking-tighter mb-8 leading-none">
+                  Tariq Khan <br />
+                  <span className="text-white/40 text-xl md:text-2xl block mt-3 tracking-widest">CEO & Owner, {SITE_CONFIG.legalName}</span>
+                </h2>
+                <div className="space-y-6 text-white/60 text-base md:text-lg font-medium leading-relaxed mb-10 pr-0 lg:pr-10">
+                  <p>
+                    Tariq Khan is the Chief Executive Officer and Owner of United Tech LLC and an Attorney at Law, bringing together legal insight, strategic leadership, and a strong understanding of modern business. He leads the company’s overall vision, growth, and business direction, with a focus on building a professional, service-driven organization that combines technology, talent, and operational excellence.
+                  </p>
+                  <p>
+                    With a legal background and an entrepreneurial mindset, Tariq is committed to developing solutions that are not only practical and innovative but also grounded in professionalism, integrity, and accountability. Under his leadership, United Tech LLC continues to build long-term partnerships and deliver reliable services designed around the evolving needs and objectives of its clients.
+                  </p>
+                  <p>
+                    His vision is to create an organization where expertise meets execution — empowering businesses to operate smarter, grow confidently, and navigate an increasingly competitive global marketplace.
+                  </p>
+                </div>
+                
+                <div className="border-l-4 border-red-600 pl-6 py-2 bg-white/5 p-6 rounded-r-2xl">
+                  <p className="text-lg md:text-xl italic font-serif text-white/90 leading-relaxed">
+                    “Success is not simply about building a business; it is about building trust, creating lasting value, and leaving a meaningful impact.”
+                  </p>
+                  <p className="mt-4 text-xs font-bold uppercase tracking-widest text-red-500">
+                    — Tariq Khan, Attorney at Law
+                  </p>
+                </div>
+              </FadeUp>
+            </div>
+            
+            <div className="lg:col-span-5 order-1 lg:order-2">
+              <FadeUp delay={0.2}>
+                <div className="w-full h-[500px] md:h-[650px] relative rounded-3xl overflow-visible">
+                  <PaperImage 
+                    image="/ceo-tariq-khan.png" 
+                    mode="Wave" 
+                    cardWidth={450} 
+                    cardHeight={600} 
+                    depth={30} 
+                    hoverLift={60}
+                    restLift={40}
+                  />
+                </div>
+              </FadeUp>
+            </div>
+
           </div>
         </div>
       </section>
