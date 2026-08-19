@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Zap, Target, Users, Shield } from "lucide-react";
+import { ArrowUpRight, Zap, Target, Users, Shield, Linkedin } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/config";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/fade-up";
 import PaperImage from "@/components/ui/paper-image";
+import { TeamSection, TeamMember } from "@/components/ui/team-section";
 
 export default function AboutPage() {
   const values = [
@@ -13,6 +14,121 @@ export default function AboutPage() {
     { icon: Target, title: "Clear Precision", desc: "No guesswork. Every legal filing, tax return, and project is handled with exact precision." },
     { icon: Users, title: "Dedicated Experts", desc: "We only work with the best attorneys, tax professionals, and business operators to ensure your success." },
     { icon: Shield, title: "Absolute Accountability", desc: "We act as your true partner. If something needs fixing, we fix it. We are always by your side." }
+  ];
+
+  const teamMembers: TeamMember[] = [
+    {
+      name: "Tariq Khan",
+      designation: "CEO & Owner",
+      imageSrc: "/ceo-tariq-khan.png.jpeg",
+      socialLinks: [{ icon: Linkedin, href: "#" }],
+      bio: (
+        <>
+          <p>
+            Tariq Khan is the Chief Executive Officer and Owner of United Tech LLC and an Attorney at Law, bringing together legal insight, strategic leadership, and a strong understanding of modern business. He leads the company’s overall vision, growth, and business direction, with a focus on building a professional, service-driven organization that combines technology, talent, and operational excellence.
+          </p>
+          <p>
+            With a legal background and an entrepreneurial mindset, Tariq is committed to developing solutions that are not only practical and innovative but also grounded in professionalism, integrity, and accountability. Under his leadership, United Tech LLC continues to build long-term partnerships and deliver reliable services designed around the evolving needs and objectives of its clients.
+          </p>
+        </>
+      ),
+    },
+    {
+      name: "Omar Atiq",
+      designation: "Managing Director",
+      imageSrc: "/managing-director-omar-atiq.png.jpeg",
+      socialLinks: [{ icon: Linkedin, href: "#" }],
+      bio: (
+        <>
+          <p>
+            Omar Atiq serves as Managing Director at United Tech LLC, contributing to the company’s strategic management, organizational development, and day-to-day leadership.
+          </p>
+          <p>
+            He works across different areas of the organization to support effective execution of business objectives and maintain alignment between leadership, teams, and clients. His role emphasizes operational discipline, professional standards, and consistent organizational performance.
+          </p>
+        </>
+      ),
+    },
+    {
+      name: "Dr. Azhar Munir",
+      designation: "Chief Technology Officer",
+      imageSrc: "/CTO-dr-azhar-munir.png.jpeg",
+      socialLinks: [{ icon: Linkedin, href: "#" }],
+      bio: (
+        <>
+          <p>
+            Dr. Azhar Munir serves as Chief Technology Officer at United Tech LLC, leading the company’s technology direction and digital capabilities. His role involves guiding technology strategy, evaluating emerging solutions, and ensuring that technology is effectively integrated into business operations.
+          </p>
+          <p>
+            With a focus on innovation, reliability, and scalability, he contributes to building technology-driven solutions that support efficiency and sustainable business growth.
+          </p>
+        </>
+      ),
+    },
+    {
+      name: "Aizaz Qureshi",
+      designation: "Director of Operations",
+      imageSrc: "/director-operations-aizaz-qureshi.png.jpeg",
+      socialLinks: [{ icon: Linkedin, href: "#" }],
+      bio: (
+        <>
+          <p>
+            Aizaz Qureshi serves as Director of Operations at United Tech LLC, overseeing operational processes, team coordination, service delivery, and performance management.
+          </p>
+          <p>
+            His focus is on ensuring that business operations remain organized, efficient, and aligned with client expectations. By supporting strong internal processes and accountability, he contributes to maintaining consistent service quality as the company scales.
+          </p>
+        </>
+      ),
+    },
+    {
+      name: "Hamid Khan",
+      designation: "Legal & Financial Advisor",
+      imageSrc: "/legal-advisor-hamid-iqbal-khan.png.jpeg",
+      socialLinks: [{ icon: Linkedin, href: "#" }],
+      bio: (
+        <>
+          <p>
+            Hamid Khan serves as Legal and Financial Advisor at United Tech LLC, supporting the organization across legal, financial, compliance, and risk-related matters.
+          </p>
+          <p>
+            His responsibilities include providing strategic guidance on business documentation, financial considerations, regulatory requirements, and organizational risk. His role helps ensure that business decisions are approached with sound judgment, accountability, and appropriate legal and financial oversight.
+          </p>
+        </>
+      ),
+    },
+    {
+      name: "Moiz Rehman",
+      designation: "Director, Affiliates",
+      imageSrc: "/affiliates-director-moiz-ur-rehman.png.jpeg",
+      socialLinks: [{ icon: Linkedin, href: "#" }],
+      bio: (
+        <>
+          <p>
+            Moiz Rehman serves as Director of Affiliates at United Tech LLC, overseeing affiliate relationships, partnership development, and performance-driven business initiatives.
+          </p>
+          <p>
+            He works toward establishing sustainable partnerships, identifying new opportunities, and strengthening the company’s affiliate ecosystem. His focus is on creating mutually beneficial relationships while maintaining strong standards of performance, communication, and business integrity.
+          </p>
+        </>
+      ),
+    },
+    {
+      name: "Abdul Moiz Khan",
+      designation: "Outsourced Business Development Director",
+      imageSrc: "/buisness-development-director-abdul-moiz-khan.png.jpeg",
+      socialLinks: [{ icon: Linkedin, href: "#" }],
+      bio: (
+        <>
+          <p>
+            Abdul Moiz Khan serves as Outsourced Business Development Director at United Tech LLC, focusing on business development, client relationships, strategic partnerships, and outsourced growth opportunities.
+          </p>
+          <p>
+            He works closely with businesses to understand operational requirements and identify areas where United Tech LLC can provide value through specialized teams and business support. His approach centers on building professional relationships and developing sustainable opportunities rather than short-term transactions.
+          </p>
+        </>
+      ),
+    }
   ];
 
   return (
@@ -135,7 +251,7 @@ export default function AboutPage() {
 
       {/* Core Values */}
       <section className="py-20 md:py-32 bg-[#fafafa] border-y border-black/5">
-        <div className="container mx-auto">
+        <div className="container mx-auto max-w-7xl px-6">
           <FadeUp>
             <div className="text-center mb-16">
               <span className="text-xs uppercase tracking-widest text-red-600 font-bold block mb-4">Core Values</span>
@@ -160,6 +276,14 @@ export default function AboutPage() {
           </StaggerContainer>
         </div>
       </section>
+
+      {/* Leadership Team */}
+      <TeamSection 
+        title="Core Team"
+        description="At United Tech LLC, leadership is built around accountability, collaboration, innovation, and long-term thinking. Our leadership team brings together expertise across technology, operations, business development, affiliate partnerships, finance, and legal advisory to create an organization capable of supporting businesses through changing market demands."
+        members={teamMembers}
+        className="border-b border-black/5"
+      />
 
       {/* CTA */}
       <section className="py-24 bg-white text-center">
