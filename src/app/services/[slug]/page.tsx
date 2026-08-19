@@ -32,232 +32,226 @@ const serviceDetails: Record<string, {
   faqs: { q: string; a: string }[];
   image: string;
 }> = {
-  "legal-services": {
-    headline: "Protecting What Matters Most.",
-    subheadline: "From living trusts to family law, our network of expert attorneys handles your most critical legal needs with precision and care.",
+  "living-trust": {
+    headline: "Protect Your Family.",
+    subheadline: "A living trust is the best way to secure your assets and make sure your family is taken care of without the stress of probate court.",
     image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2070&auto=format&fit=crop",
-    benefits: [
-      "Expert representation across multiple disciplines",
-      "Confidential and secure document handling",
-      "Dedicated legal counsel",
-      "Comprehensive case management",
-    ],
+    benefits: ["Avoid probate court", "Protect your assets", "Keep matters private", "Provide for your family"],
     process: [
-      { step: "Consult", description: "Initial confidential consultation to understand your legal needs." },
-      { step: "Strategize", description: "Develop a customized legal roadmap and strategy." },
-      { step: "Execute", description: "Filing, representation, and execution of legal documents." },
-      { step: "Resolve", description: "Achieving the best possible legal outcome." },
+      { step: "Consult", description: "We listen to your needs and understand your family situation." },
+      { step: "Draft", description: "We prepare clear and legally sound trust documents." },
+      { step: "Review", description: "We go over everything with you to ensure accuracy." },
+      { step: "Finalize", description: "We help you sign and securely store your documents." }
     ],
-    faqs: [
-      { q: "What areas of law do you cover?", a: "We cover Living Trusts, Probate, Divorce, Family Law, Eviction, Small Claims, and Real Estate Law." },
-    ],
+    faqs: []
   },
-  "tax-services": {
-    headline: "Maximum Returns. Minimum Liability.",
-    subheadline: "Expert tax preparation, resolution, and estate planning for businesses and individuals across all 50 states.",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2036&auto=format&fit=crop",
-    benefits: [
-      "Tax preparation for all 50 states",
-      "Corporate, LLC, and Partnership tax expertise",
-      "IRS Tax Representation & Debt Relief",
-      "Penalty abatement and offer in compromise",
-    ],
+  "probate": {
+    headline: "Clear Probate Guidance.",
+    subheadline: "Navigating probate can be confusing. We are here to guide you through the legal steps to settle an estate properly.",
+    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop",
+    benefits: ["Clear legal guidance", "Court representation", "Asset distribution help", "Stress relief"],
     process: [
-      { step: "Analyze", description: "Complete review of your financial standing and past filings." },
-      { step: "Plan", description: "Tax strategy development to minimize liability." },
-      { step: "File", description: "Accurate and timely preparation and filing of returns." },
-      { step: "Resolve", description: "Handling any IRS issues, audits, or debt resolutions." },
+      { step: "Review", description: "We review the estate and explain the probate process." },
+      { step: "File", description: "We handle filing all necessary court documents." },
+      { step: "Manage", description: "We assist with managing the estate assets." },
+      { step: "Close", description: "We help distribute assets and close the estate properly." }
     ],
-    faqs: [
-      { q: "Do you handle back taxes?", a: "Yes, we specialize in back tax filing, delinquent tax problems, and IRS resolutions." },
-    ],
+    faqs: []
   },
-  "architecture-design": {
-    headline: "Visualizing The Future.",
-    subheadline: "Professional residential drafting, 3D staging, and photorealistic property visualizations that sell before the foundation is poured.",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2071&auto=format&fit=crop",
-    benefits: [
-      "High-fidelity 3D interior staging",
-      "Accurate residential design and drafting",
-      "Realtor & property visualization packages",
-      "Rapid turnaround for market readiness",
-    ],
+  "deed-services": {
+    headline: "Simple Property Transfers.",
+    subheadline: "Whether you are adding a family member or transferring property to a trust, we prepare and record your deeds accurately.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop",
+    benefits: ["Accurate deed preparation", "Fast processing", "Proper county recording", "Clear communication"],
     process: [
-      { step: "Concept", description: "Understanding the spatial requirements and aesthetic goals." },
-      { step: "Draft", description: "Creating precise 2D blueprints and floor plans." },
-      { step: "Render", description: "Developing photorealistic 3D models and staging." },
-      { step: "Deliver", description: "Final high-resolution assets delivered for marketing." },
+      { step: "Gather", description: "We collect the property and owner information." },
+      { step: "Prepare", description: "We prepare the correct deed for your situation." },
+      { step: "Sign", description: "We coordinate the signing and notarization." },
+      { step: "Record", description: "We record the deed with the county office." }
     ],
-    faqs: [],
+    faqs: []
   },
-  "business-process-outsourcing": {
-    headline: "Enterprise BPO. Startup Agility.",
-    subheadline: "Outsource your operations to a team that treats them like their own — with zero compromise on quality.",
+  "divorce": {
+    headline: "Support During Hard Times.",
+    subheadline: "We provide compassionate and professional legal help to guide you through your divorce proceedings.",
+    image: "https://images.unsplash.com/photo-1505664173615-515c15dc9a6f?q=80&w=2072&auto=format&fit=crop",
+    benefits: ["Compassionate support", "Fair asset division", "Clear legal advice", "Private and confidential"],
+    process: [
+      { step: "Consult", description: "We discuss your situation in a private meeting." },
+      { step: "Plan", description: "We develop a strategy that protects your interests." },
+      { step: "Mediate", description: "We work to reach fair agreements whenever possible." },
+      { step: "Resolve", description: "We finalize the divorce so you can move forward." }
+    ],
+    faqs: []
+  },
+  "child-custody-family-law": {
+    headline: "Protecting Your Children.",
+    subheadline: "We care about your family. Our team offers genuine advice and strong representation for all family law and child custody matters.",
     image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop",
-    benefits: [
-      "40–60% cost reduction vs. in-house teams",
-      "Onboarding in under 2 weeks",
-      "Dedicated account management",
-      "SLA-backed performance guarantees",
-    ],
+    benefits: ["Focus on the children", "Fair custody agreements", "Supportive legal counsel", "Strong representation"],
     process: [
-      { step: "Audit", description: "We map your current operations and identify inefficiencies." },
-      { step: "Design", description: "We architect a scalable process tailored to your business." },
-      { step: "Build", description: "We assemble your dedicated team and configure all systems." },
-      { step: "Launch", description: "Go live with full monitoring and optimization from day one." },
+      { step: "Listen", description: "We listen to your concerns and goals for your children." },
+      { step: "Advise", description: "We explain your legal rights and options clearly." },
+      { step: "Negotiate", description: "We aim for peaceful agreements regarding custody." },
+      { step: "Represent", description: "We stand by your side in court if necessary." }
     ],
-    faqs: [
-      { q: "How quickly can you onboard?", a: "Most clients are fully operational within 10–14 business days." },
-      { q: "Do you offer custom SLAs?", a: "Yes — all engagements include custom SLAs tailored to your KPIs." },
-    ],
+    faqs: []
   },
-  "digital-marketing": {
-    headline: "Full-Funnel. Full-Scale.",
-    subheadline: "Integrated digital marketing strategy connecting brand awareness to bottom-line revenue — across every channel.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
-    benefits: [
-      "Multi-channel strategy and execution",
-      "Content marketing and distribution",
-      "Paid, organic, and social media",
-      "Analytics and attribution setup",
-    ],
+  "eviction": {
+    headline: "Property Protection.",
+    subheadline: "We help property owners handle tenant disputes and evictions lawfully and efficiently.",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2036&auto=format&fit=crop",
+    benefits: ["Lawful procedures", "Fast resolution", "Court representation", "Property recovery"],
     process: [
-      { step: "Audit", description: "Full audit of your current digital presence and channels." },
-      { step: "Strategy", description: "Integrated channel strategy built around your goals." },
-      { step: "Execute", description: "Campaigns launched and managed across all channels." },
-      { step: "Report", description: "Transparent reporting with full attribution." },
+      { step: "Notice", description: "We prepare and serve the proper legal notices." },
+      { step: "File", description: "We file the necessary court paperwork." },
+      { step: "Appear", description: "We represent you during the court hearing." },
+      { step: "Recover", description: "We assist in recovering your property lawfully." }
     ],
-    faqs: [],
+    faqs: []
   },
-  "affiliate-marketing": {
-    headline: "Partnerships That Scale.",
-    subheadline: "End-to-end management of affiliate networks and publishers, tracking campaigns for maximum profitability.",
-    image: "https://images.unsplash.com/photo-1552581234-26160860f376?q=80&w=2070&auto=format&fit=crop",
-    benefits: [
-      "Affiliate network integrations (Everflow, etc.)",
-      "Publisher recruitment and vetting",
-      "Commission structure optimization",
-      "Fraud prevention and quality control",
-    ],
+  "small-claim": {
+    headline: "Resolve Disputes Quickly.",
+    subheadline: "If someone owes you money, we can help you prepare and present your small claims case effectively.",
+    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2070&auto=format&fit=crop",
+    benefits: ["Clear case preparation", "Affordable assistance", "Proper court filing", "Higher chance of success"],
     process: [
-      { step: "Setup", description: "We configure your affiliate platform and tracking." },
-      { step: "Recruit", description: "We recruit top-tier publishers for your offers." },
-      { step: "Manage", description: "Daily management of payouts, relationships, and fraud." },
-      { step: "Scale", description: "We scale performing partners and kill underperforming ones." },
+      { step: "Review", description: "We review your dispute and evidence." },
+      { step: "Prepare", description: "We organize your case for the judge." },
+      { step: "File", description: "We handle the court filing process." },
+      { step: "Guide", description: "We explain exactly what to say in court." }
     ],
-    faqs: [],
+    faqs: []
   },
-  "media-buying": {
-    headline: "Every Dollar. Placed With Purpose.",
-    subheadline: "Strategic media acquisition engineered to maximize reach, minimize waste, and deliver measurable cost-per-acquisition.",
+  "real-estate-services": {
+    headline: "Real Estate Legal Help.",
+    subheadline: "We provide comprehensive legal assistance for buying, selling, or managing real estate properties.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop",
+    benefits: ["Contract review", "Closing assistance", "Dispute resolution", "Clear communication"],
+    process: [
+      { step: "Review", description: "We carefully review all real estate contracts." },
+      { step: "Advise", description: "We point out any risks or issues." },
+      { step: "Negotiate", description: "We negotiate terms to protect you." },
+      { step: "Close", description: "We ensure a smooth closing process." }
+    ],
+    faqs: []
+  },
+  "tax-preparation": {
+    headline: "Accurate Tax Prep.",
+    subheadline: "We prepare personal and business taxes across all fifty states. Our goal is to ensure you get the maximum return possible.",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2036&auto=format&fit=crop",
+    benefits: ["Maximum return", "Accurate filing", "All fifty states", "Business and personal"],
+    process: [
+      { step: "Collect", description: "We gather all your tax documents safely." },
+      { step: "Review", description: "We check for all possible deductions." },
+      { step: "Prepare", description: "We prepare your return accurately." },
+      { step: "File", description: "We file your taxes electronically." }
+    ],
+    faqs: []
+  },
+  "tax-resolution-audits": {
+    headline: "Solve IRS Problems.",
+    subheadline: "We provide professional representation for IRS audits and tax disputes. Let us handle the IRS for you.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
+    benefits: ["Professional representation", "Stop IRS letters", "Audit defense", "Peace of mind"],
+    process: [
+      { step: "Assess", description: "We review the IRS notices you received." },
+      { step: "Communicate", description: "We talk to the IRS on your behalf." },
+      { step: "Defend", description: "We protect your rights during the audit." },
+      { step: "Resolve", description: "We negotiate a final resolution." }
+    ],
+    faqs: []
+  },
+  "tax-debt-relief": {
+    headline: "Get Out Of Tax Debt.",
+    subheadline: "We help you find a way out of tax debt by negotiating payment plans and offers in compromise.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-    benefits: [
-      "Cross-channel media planning and placement",
-      "Real-time bid optimization",
-      "Audience segmentation and targeting",
-      "Transparent reporting with attribution",
-    ],
+    benefits: ["Reduce tax debt", "Affordable payment plans", "Stop wage garnishments", "Financial freedom"],
     process: [
-      { step: "Plan", description: "We build a media plan aligned to your audience and budget." },
-      { step: "Place", description: "Campaigns go live across premium inventory." },
-      { step: "Optimize", description: "Daily bid management and creative rotation." },
-      { step: "Report", description: "Weekly attribution reports showing true ROI." },
+      { step: "Analyze", description: "We look at your total tax debt and finances." },
+      { step: "Plan", description: "We find the best relief program for you." },
+      { step: "Negotiate", description: "We present the offer to the IRS." },
+      { step: "Settle", description: "We finalize the agreement to reduce your debt." }
     ],
-    faqs: [
-      { q: "What platforms do you buy on?", a: "Meta, Google, YouTube, TikTok, programmatic, and premium direct placements." },
-    ],
+    faqs: []
   },
-  "search-monetization": {
-    headline: "Unlocking Search Revenue.",
-    subheadline: "Optimize domains and run high-yield search arbitrage campaigns (RSOC) using platforms like System1 and Bodis.",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1974&auto=format&fit=crop",
-    benefits: [
-      "RSOC (Search Arbitrage) campaign management",
-      "AFD (Ads for Domains) monetization",
-      "Domain portfolio optimization",
-      "Real-time reporting and bidding",
-    ],
+  "residential-design-drafting": {
+    headline: "Beautiful Home Plans.",
+    subheadline: "We create accurate blueprints and residential plans tailored to your vision for your next home project.",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2071&auto=format&fit=crop",
+    benefits: ["Custom home design", "Accurate blueprints", "Fast turnaround", "Ready for construction"],
     process: [
-      { step: "Analyze", description: "We analyze your domain portfolio and traffic sources." },
-      { step: "Deploy", description: "We deploy optimized feeds and landing pages." },
-      { step: "Acquire", description: "We drive high-intent arbitrage traffic." },
-      { step: "Yield", description: "Daily optimization to maximize RPC and RPM." },
+      { step: "Vision", description: "We discuss your ideas and requirements." },
+      { step: "Draft", description: "We create the initial floor plans." },
+      { step: "Refine", description: "We adjust the plans based on your feedback." },
+      { step: "Deliver", description: "We provide final blueprints ready for builders." }
     ],
-    faqs: [],
+    faqs: []
+  },
+  "interior-design-staging": {
+    headline: "Stunning Property Staging.",
+    subheadline: "We provide beautiful 3D interior design and property staging that helps realtors and owners sell homes faster.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
+    benefits: ["Realistic 3D staging", "Increase property value", "Sell homes faster", "Affordable visual updates"],
+    process: [
+      { step: "Review", description: "We review photos or plans of the property." },
+      { step: "Design", description: "We design a beautiful interior layout." },
+      { step: "Render", description: "We create high quality 3D images." },
+      { step: "Deliver", description: "We send you the images for your listings." }
+    ],
+    faqs: []
+  },
+  "business-outsourcing": {
+    headline: "Grow Your Team.",
+    subheadline: "Expand your business with our reliable remote teams. We handle customer service, sales, and daily operations.",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
+    benefits: ["Lower staffing costs", "Reliable support teams", "Focus on growth", "Flexible operations"],
+    process: [
+      { step: "Assess", description: "We determine exactly what tasks you need help with." },
+      { step: "Assemble", description: "We build a dedicated team for your business." },
+      { step: "Train", description: "We train the team on your specific processes." },
+      { step: "Manage", description: "We oversee the daily work to ensure quality." }
+    ],
+    faqs: []
   },
   "web-development": {
-    headline: "Sites That Sell.",
-    subheadline: "Conversion-obsessed web development — from landing pages to full platforms — built for performance, speed, and measurable ROI.",
+    headline: "Websites That Work.",
+    subheadline: "We build fast, secure, and beautiful websites that represent your brand and are easy for your customers to use.",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop",
-    benefits: [
-      "Next.js, React, and modern stack development",
-      "Core Web Vitals optimization (90+ scores)",
-      "Mobile-first responsive design",
-      "SEO-ready architecture from day one",
-    ],
+    benefits: ["Custom design", "Mobile friendly", "Fast loading speeds", "Easy to update"],
     process: [
-      { step: "Discovery", description: "We map goals, audience, and technical requirements." },
-      { step: "Design", description: "Custom UI/UX designed for conversion and engagement." },
-      { step: "Build", description: "Production-quality development with full QA." },
-      { step: "Launch", description: "Go live with performance monitoring and ongoing support." },
+      { step: "Plan", description: "We map out the structure of your new website." },
+      { step: "Design", description: "We create a beautiful look that matches your brand." },
+      { step: "Build", description: "We code the website to be fast and secure." },
+      { step: "Launch", description: "We publish the site and ensure everything works." }
     ],
-    faqs: [
-      { q: "What is your typical project timeline?", a: "Most projects deliver in 4–10 weeks depending on scope." },
-    ],
+    faqs: []
   },
-  "branding": {
-    headline: "Brand Systems That Lead.",
-    subheadline: "Define your company's market positioning and create beautiful identity systems that command authority.",
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop",
-    benefits: [
-      "Brand strategy and market positioning",
-      "Visual identity and logo design",
-      "Brand messaging and tone of voice",
-      "Comprehensive brand guidelines",
-    ],
+  "digital-marketing": {
+    headline: "Reach More Customers.",
+    subheadline: "We run honest and effective marketing campaigns on social media and Google to bring real customers to your business.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+    benefits: ["Increase brand awareness", "Get more leads", "Honest reporting", "Targeted advertising"],
     process: [
-      { step: "Discover", description: "Deep dive into your company values and market gaps." },
-      { step: "Position", description: "We define your unique angle and message." },
-      { step: "Design", description: "We build the visual system to match the positioning." },
-      { step: "Apply", description: "Rollout across all digital and physical touchpoints." },
+      { step: "Strategy", description: "We find out where your best customers spend time." },
+      { step: "Create", description: "We make engaging ads and posts." },
+      { step: "Launch", description: "We start the campaigns with a set budget." },
+      { step: "Optimize", description: "We improve the ads daily to get better results." }
     ],
-    faqs: [],
-  },
-  "human-resources": {
-    headline: "Elite Talent Acquisition.",
-    subheadline: "Source, onboard, and manage remote talent and dedicated teams. We handle vetting so you can focus on building.",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
-    benefits: [
-      "Global talent sourcing and vetting",
-      "Remote team onboarding",
-      "Payroll and compliance coordination",
-      "Performance management support",
-    ],
-    process: [
-      { step: "Profile", description: "We define the exact skills and culture fit you need." },
-      { step: "Source", description: "We headhunt top candidates globally." },
-      { step: "Screen", description: "Rigorous technical and cultural interviews." },
-      { step: "Onboard", description: "Seamless transition into your company's workflow." },
-    ],
-    faqs: [],
+    faqs: []
   },
   "bookkeeping": {
-    headline: "Financial Clarity.",
-    subheadline: "Keep your company's financials clean, balanced, and compliant with our dedicated bookkeeping services.",
+    headline: "Clear Financial Records.",
+    subheadline: "Keep your business finances clean and organized. We track your expenses so you always know where you stand.",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
-    benefits: [
-      "Daily transaction categorization",
-      "Monthly bank reconciliations",
-      "Accounts payable and receivable",
-      "Clean financial reporting",
-    ],
+    benefits: ["Accurate tracking", "Monthly reports", "Ready for tax season", "Financial clarity"],
     process: [
-      { step: "Audit", description: "We review and clean up your historical books." },
-      { step: "Systemize", description: "We connect software like QuickBooks or Xero." },
-      { step: "Manage", description: "Ongoing daily categorization and reconciliation." },
-      { step: "Report", description: "Monthly delivery of P&L and Balance Sheets." },
+      { step: "Connect", description: "We securely connect to your bank or accounting software." },
+      { step: "Track", description: "We categorize all your daily expenses and income." },
+      { step: "Reconcile", description: "We make sure the books match the bank exactly." },
+      { step: "Report", description: "We send you a clear financial report every month." }
     ],
-    faqs: [],
+    faqs: []
   }
 };
 
@@ -271,12 +265,12 @@ export default async function ServiceDetailPage({ params }: Props) {
     headline: service.title,
     subheadline: service.description,
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
-    benefits: ["Expert implementation", "Dedicated support", "Scalable solutions", "Data-driven results"],
+    benefits: ["Expert assistance", "Dedicated support", "Great solutions", "Real results"],
     process: [
-      { step: "Discovery", description: "Understanding your unique needs." },
-      { step: "Strategy", description: "Developing a tailored approach." },
-      { step: "Execution", description: "Implementing the solution flawlessly." },
-      { step: "Optimization", description: "Refining for maximum performance." }
+      { step: "Listen", description: "Understanding your unique needs." },
+      { step: "Plan", description: "Developing a clear approach." },
+      { step: "Act", description: "Implementing the solution flawlessly." },
+      { step: "Review", description: "Checking for success and quality." }
     ],
     faqs: []
   };
@@ -363,9 +357,9 @@ export default async function ServiceDetailPage({ params }: Props) {
         <div className="container mx-auto">
           <div className="max-w-2xl mb-16">
             <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tighter uppercase mb-4">
-              Execution Framework
+              Our Process
             </h2>
-            <p className="text-black/50">Our systematic approach to delivering measurable results.</p>
+            <p className="text-black/50">A simple step by step approach to helping you.</p>
           </div>
           
           <div className="grid md:grid-cols-4 gap-8 relative">
@@ -423,7 +417,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             <div>
               <label className="text-[0.7rem] font-bold uppercase tracking-widest text-white/50 block mb-4">What is your primary objective?</label>
               <div className="grid grid-cols-2 gap-4">
-                {["Immediate Assistance", "Consultation", "Pricing & Scoping", "Long-term Partnership"].map((opt) => (
+                {["Immediate Help", "Consultation", "Pricing info", "Long term Partnership"].map((opt) => (
                   <label key={opt} className="flex items-center gap-3 cursor-pointer group">
                     <input type="radio" name="objective" className="accent-red-600 w-4 h-4 cursor-pointer" />
                     <span className="text-sm text-white/70 group-hover:text-white transition-colors">{opt}</span>

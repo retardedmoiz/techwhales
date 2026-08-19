@@ -62,15 +62,15 @@ function Hero() {
               <FadeUp delay={0.2}>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[0.7rem] font-bold uppercase tracking-wider mb-6 w-fit">
                   <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
-                  Elite Operations & Revenue Engine
+                  Premium Business Solutions
                 </div>
               </FadeUp>
               
               <FadeUp delay={0.3}>
                 <h1 className="text-[2.5rem] md:text-[5rem] font-heading font-black leading-[0.9] tracking-tighter uppercase mb-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
-                  Engineer Your <br />
+                  Grow Your <br />
                   <span className="text-transparent relative" style={{ WebkitTextStroke: "1.5px #fff" }}>
-                    Unfair Advantage.
+                    Business Now.
                     <motion.div 
                       className="absolute -bottom-2 left-0 h-1 bg-red-600"
                       initial={{ width: 0 }}
@@ -83,18 +83,18 @@ function Hero() {
               
               <FadeUp delay={0.4}>
                 <p className="text-neutral-400 text-sm md:text-base max-w-lg leading-relaxed mb-8">
-                  Forget generic agencies. {SITE_CONFIG.brand} integrates directly into your infrastructure—architecting high-converting funnels, deploying elite outbound SDRs, and executing ruthless media buying strategies to scale your revenue.
+                  TechWhales is your dedicated partner for legal support, tax resolution, design, and operations. We provide genuine, professional services to help your business succeed without the stress.
                 </p>
               </FadeUp>
               
               <FadeUp delay={0.5}>
                 <div className="flex flex-col sm:flex-row gap-4 items-center">
                   <Link href="/contact" className="group/btn w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-widest text-black bg-white rounded-full hover:bg-red-600 hover:text-white transition-all duration-300">
-                    Deploy Growth
+                    Get Started
                     <ArrowUpRight size={16} className="group-hover/btn:rotate-45 group-hover/btn:scale-110 transition-transform duration-300" />
                   </Link>
-                  <Link href="/case-studies" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-widest text-white border border-white/20 rounded-full hover:bg-white/5 transition-all duration-300">
-                    See The Data
+                  <Link href="/services" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-widest text-white border border-white/20 rounded-full hover:bg-white/5 transition-all duration-300">
+                    View Our Services
                   </Link>
                 </div>
               </FadeUp>
@@ -149,15 +149,15 @@ function AboutSection() {
       <div className="container mx-auto relative z-10">
         <FadeUp>
           <span className="text-xs uppercase tracking-widest text-black/40 font-bold block mb-8 flex items-center gap-2">
-            <Target size={14} className="text-red-600" /> The Paradigm Shift
+            <Target size={14} className="text-red-600" /> Our Mission
           </span>
         </FadeUp>
         <ScrollTextReveal 
-          text="We observed a broken industry: bloated agencies delivering vanity metrics while businesses bled cash. We built TechWhales to be the antidote. A surgical strike team of operators, developers, and media buyers who align directly with your P&L. We don't sell hours. We engineer compounding business growth."
+          text="We built TechWhales to be your genuine business partner. Whether you need legal help, tax preparation, interior design, or business outsourcing, our dedicated team is here to support you. We believe in clear communication, honest work, and making your business operations as easy and stress free as possible."
         />
         <FadeUp delay={0.2} className="mt-12">
           <Link href="/about" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-black hover:text-red-600 transition-colors border-b-2 border-black hover:border-red-600 pb-1">
-            Read the Full Story <ArrowUpRight size={16} />
+            Read Our Story <ArrowUpRight size={16} />
           </Link>
         </FadeUp>
       </div>
@@ -204,32 +204,32 @@ function ServicesSection() {
     <section id="services" className="py-20 md:py-32 bg-white">
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row gap-16">
-          {/* Left Column - Sticky */}
+          {/* Left Column Sticky */}
           <div className="lg:w-1/3 lg:sticky lg:top-28 h-fit">
             <FadeUp>
               <span className="text-xs uppercase tracking-widest text-black/50 font-bold block mb-4 flex items-center gap-2">
-                <Activity size={14} className="text-red-600" /> Operational Architecture
+                <Activity size={14} className="text-red-600" /> Our Expertise
               </span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tighter text-black uppercase mb-6 leading-none">
-                Precision <br />Capabilities.
+                Comprehensive <br />Services.
               </h2>
               <p className="text-black/60 text-sm max-w-sm leading-relaxed mb-8">
-                We deploy comprehensive operational, marketing, and technological frameworks tailored to aggressively scale your market share.
+                From Living Trusts to Tax Resolution, we provide 17 distinct services to handle every aspect of your business and personal needs.
               </p>
               <Link
                 href="/services"
                 className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-black border-b-2 border-black pb-1 hover:text-red-600 hover:border-red-600 transition-colors"
               >
-                View All 14 Services
+                View All 17 Services
                 <ArrowUpRight size={14} className="group-hover:rotate-45 transition-transform duration-300" />
               </Link>
             </FadeUp>
           </div>
 
-          {/* Right Column - Scrolling Services */}
+          {/* Right Column Scrolling Services */}
           <div className="lg:w-2/3 flex flex-col gap-16">
-            {SERVICES.slice(0, 4).map((service, index) => (
-              <FadeUp key={service.slug} delay={0.1 * index}>
+            {SERVICES.map((service, index) => (
+              <FadeUp key={service.slug} delay={0.1 * (index % 4)}>
                 <Link href={`/services/${service.slug}`} className="block group border border-black/10 rounded-3xl p-8 md:p-12 bg-[#fafafa] hover:bg-white hover:shadow-xl hover:border-red-600/30 transition-all duration-500 relative overflow-hidden">
                   
                   {/* Hover Graphic */}
@@ -239,7 +239,7 @@ function ServicesSection() {
 
                   <div className="flex items-start justify-between gap-4 mb-6 relative z-10">
                     <div className="flex items-center gap-4">
-                      <span className="text-xl text-black/20 font-mono font-bold">0{index + 1}</span>
+                      <span className="text-xl text-black/20 font-mono font-bold">{(index + 1).toString().padStart(2, '0')}</span>
                       <h3 className="text-2xl md:text-3xl font-heading font-black text-black group-hover:text-red-600 transition-colors uppercase">
                         {service.title}
                       </h3>
@@ -250,23 +250,13 @@ function ServicesSection() {
                   </p>
 
                   <div className="space-y-4 relative z-10">
-                    {"items" in service.details && service.details.items ? (
-                      <div className="flex flex-wrap gap-2">
-                        {service.details.items.slice(0, 4).map((item, idx) => (
-                          <span key={idx} className="text-[0.7rem] font-bold uppercase tracking-wider text-black bg-white px-3 py-1.5 rounded-full border border-black/10 group-hover:border-red-600/20">
-                            {item}
-                          </span>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="flex flex-wrap gap-2">
-                        {Object.values(service.details).flat().slice(0, 4).map((item, idx) => (
-                          <span key={idx} className="text-[0.7rem] font-bold uppercase tracking-wider text-black bg-white px-3 py-1.5 rounded-full border border-black/10 group-hover:border-red-600/20">
-                            {item as string}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+                    <div className="flex flex-wrap gap-2">
+                      {service.details.items.slice(0, 4).map((item, idx) => (
+                        <span key={idx} className="text-[0.7rem] font-bold uppercase tracking-wider text-black bg-white px-3 py-1.5 rounded-full border border-black/10 group-hover:border-red-600/20">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </Link>
               </FadeUp>
@@ -370,10 +360,10 @@ function PortfolioSection() {
    ============================================================================ */
 function WhyPartnerSection() {
   const values = [
-    { icon: TrendingUp, title: "Ruthless Efficiency", desc: "Lower operational expenses without sacrificing customer service or sales quality. We trim the fat." },
-    { icon: Users, title: "Elite Task Forces", desc: "Our specialists act as direct extensions of your departments, fiercely trained on your specific workflows." },
-    { icon: Shield, title: "Infinite Scalability", desc: "Easily spin up new SDR pipelines, support seats, or developer bandwidth as you expand globally." },
-    { icon: Zap, title: "Data-Driven Speed", desc: "We implement advanced telemetry and analytics so you make decisions based on empirical data, not gut feelings." }
+    { icon: TrendingUp, title: "Clear Communication", desc: "We explain everything simply so you know exactly what is happening with your case or project." },
+    { icon: Users, title: "Dedicated Experts", desc: "Our team of attorneys, tax professionals, and designers are carefully selected to provide genuine help." },
+    { icon: Shield, title: "Total Reliability", desc: "You can count on us to handle your legal, tax, and business matters securely and on time." },
+    { icon: Zap, title: "Stress Free Process", desc: "We manage all the complicated details so you can focus on your life and your business." }
   ];
 
   return (
@@ -382,14 +372,13 @@ function WhyPartnerSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <FadeUp>
-              <span className="text-xs uppercase tracking-widest text-black/50 font-bold block mb-4">Value Proposition</span>
+              <span className="text-xs uppercase tracking-widest text-black/50 font-bold block mb-4">Why Work With Us</span>
               <h2 className="text-4xl md:text-5xl lg:text-7xl font-heading font-black tracking-tighter text-black uppercase leading-[0.9] mb-6">
-                Why They <br />
-                <span className="text-red-600">Choose Us.</span>
+                Genuine Support <br />
+                <span className="text-red-600">You Can Trust.</span>
               </h2>
               <p className="text-black/65 text-sm md:text-lg leading-relaxed mb-8 max-w-lg font-medium">
-                We don't do "best effort." We solve real operational roadblocks. 
-                Our infrastructure delivers measurable growth metrics — reduced costs, massive pipeline expansion, and flawless technological execution.
+                We believe in providing honest, straightforward services. There are no complicated terms or hidden fees just real professionals dedicated to solving your problems and growing your business.
               </p>
             </FadeUp>
             
@@ -470,12 +459,12 @@ function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-16">
           <div>
             <FadeUp>
-              <span className="text-xs uppercase tracking-widest text-red-600 font-bold block mb-4">Take Action</span>
+              <span className="text-xs uppercase tracking-widest text-red-600 font-bold block mb-4">Get In Touch</span>
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-heading font-black tracking-tighter text-black uppercase mb-6 leading-[0.9]">
-                Initiate <br />The Build.
+                Let us Talk <br />About You.
               </h2>
               <p className="text-black/60 text-sm md:text-lg leading-relaxed max-w-sm mb-12 font-medium">
-                Stop settling for incremental gains. Schedule a high-level strategy session to map out your infrastructure overhaul.
+                Contact us today to find out how our genuine legal, tax, and business services can make your life easier.
               </p>
 
               <div className="space-y-8 bg-[#fafafa] p-8 rounded-3xl border border-black/5">
@@ -523,23 +512,23 @@ function ContactSection() {
               </div>
 
               <div>
-                <label className="text-[0.7rem] font-bold uppercase tracking-widest text-black/60 block mb-2">Strategic Objective</label>
+                <label className="text-[0.7rem] font-bold uppercase tracking-widest text-black/60 block mb-2">How can we help?</label>
                 <select 
                   className="w-full bg-[#fafafa] border border-black/10 px-5 py-4 rounded-xl text-sm text-black font-medium focus:outline-none focus:border-red-600 focus:bg-white transition-all shadow-inner appearance-none cursor-pointer"
                 >
-                  <option>Business Process Outsourcing (BPO)</option>
-                  <option>Outbound Sales & Pipeline Gen</option>
-                  <option>Performance Marketing & Meta Ads</option>
-                  <option>Web Infrastructure Development</option>
-                  <option>Full Scale Consulting</option>
+                  <option>Legal Services</option>
+                  <option>Tax Preparation and Resolution</option>
+                  <option>Architecture and Design</option>
+                  <option>Business Outsourcing</option>
+                  <option>Web Development or Marketing</option>
                 </select>
               </div>
 
               <div>
-                <label className="text-[0.7rem] font-bold uppercase tracking-widest text-black/60 block mb-2">Project Brief</label>
+                <label className="text-[0.7rem] font-bold uppercase tracking-widest text-black/60 block mb-2">Message</label>
                 <textarea 
                   rows={4}
-                  placeholder="Detail your current bottlenecks and growth targets..." 
+                  placeholder="Please describe what you need help with..." 
                   className="w-full bg-[#fafafa] border border-black/10 px-5 py-4 rounded-xl text-sm text-black font-medium focus:outline-none focus:border-red-600 focus:bg-white transition-all shadow-inner resize-none"
                 />
               </div>
