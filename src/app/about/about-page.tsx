@@ -34,22 +34,6 @@ export default function AboutPage() {
       ),
     },
     {
-      name: "Omar Atiq",
-      designation: "Managing Director",
-      imageSrc: "/managing-director-omar-atiq.png.jpeg",
-      socialLinks: [{ icon: Linkedin, href: "#" }],
-      bio: (
-        <>
-          <p>
-            Omar Atiq serves as Managing Director at United Tech LLC, contributing to the company’s strategic management, organizational development, and day-to-day leadership.
-          </p>
-          <p>
-            He works across different areas of the organization to support effective execution of business objectives and maintain alignment between leadership, teams, and clients. His role emphasizes operational discipline, professional standards, and consistent organizational performance.
-          </p>
-        </>
-      ),
-    },
-    {
       name: "Dr. Azhar Munir",
       designation: "Chief Technology Officer",
       imageSrc: "/CTO-dr-azhar-munir.png.jpeg",
@@ -61,22 +45,6 @@ export default function AboutPage() {
           </p>
           <p>
             With a focus on innovation, reliability, and scalability, he contributes to building technology-driven solutions that support efficiency and sustainable business growth.
-          </p>
-        </>
-      ),
-    },
-    {
-      name: "Aizaz Qureshi",
-      designation: "Director of Operations",
-      imageSrc: "/director-operations-aizaz-qureshi.png.jpeg",
-      socialLinks: [{ icon: Linkedin, href: "#" }],
-      bio: (
-        <>
-          <p>
-            Aizaz Qureshi serves as Director of Operations at United Tech LLC, overseeing operational processes, team coordination, service delivery, and performance management.
-          </p>
-          <p>
-            His focus is on ensuring that business operations remain organized, efficient, and aligned with client expectations. By supporting strong internal processes and accountability, he contributes to maintaining consistent service quality as the company scales.
           </p>
         </>
       ),
@@ -96,7 +64,44 @@ export default function AboutPage() {
           </p>
         </>
       ),
+    }
+  ];
+
+  const directorMembers: TeamMember[] = [
+    {
+      name: "Omar Atiq",
+      designation: "Managing Director",
+      imageSrc: "/managing-director-omar-atiq.png.jpeg",
+      socialLinks: [{ icon: Linkedin, href: "#" }],
+      bio: (
+        <>
+          <p>
+            Omar Atiq serves as Managing Director at United Tech LLC, contributing to the company’s strategic management, organizational development, and day-to-day leadership.
+          </p>
+          <p>
+            He works across different areas of the organization to support effective execution of business objectives and maintain alignment between leadership, teams, and clients. His role emphasizes operational discipline, professional standards, and consistent organizational performance.
+          </p>
+        </>
+      ),
     },
+
+    {
+      name: "Aizaz Qureshi",
+      designation: "Director of Operations",
+      imageSrc: "/director-operations-aizaz-qureshi.png.jpeg",
+      socialLinks: [{ icon: Linkedin, href: "#" }],
+      bio: (
+        <>
+          <p>
+            Aizaz Qureshi serves as Director of Operations at United Tech LLC, overseeing operational processes, team coordination, service delivery, and performance management.
+          </p>
+          <p>
+            His focus is on ensuring that business operations remain organized, efficient, and aligned with client expectations. By supporting strong internal processes and accountability, he contributes to maintaining consistent service quality as the company scales.
+          </p>
+        </>
+      ),
+    },
+
     {
       name: "Moiz Rehman",
       designation: "Director, Affiliates",
@@ -229,9 +234,9 @@ export default function AboutPage() {
               </FadeUp>
             </div>
             
-            <div className="lg:col-span-5 order-1 lg:order-2">
-              <FadeUp delay={0.2}>
-                <div className="w-full h-[500px] md:h-[650px] relative rounded-3xl overflow-visible">
+            <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center w-full overflow-hidden">
+              <FadeUp delay={0.2} className="w-full flex justify-center">
+                <div className="relative overflow-visible mx-auto transform scale-[0.70] sm:scale-[0.85] md:scale-100 origin-top h-[450px] sm:h-[550px] md:h-[650px]">
                   <PaperImage 
                     image="/ceo-tariq-khan.png.jpeg" 
                     mode="Wave" 
@@ -282,6 +287,7 @@ export default function AboutPage() {
         title="Core Team"
         description="At United Tech LLC, leadership is built around accountability, collaboration, innovation, and long-term thinking. Our leadership team brings together expertise across technology, operations, business development, affiliate partnerships, finance, and legal advisory to create an organization capable of supporting businesses through changing market demands."
         members={teamMembers}
+        directors={directorMembers}
         className="border-b border-black/5"
       />
 
