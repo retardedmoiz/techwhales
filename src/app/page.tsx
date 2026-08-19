@@ -9,6 +9,7 @@ import { ArrowUpRight, Check, Shield, TrendingUp, Users, Target, Zap, Activity }
 import { SITE_CONFIG, SERVICES, PORTFOLIO, INDUSTRIES } from "@/lib/config";
 import { SplineScene } from "@/components/ui/spline";
 import { Card } from "@/components/ui/card";
+import { Spotlight } from "@/components/ui/spotlight";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/fade-up";
 import TextBlockAnimation from "@/components/ui/text-block-animation";
 
