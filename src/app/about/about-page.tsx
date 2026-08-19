@@ -117,7 +117,7 @@ export default function AboutPage() {
               <FadeUp delay={0.2}>
                 <div className="w-full h-[500px] md:h-[650px] relative rounded-3xl overflow-visible">
                   <PaperImage 
-                    image="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop" 
+                    image="/ceo-tariq-khan.png.jpeg" 
                     mode="Wave" 
                     cardWidth={450} 
                     cardHeight={600} 
