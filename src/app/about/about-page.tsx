@@ -202,16 +202,17 @@ export default function AboutPage() {
           <Image src="/abstract-growth.png" alt="Texture" fill className="object-cover grayscale" />
         </div>
         <div className="container mx-auto relative z-10 max-w-7xl">
-          <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-8 lg:gap-x-24 items-center">
             
-            <div className="lg:col-span-7 order-2 lg:order-1 flex flex-col justify-center">
+            {/* Intro Text */}
+            <div className="lg:col-span-7 order-1 lg:order-1 flex flex-col justify-center">
               <FadeUp>
                 <span className="text-xs uppercase tracking-widest text-red-600 font-bold block mb-4">Leadership</span>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black uppercase tracking-tighter mb-8 leading-none">
                   Tariq Khan <br />
                   <span className="text-white/40 text-xl md:text-2xl block mt-3 tracking-widest">CEO & Owner, {SITE_CONFIG.legalName}</span>
                 </h2>
-                <div className="space-y-6 text-white/60 text-base md:text-lg font-medium leading-relaxed mb-10 pr-0 lg:pr-10">
+                <div className="space-y-6 text-white/60 text-base md:text-lg font-medium leading-relaxed lg:mb-10 pr-0 lg:pr-10">
                   <p>
                     Tariq Khan is the Chief Executive Officer and Owner of United Tech LLC and an Attorney at Law, bringing together legal insight, strategic leadership, and a strong understanding of modern business. He leads the company’s overall vision, growth, and business direction, with a focus on building a professional, service-driven organization that combines technology, talent, and operational excellence.
                   </p>
@@ -222,21 +223,13 @@ export default function AboutPage() {
                     His vision is to create an organization where expertise meets execution — empowering businesses to operate smarter, grow confidently, and navigate an increasingly competitive global marketplace.
                   </p>
                 </div>
-                
-                <div className="border-l-4 border-red-600 pl-6 py-2 bg-white/5 p-6 rounded-r-2xl">
-                  <p className="text-lg md:text-xl italic font-serif text-white/90 leading-relaxed">
-                    “Success is not simply about building a business; it is about building trust, creating lasting value, and leaving a meaningful impact.”
-                  </p>
-                  <p className="mt-4 text-xs font-bold uppercase tracking-widest text-red-500">
-                    — Tariq Khan, Attorney at Law
-                  </p>
-                </div>
               </FadeUp>
             </div>
             
-            <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center w-full overflow-hidden">
+            {/* Picture (Between Intro and Quote on Mobile, Right side on Desktop) */}
+            <div className="lg:col-span-5 lg:row-span-2 order-2 lg:order-2 flex justify-center w-full overflow-hidden lg:self-center">
               <FadeUp delay={0.2} className="w-full flex justify-center">
-                <div className="relative overflow-visible mx-auto transform scale-[0.70] sm:scale-[0.85] md:scale-100 origin-top h-[450px] sm:h-[550px] md:h-[650px]">
+                <div className="relative overflow-visible mx-auto transform scale-[0.70] sm:scale-[0.85] md:scale-100 origin-top h-[450px] sm:h-[550px] md:h-[650px] lg:-mt-12">
                   <PaperImage 
                     image="/ceo-tariq-khan.png.jpeg" 
                     mode="Wave" 
@@ -246,6 +239,20 @@ export default function AboutPage() {
                     hoverLift={60}
                     restLift={40}
                   />
+                </div>
+              </FadeUp>
+            </div>
+
+            {/* Quote */}
+            <div className="lg:col-span-7 order-3 lg:order-3">
+              <FadeUp delay={0.4}>
+                <div className="border-l-4 border-red-600 pl-6 py-2 bg-white/5 p-6 rounded-r-2xl lg:pr-10">
+                  <p className="text-lg md:text-xl italic font-serif text-white/90 leading-relaxed">
+                    “Success is not simply about building a business; it is about building trust, creating lasting value, and leaving a meaningful impact.”
+                  </p>
+                  <p className="mt-4 text-xs font-bold uppercase tracking-widest text-red-500">
+                    — Tariq Khan, Attorney at Law
+                  </p>
                 </div>
               </FadeUp>
             </div>
