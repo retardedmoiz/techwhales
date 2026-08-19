@@ -16,6 +16,7 @@ export interface TeamMember {
   imageSrc: string;
   bio?: React.ReactNode;
   socialLinks?: SocialLink[];
+  emails?: string[];
 }
 
 interface TeamSectionProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -182,7 +183,7 @@ export const TeamSection = React.forwardRef<HTMLDivElement, TeamSectionProps>(
                            <img src={member.imageSrc} alt={member.name} className="h-full w-full object-cover grayscale" />
                         </div>
                         {member.socialLinks && member.socialLinks.length > 0 && (
-                          <div className="flex gap-4">
+                          <div className="flex gap-4 mb-6">
                             {member.socialLinks.map((link, linkIndex) => (
                               <a
                                 key={linkIndex}
@@ -192,6 +193,20 @@ export const TeamSection = React.forwardRef<HTMLDivElement, TeamSectionProps>(
                                 className="text-black/40 hover:text-red-600 transition-colors bg-black/5 p-3 rounded-full"
                               >
                                 <link.icon className="h-5 w-5" />
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                        {member.emails && member.emails.length > 0 && (
+                          <div className="w-full flex flex-col gap-2 items-center text-center mt-2">
+                            <span className="text-xs uppercase tracking-widest text-black/40 font-bold mb-1 border-b border-black/10 pb-2 w-full">Contact</span>
+                            {member.emails.map((email, emailIndex) => (
+                              <a 
+                                key={emailIndex} 
+                                href={`mailto:${email}`}
+                                className="text-sm font-medium text-black/70 hover:text-red-600 transition-colors truncate max-w-full"
+                              >
+                                {email}
                               </a>
                             ))}
                           </div>
@@ -283,7 +298,7 @@ export const TeamSection = React.forwardRef<HTMLDivElement, TeamSectionProps>(
                                <img src={member.imageSrc} alt={member.name} className="h-full w-full object-cover grayscale" />
                             </div>
                             {member.socialLinks && member.socialLinks.length > 0 && (
-                              <div className="flex gap-4">
+                              <div className="flex gap-4 mb-6">
                                 {member.socialLinks.map((link, linkIndex) => (
                                   <a
                                     key={linkIndex}
@@ -293,6 +308,20 @@ export const TeamSection = React.forwardRef<HTMLDivElement, TeamSectionProps>(
                                     className="text-black/40 hover:text-red-600 transition-colors bg-black/5 p-3 rounded-full"
                                   >
                                     <link.icon className="h-5 w-5" />
+                                  </a>
+                                ))}
+                              </div>
+                            )}
+                            {member.emails && member.emails.length > 0 && (
+                              <div className="w-full flex flex-col gap-2 items-center text-center mt-2">
+                                <span className="text-xs uppercase tracking-widest text-black/40 font-bold mb-1 border-b border-black/10 pb-2 w-full">Contact</span>
+                                {member.emails.map((email, emailIndex) => (
+                                  <a 
+                                    key={emailIndex} 
+                                    href={`mailto:${email}`}
+                                    className="text-sm font-medium text-black/70 hover:text-red-600 transition-colors truncate max-w-full"
+                                  >
+                                    {email}
                                   </a>
                                 ))}
                               </div>

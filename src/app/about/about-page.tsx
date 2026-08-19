@@ -22,6 +22,7 @@ export default function AboutPage() {
       designation: "CEO & Owner",
       imageSrc: "/ceo-tariq-khan.png.jpeg",
       socialLinks: [{ icon: Linkedin, href: "#" }],
+      emails: ["Tariqkhan@techwhales.net"],
       bio: (
         <>
           <p>
@@ -38,6 +39,7 @@ export default function AboutPage() {
       designation: "Chief Technology Officer",
       imageSrc: "/CTO-dr-azhar-munir.png.jpeg",
       socialLinks: [{ icon: Linkedin, href: "#" }],
+      emails: ["azharmunir@techwhales.net"],
       bio: (
         <>
           <p>
@@ -73,6 +75,7 @@ export default function AboutPage() {
       designation: "Managing Director",
       imageSrc: "/managing-director-omar-atiq.png.jpeg",
       socialLinks: [{ icon: Linkedin, href: "#" }],
+      emails: ["Omar@techwhales.net"],
       bio: (
         <>
           <p>
@@ -90,6 +93,7 @@ export default function AboutPage() {
       designation: "Director of Operations",
       imageSrc: "/director-operations-aizaz-qureshi.png.jpeg",
       socialLinks: [{ icon: Linkedin, href: "#" }],
+      emails: ["operations@techwhales.net", "Aizaz@techwhales.net"],
       bio: (
         <>
           <p>
@@ -107,6 +111,7 @@ export default function AboutPage() {
       designation: "Director, Affiliates",
       imageSrc: "/affiliates-director-moiz-ur-rehman.png.jpeg",
       socialLinks: [{ icon: Linkedin, href: "#" }],
+      emails: ["affiliates@techwhales.net", "moizrehman@techwhales.net"],
       bio: (
         <>
           <p>
@@ -123,6 +128,7 @@ export default function AboutPage() {
       designation: "Outsourced Business Development Director",
       imageSrc: "/buisness-development-director-abdul-moiz-khan.png.jpeg",
       socialLinks: [{ icon: Linkedin, href: "#" }],
+      emails: ["moizkhan@techwhales.net"],
       bio: (
         <>
           <p>
