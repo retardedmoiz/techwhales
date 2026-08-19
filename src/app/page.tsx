@@ -9,8 +9,8 @@ import { ArrowUpRight, Check, Shield, TrendingUp, Users, Target, Zap, Activity }
 import { SITE_CONFIG, SERVICES, PORTFOLIO, INDUSTRIES } from "@/lib/config";
 import { SplineScene } from "@/components/ui/spline";
 import { Card } from "@/components/ui/card";
-import { Spotlight } from "@/components/ui/spotlight";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/fade-up";
+import TextBlockAnimation from "@/components/ui/text-block-animation";
 
 /* ============================================================================
    MICRO-ANIMATION: SCROLL TEXT REVEAL
@@ -143,21 +143,43 @@ function TrustedBySection() {
    ============================================================================ */
 function AboutSection() {
   return (
-    <section className="py-20 md:py-32 bg-[#fafafa] border-y border-black/5 relative overflow-hidden">
+    <section className="py-24 md:py-40 bg-[#fafafa] border-y border-black/5 relative overflow-hidden flex flex-col justify-center items-center">
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.04]">
         <Image src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Background Texture" fill className="object-cover grayscale" unoptimized />
       </div>
-      <div className="container mx-auto relative z-10">
+      <div className="container mx-auto relative z-10 px-6 max-w-6xl">
         <FadeUp>
-          <span className="text-xs uppercase tracking-widest text-black/40 font-bold block mb-8 flex items-center gap-2">
+          <span className="text-xs uppercase tracking-widest text-black/40 font-bold block mb-12 flex items-center gap-2">
             <Target size={14} className="text-red-600" /> Our Mission
           </span>
         </FadeUp>
-        <ScrollTextReveal 
-          text="We built TechWhales to be your genuine business partner. Whether you need legal help, tax preparation, interior design, or business outsourcing, our dedicated team is here to support you. We believe in clear communication, honest work, and making your business operations as easy and stress free as possible."
-        />
-        <FadeUp delay={0.2} className="mt-12">
-          <Link href="/about" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-black hover:text-red-600 transition-colors border-b-2 border-black hover:border-red-600 pb-1">
+        
+        <div className="space-y-4">
+          <TextBlockAnimation blockColor="#dc2626" duration={0.8} stagger={0.08}>
+            <h2 className="text-4xl md:text-6xl lg:text-[5rem] font-heading font-black tracking-tighter uppercase leading-[0.95] text-black">
+              We built TechWhales to be your genuine business partner.
+            </h2>
+          </TextBlockAnimation>
+          
+          <div className="pt-6">
+            <TextBlockAnimation blockColor="#000000" duration={0.8} stagger={0.08} delay={0.2}>
+              <h2 className="text-3xl md:text-5xl lg:text-[4rem] font-heading font-black tracking-tighter uppercase leading-[0.95] text-black/60">
+                Whether you need legal help, tax preparation, interior design, or business outsourcing, our dedicated team is here to support you.
+              </h2>
+            </TextBlockAnimation>
+          </div>
+          
+          <div className="pt-6">
+            <TextBlockAnimation blockColor="#ef4444" duration={0.8} stagger={0.08} delay={0.4}>
+              <h2 className="text-2xl md:text-4xl lg:text-[3rem] font-heading font-black tracking-tighter uppercase leading-[0.95] text-black/30">
+                We believe in clear communication, honest work, and making operations stress free.
+              </h2>
+            </TextBlockAnimation>
+          </div>
+        </div>
+
+        <FadeUp delay={0.8} className="mt-16">
+          <Link href="/about" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white bg-black hover:bg-red-600 px-8 py-4 rounded-full transition-colors duration-300">
             Read Our Story <ArrowUpRight size={16} />
           </Link>
         </FadeUp>
