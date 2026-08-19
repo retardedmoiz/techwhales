@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
+import * as LucideIcons from "lucide-react";
 import { ArrowUpRight, Check, Shield, TrendingUp, Users, Target, Zap, Activity } from "lucide-react";
 import { SITE_CONFIG, SERVICES, PORTFOLIO, INDUSTRIES } from "@/lib/config";
 import { SplineScene } from "@/components/ui/spline";
@@ -228,13 +229,15 @@ function ServicesSection() {
 
           {/* Right Column Scrolling Services */}
           <div className="lg:w-2/3 flex flex-col gap-16">
-            {SERVICES.map((service, index) => (
+            {SERVICES.map((service, index) => {
+              const Icon = (LucideIcons as any)[service.icon] || LucideIcons.Circle;
+              return (
               <FadeUp key={service.slug} delay={0.1 * (index % 4)}>
                 <Link href={`/services/${service.slug}`} className="block group border border-black/10 rounded-3xl p-8 md:p-12 bg-[#fafafa] hover:bg-white hover:shadow-xl hover:border-red-600/30 transition-all duration-500 relative overflow-hidden">
                   
                   {/* Hover Graphic */}
                   <div className="absolute -right-20 -top-20 opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none">
-                    <span className="text-[200px] font-black">{service.icon}</span>
+                    <Icon size={300} strokeWidth={1} />
                   </div>
 
                   <div className="flex items-start justify-between gap-4 mb-6 relative z-10">
@@ -260,7 +263,8 @@ function ServicesSection() {
                   </div>
                 </Link>
               </FadeUp>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

@@ -1,21 +1,24 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import * as LucideIcons from "lucide-react";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { SERVICES, SITE_CONFIG } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: `Services | ${SITE_CONFIG.brand}`,
-  description: `Explore all ${SITE_CONFIG.brand} services: BPO, outbound sales, lead generation, performance marketing, Meta advertising, web development, SEO, and more.`,
+  description: `Explore all ${SITE_CONFIG.brand} services: Legal, Tax, Design, Marketing, Web Development, and Operations.`,
 };
 
 export default function ServicesPage() {
-  const categories = ["operations", "sales", "marketing", "technology", "monetization"];
+  const categories = ["Legal", "Tax", "Design", "Operations", "Marketing", "Monetization", "Technology"];
   const categoryLabels: Record<string, string> = {
-    operations: "Operational Infrastructure",
-    sales: "Sales & Pipeline",
-    marketing: "Performance Marketing",
-    technology: "Technology & Web",
-    monetization: "Search Monetization",
+    Legal: "Legal Services",
+    Tax: "Tax Preparation & Resolution",
+    Design: "Architecture & Design",
+    Operations: "Business Operations",
+    Marketing: "Marketing & Strategy",
+    Monetization: "Search Monetization",
+    Technology: "Web & Technology",
   };
 
   return (
@@ -29,11 +32,11 @@ export default function ServicesPage() {
             <span className="text-red-600">Services</span>
           </nav>
           <h1 className="text-4xl md:text-6xl lg:text-[7rem] font-heading font-black tracking-tighter text-black uppercase mb-6 leading-[0.9] max-w-5xl">
-            14 Services. <br />
+            17 Services. <br />
             <span className="text-transparent" style={{ WebkitTextStroke: "2px #000" }}>One Partner.</span>
           </h1>
           <p className="text-black/60 text-base md:text-lg max-w-2xl leading-relaxed font-medium">
-            Stop juggling multiple agencies and disjointed tools. We provide an integrated suite of operational, technical, and marketing capabilities engineered for ruthless efficiency and exponential revenue growth.
+            Stop juggling multiple agencies and disjointed tools. We provide an integrated suite of legal, tax, design, operational, and marketing capabilities engineered for your success.
           </p>
         </div>
       </section>
@@ -54,7 +57,9 @@ export default function ServicesPage() {
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                  {catServices.map((service) => (
+                  {catServices.map((service) => {
+                    const Icon = (LucideIcons as any)[service.icon] || LucideIcons.Circle;
+                    return (
                     <Link
                       key={service.slug}
                       href={`/services/${service.slug}`}
@@ -64,7 +69,9 @@ export default function ServicesPage() {
                         <ArrowUpRight size={16} className="text-red-600" />
                       </div>
                       
-                      <span className="text-4xl mb-6 block group-hover:scale-110 transition-transform origin-left">{service.icon}</span>
+                      <div className="mb-6 block group-hover:scale-110 transition-transform origin-left text-black/40 group-hover:text-red-600">
+                        <Icon size={40} strokeWidth={1.5} />
+                      </div>
                       
                       <h3 className="text-xl md:text-2xl font-heading font-black mb-4 text-black group-hover:text-red-600 transition-colors uppercase leading-tight">
                         {service.title}
@@ -75,7 +82,7 @@ export default function ServicesPage() {
                       </p>
                       
                       <div className="space-y-3 pt-6 border-t border-black/5">
-                        {((service.details as any).items || (service.details as any).outbound || (service.details as any).inbound || []).slice(0, 3).map((detail: string, idx: number) => (
+                        {((service.details as any).items || []).slice(0, 3).map((detail: string, idx: number) => (
                           <div key={idx} className="flex items-start gap-2 text-[0.7rem] font-bold uppercase tracking-wider text-black/50 group-hover:text-black/70">
                             <CheckCircle2 size={12} className="mt-0.5 text-red-600 flex-shrink-0" />
                             <span>{detail}</span>
@@ -83,7 +90,8 @@ export default function ServicesPage() {
                         ))}
                       </div>
                     </Link>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             );

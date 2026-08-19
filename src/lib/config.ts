@@ -35,156 +35,156 @@ export const SITE_CONFIG = {
 
 export const SERVICES = [
   {
-    slug: "living-trust",
-    title: "Living Trust",
-    shortTitle: "Living Trust",
+    slug: "living-trust-probate",
+    title: "Living Trust and Probate",
+    shortTitle: "Trust & Probate",
     category: "Legal",
-    description: "Secure your assets and ensure your family is protected. We help you create clear and legally sound living trusts to avoid probate.",
-    icon: "📄",
-    details: { items: ["Asset Protection", "Estate Planning", "Family Security", "Document Preparation"] }
+    description: "Secure your assets and ensure your family is protected. We help you create clear living trusts and navigate probate court easily.",
+    icon: "ShieldCheck",
+    details: { items: ["Asset Protection", "Estate Planning", "Probate Navigation", "Document Preparation"] }
   },
   {
-    slug: "probate",
-    title: "Probate",
-    shortTitle: "Probate",
-    category: "Legal",
-    description: "Navigate the probate process easily. Our team provides clear guidance to settle estates quickly and properly.",
-    icon: "⚖️",
-    details: { items: ["Estate Settlement", "Legal Guidance", "Asset Distribution", "Court Representation"] }
-  },
-  {
-    slug: "deed-services",
-    title: "Deed Services",
-    shortTitle: "Deed Services",
-    category: "Legal",
-    description: "Transfer property ownership smoothly. We prepare and record all types of property deeds accurately.",
-    icon: "🏠",
-    details: { items: ["Property Transfer", "Title Updates", "Document Recording", "Legal Preparation"] }
-  },
-  {
-    slug: "divorce",
-    title: "Divorce",
-    shortTitle: "Divorce",
-    category: "Legal",
-    description: "Professional support during difficult times. We handle your divorce proceedings with care and strict confidentiality.",
-    icon: "🤝",
-    details: { items: ["Legal Filing", "Mediation", "Asset Division", "Confidential Support"] }
-  },
-  {
-    slug: "child-custody-family-law",
-    title: "Child Custody and Family Law",
+    slug: "family-law-divorce",
+    title: "Family Law and Divorce",
     shortTitle: "Family Law",
     category: "Legal",
-    description: "Protecting the best interests of your children. We offer genuine advice and representation for all family law matters.",
-    icon: "👨‍👩‍👧",
-    details: { items: ["Custody Agreements", "Visitation Rights", "Family Support", "Legal Representation"] }
+    description: "Compassionate and professional legal help to guide you through divorce proceedings and child custody matters.",
+    icon: "Users",
+    details: { items: ["Divorce Filing", "Mediation", "Child Custody", "Asset Division"] }
   },
   {
-    slug: "eviction",
-    title: "Eviction",
-    shortTitle: "Eviction",
-    category: "Legal",
-    description: "Lawful and efficient eviction services for property owners. We manage the entire legal process from notice to resolution.",
-    icon: "🚪",
-    details: { items: ["Legal Notices", "Court Filings", "Tenant Disputes", "Property Recovery"] }
-  },
-  {
-    slug: "small-claim",
-    title: "Small Claim",
-    shortTitle: "Small Claim",
-    category: "Legal",
-    description: "Resolve disputes quickly and fairly. We assist with filing and presenting your small claims case effectively.",
-    icon: "⚖️",
-    details: { items: ["Case Preparation", "Legal Filing", "Dispute Resolution", "Court Assistance"] }
-  },
-  {
-    slug: "real-estate-services",
-    title: "Real Estate Services",
+    slug: "real-estate-eviction",
+    title: "Real Estate and Eviction",
     shortTitle: "Real Estate",
     category: "Legal",
-    description: "Comprehensive legal help for buying, selling, or managing real estate properties.",
-    icon: "🏢",
-    details: { items: ["Contract Review", "Closing Assistance", "Property Disputes", "Legal Counsel"] }
+    description: "Comprehensive legal assistance for property transfers, deed services, and lawful eviction processes.",
+    icon: "Home",
+    details: { items: ["Deed Transfers", "Contract Review", "Eviction Notices", "Property Disputes"] }
+  },
+  {
+    slug: "small-claims-disputes",
+    title: "Small Claims and Disputes",
+    shortTitle: "Small Claims",
+    category: "Legal",
+    description: "Resolve disputes quickly and fairly. We assist with filing and presenting your small claims case effectively.",
+    icon: "Scale",
+    details: { items: ["Case Preparation", "Legal Filing", "Dispute Resolution", "Court Assistance"] }
   },
   {
     slug: "tax-preparation",
     title: "Tax Preparation",
     shortTitle: "Tax Prep",
     category: "Tax",
-    description: "Accurate tax returns for individuals and businesses across all fifty states. We ensure you get the maximum return possible.",
-    icon: "💵",
-    details: { items: ["Small Business Taxes", "Corporate Taxes", "LLC and Partnerships", "Payroll Tax Returns"] }
+    description: "Accurate tax returns for individuals and businesses. We ensure you get the maximum return possible.",
+    icon: "FileText",
+    details: { items: ["Small Business Taxes", "Corporate Taxes", "LLC Returns", "Payroll Taxes"] }
   },
   {
-    slug: "tax-resolution-audits",
-    title: "Tax Resolution and Audits",
+    slug: "tax-resolution-debt-relief",
+    title: "Tax Resolution and Debt Relief",
     shortTitle: "Tax Resolution",
     category: "Tax",
-    description: "Professional representation for IRS audits and tax disputes. We work to resolve your tax problems completely.",
-    icon: "🛡️",
-    details: { items: ["IRS Representation", "Audit Defense", "Delinquent Taxes", "Penalty Abatement"] }
+    description: "Professional representation for IRS audits. We negotiate payment plans and offers to reduce your tax burden.",
+    icon: "Briefcase",
+    details: { items: ["IRS Representation", "Audit Defense", "Debt Negotiation", "Penalty Abatement"] }
   },
   {
-    slug: "tax-debt-relief",
-    title: "Tax Debt Relief",
-    shortTitle: "Debt Relief",
-    category: "Tax",
-    description: "Find a way out of tax debt. We negotiate payment plans and offers in compromise to reduce your burden.",
-    icon: "📉",
-    details: { items: ["Offer In Compromise", "Payment Plans", "Debt Negotiation", "Financial Planning"] }
-  },
-  {
-    slug: "residential-design-drafting",
+    slug: "residential-design",
     title: "Residential Design and Drafting",
     shortTitle: "Design",
     category: "Design",
-    description: "Beautiful residential plans tailored to your vision. We provide accurate drafting for your next home project.",
-    icon: "✏️",
+    description: "Beautiful residential plans tailored to your vision. We provide accurate blueprints for your next project.",
+    icon: "PenTool",
     details: { items: ["Custom Home Design", "Floor Plans", "Blueprint Drafting", "Renovation Planning"] }
   },
   {
-    slug: "interior-design-staging",
-    title: "Interior Design and Staging",
+    slug: "interior-staging",
+    title: "3D Interior Staging and Visuals",
     shortTitle: "Staging",
     category: "Design",
     description: "Stunning interior design and property staging. We create visual experiences that help sell homes faster.",
-    icon: "🛋️",
+    icon: "Image",
     details: { items: ["3D Staging", "Property Visualizations", "Interior Planning", "Realtor Services"] }
   },
   {
     slug: "business-outsourcing",
     title: "Business Process Outsourcing",
     shortTitle: "Outsourcing",
-    category: "Business",
-    description: "Grow your company with our remote support teams. We handle customer service, sales calls, and daily tasks.",
-    icon: "📞",
+    category: "Operations",
+    description: "Reduce operational costs and improve efficiency. We provide highly trained support and sales teams.",
+    icon: "Headphones",
     details: { items: ["Customer Support", "Sales Teams", "Lead Generation", "Daily Operations"] }
   },
   {
-    slug: "web-development",
-    title: "Web Development",
-    shortTitle: "Web Dev",
-    category: "Technology",
-    description: "Fast and secure websites that represent your brand perfectly. We build easy to use platforms for your business.",
-    icon: "💻",
-    details: { items: ["Custom Websites", "Landing Pages", "Online Stores", "Website Maintenance"] }
-  },
-  {
     slug: "digital-marketing",
-    title: "Digital Marketing",
+    title: "Digital and Performance Marketing",
     shortTitle: "Marketing",
     category: "Marketing",
-    description: "Reach more customers online. We run genuine marketing campaigns that bring real results and engagement.",
-    icon: "📱",
+    description: "Comprehensive marketing strategies designed to connect your brand value with scalable revenue.",
+    icon: "Target",
     details: { items: ["Social Media", "Paid Advertising", "Email Campaigns", "Brand Awareness"] }
   },
   {
+    slug: "affiliate-marketing",
+    title: "Affiliate Marketing Management",
+    shortTitle: "Affiliate",
+    category: "Marketing",
+    description: "End to end management of affiliate networks, publisher recruitment, and payout configurations.",
+    icon: "Network",
+    details: { items: ["Program Setup", "Publisher Recruitment", "Performance Tracking", "Fraud Prevention"] }
+  },
+  {
+    slug: "media-buying",
+    title: "Paid Media Buying",
+    shortTitle: "Media Buying",
+    category: "Marketing",
+    description: "Launch and optimize profitable paid traffic across major ad platforms, maximizing your return on investment.",
+    icon: "TrendingUp",
+    details: { items: ["Meta Advertising", "TikTok Ads", "Search Media", "Campaign Optimization"] }
+  },
+  {
+    slug: "search-monetization",
+    title: "Search Monetization",
+    shortTitle: "Monetization",
+    category: "Monetization",
+    description: "Optimize domains and run high yield search campaigns using top tier platforms.",
+    icon: "DollarSign",
+    details: { items: ["Campaign Management", "Domain Parking", "Creative Testing", "Traffic Acquisition"] }
+  },
+  {
+    slug: "web-development",
+    title: "Web and Custom App Development",
+    shortTitle: "Web Dev",
+    category: "Technology",
+    description: "Design and build modern websites and platforms focused on turning traffic into buyers.",
+    icon: "Code",
+    details: { items: ["Custom Websites", "Landing Pages", "Online Stores", "Platform Maintenance"] }
+  },
+  {
+    slug: "branding",
+    title: "Brand Strategy and Creative",
+    shortTitle: "Branding",
+    category: "Marketing",
+    description: "Define your company market positioning and create beautiful identity systems that command authority.",
+    icon: "Sparkles",
+    details: { items: ["Brand Strategy", "Identity Development", "Market Positioning", "Reputation Management"] }
+  },
+  {
+    slug: "human-resources",
+    title: "HR and Talent Acquisition",
+    shortTitle: "HR",
+    category: "Operations",
+    description: "Source, onboard, and manage remote talent and dedicated teams. We handle candidate vetting easily.",
+    icon: "UserPlus",
+    details: { items: ["Recruitment", "Employee Onboarding", "Payroll Coordination", "Performance Management"] }
+  },
+  {
     slug: "bookkeeping",
-    title: "Bookkeeping",
+    title: "Financial Bookkeeping Services",
     shortTitle: "Bookkeeping",
-    category: "Business",
-    description: "Keep your financial records clean and organized. We track your expenses and prepare clear monthly reports.",
-    icon: "📊",
+    category: "Operations",
+    description: "Keep your company financial records clean, balanced, and compliant. We manage daily bookkeeping.",
+    icon: "PieChart",
     details: { items: ["Daily Tracking", "Bank Reconciliation", "Expense Reports", "Financial Clarity"] }
   }
 ];

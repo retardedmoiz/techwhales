@@ -41,15 +41,15 @@ export default function Navigation() {
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="group flex items-center gap-1.5 z-50">
-            <CustomCursorTarget className="flex items-center">
+            <div className="flex items-center">
               <TechWhalesLogo width={180} className="text-black group-hover:text-red-600 transition-colors duration-300" />
-            </CustomCursorTarget>
+            </div>
           </Link>
 
           {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center gap-8">
             {NAV_LINKS.filter(link => link.name !== "Legal Terms" && link.name !== "Contact").map((link) => (
-              <CustomCursorTarget key={link.name}>
+              <div key={link.name}>
                 <Link
                   href={link.href}
                   className={cn(
@@ -61,21 +61,21 @@ export default function Navigation() {
                 >
                   {link.name}
                 </Link>
-              </CustomCursorTarget>
+              </div>
             ))}
           </div>
 
           {/* CTA & Legal Links */}
           <div className="hidden lg:flex items-center gap-6">
-            <CustomCursorTarget>
+            <div>
               <Link
                 href="/legal"
                 className="text-[0.75rem] font-medium uppercase tracking-widest text-black/60 hover:text-black transition-colors block py-2"
               >
                 Legal Terms
               </Link>
-            </CustomCursorTarget>
-            <CustomCursorTarget>
+            </div>
+            <div>
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2 px-5 py-2.5 text-[0.75rem] font-bold uppercase tracking-wider text-white bg-black rounded-full hover:bg-red-600 transition-all duration-300"
@@ -83,7 +83,7 @@ export default function Navigation() {
                 Let&apos;s Talk
                 <ArrowUpRight size={14} className="group-hover:rotate-45 transition-transform duration-300" />
               </Link>
-            </CustomCursorTarget>
+            </div>
           </div>
 
           {/* Mobile Toggle */}
@@ -145,7 +145,7 @@ export default function Navigation() {
               className="mt-auto"
             >
               <Link
-                href="/#contact"
+                href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="flex items-center justify-center gap-2 w-full py-4 text-sm font-bold uppercase tracking-widest text-white bg-black rounded-full"
               >

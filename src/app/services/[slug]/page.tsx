@@ -32,9 +32,9 @@ const serviceDetails: Record<string, {
   faqs: { q: string; a: string }[];
   image: string;
 }> = {
-  "living-trust": {
+  "living-trust-probate": {
     headline: "Protect Your Family.",
-    subheadline: "A living trust is the best way to secure your assets and make sure your family is taken care of without the stress of probate court.",
+    subheadline: "Secure your assets and make sure your family is taken care of without the stress of probate court.",
     image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2070&auto=format&fit=crop",
     benefits: ["Avoid probate court", "Protect your assets", "Keep matters private", "Provide for your family"],
     process: [
@@ -45,72 +45,33 @@ const serviceDetails: Record<string, {
     ],
     faqs: []
   },
-  "probate": {
-    headline: "Clear Probate Guidance.",
-    subheadline: "Navigating probate can be confusing. We are here to guide you through the legal steps to settle an estate properly.",
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop",
-    benefits: ["Clear legal guidance", "Court representation", "Asset distribution help", "Stress relief"],
-    process: [
-      { step: "Review", description: "We review the estate and explain the probate process." },
-      { step: "File", description: "We handle filing all necessary court documents." },
-      { step: "Manage", description: "We assist with managing the estate assets." },
-      { step: "Close", description: "We help distribute assets and close the estate properly." }
-    ],
-    faqs: []
-  },
-  "deed-services": {
-    headline: "Simple Property Transfers.",
-    subheadline: "Whether you are adding a family member or transferring property to a trust, we prepare and record your deeds accurately.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop",
-    benefits: ["Accurate deed preparation", "Fast processing", "Proper county recording", "Clear communication"],
-    process: [
-      { step: "Gather", description: "We collect the property and owner information." },
-      { step: "Prepare", description: "We prepare the correct deed for your situation." },
-      { step: "Sign", description: "We coordinate the signing and notarization." },
-      { step: "Record", description: "We record the deed with the county office." }
-    ],
-    faqs: []
-  },
-  "divorce": {
+  "family-law-divorce": {
     headline: "Support During Hard Times.",
-    subheadline: "We provide compassionate and professional legal help to guide you through your divorce proceedings.",
+    subheadline: "We provide compassionate and professional legal help to guide you through divorce and family matters.",
     image: "https://images.unsplash.com/photo-1505664173615-515c15dc9a6f?q=80&w=2072&auto=format&fit=crop",
-    benefits: ["Compassionate support", "Fair asset division", "Clear legal advice", "Private and confidential"],
+    benefits: ["Compassionate support", "Fair asset division", "Child custody help", "Private and confidential"],
     process: [
       { step: "Consult", description: "We discuss your situation in a private meeting." },
       { step: "Plan", description: "We develop a strategy that protects your interests." },
       { step: "Mediate", description: "We work to reach fair agreements whenever possible." },
-      { step: "Resolve", description: "We finalize the divorce so you can move forward." }
+      { step: "Resolve", description: "We finalize the process so you can move forward." }
     ],
     faqs: []
   },
-  "child-custody-family-law": {
-    headline: "Protecting Your Children.",
-    subheadline: "We care about your family. Our team offers genuine advice and strong representation for all family law and child custody matters.",
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop",
-    benefits: ["Focus on the children", "Fair custody agreements", "Supportive legal counsel", "Strong representation"],
-    process: [
-      { step: "Listen", description: "We listen to your concerns and goals for your children." },
-      { step: "Advise", description: "We explain your legal rights and options clearly." },
-      { step: "Negotiate", description: "We aim for peaceful agreements regarding custody." },
-      { step: "Represent", description: "We stand by your side in court if necessary." }
-    ],
-    faqs: []
-  },
-  "eviction": {
+  "real-estate-eviction": {
     headline: "Property Protection.",
-    subheadline: "We help property owners handle tenant disputes and evictions lawfully and efficiently.",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2036&auto=format&fit=crop",
-    benefits: ["Lawful procedures", "Fast resolution", "Court representation", "Property recovery"],
+    subheadline: "Comprehensive legal assistance for buying, selling, managing real estate, and lawful eviction processes.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop",
+    benefits: ["Accurate deed transfers", "Lawful evictions", "Contract review", "Dispute resolution"],
     process: [
-      { step: "Notice", description: "We prepare and serve the proper legal notices." },
-      { step: "File", description: "We file the necessary court paperwork." },
-      { step: "Appear", description: "We represent you during the court hearing." },
-      { step: "Recover", description: "We assist in recovering your property lawfully." }
+      { step: "Review", description: "We review your property situation or contracts." },
+      { step: "Prepare", description: "We prepare the necessary legal documents." },
+      { step: "Execute", description: "We handle filings, notices, or negotiations." },
+      { step: "Resolve", description: "We ensure a smooth resolution to protect your asset." }
     ],
     faqs: []
   },
-  "small-claim": {
+  "small-claims-disputes": {
     headline: "Resolve Disputes Quickly.",
     subheadline: "If someone owes you money, we can help you prepare and present your small claims case effectively.",
     image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2070&auto=format&fit=crop",
@@ -120,19 +81,6 @@ const serviceDetails: Record<string, {
       { step: "Prepare", description: "We organize your case for the judge." },
       { step: "File", description: "We handle the court filing process." },
       { step: "Guide", description: "We explain exactly what to say in court." }
-    ],
-    faqs: []
-  },
-  "real-estate-services": {
-    headline: "Real Estate Legal Help.",
-    subheadline: "We provide comprehensive legal assistance for buying, selling, or managing real estate properties.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop",
-    benefits: ["Contract review", "Closing assistance", "Dispute resolution", "Clear communication"],
-    process: [
-      { step: "Review", description: "We carefully review all real estate contracts." },
-      { step: "Advise", description: "We point out any risks or issues." },
-      { step: "Negotiate", description: "We negotiate terms to protect you." },
-      { step: "Close", description: "We ensure a smooth closing process." }
     ],
     faqs: []
   },
@@ -149,33 +97,20 @@ const serviceDetails: Record<string, {
     ],
     faqs: []
   },
-  "tax-resolution-audits": {
-    headline: "Solve IRS Problems.",
-    subheadline: "We provide professional representation for IRS audits and tax disputes. Let us handle the IRS for you.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
-    benefits: ["Professional representation", "Stop IRS letters", "Audit defense", "Peace of mind"],
-    process: [
-      { step: "Assess", description: "We review the IRS notices you received." },
-      { step: "Communicate", description: "We talk to the IRS on your behalf." },
-      { step: "Defend", description: "We protect your rights during the audit." },
-      { step: "Resolve", description: "We negotiate a final resolution." }
-    ],
-    faqs: []
-  },
-  "tax-debt-relief": {
+  "tax-resolution-debt-relief": {
     headline: "Get Out Of Tax Debt.",
-    subheadline: "We help you find a way out of tax debt by negotiating payment plans and offers in compromise.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-    benefits: ["Reduce tax debt", "Affordable payment plans", "Stop wage garnishments", "Financial freedom"],
+    subheadline: "We provide professional representation for IRS audits and help you find a way out of tax debt.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
+    benefits: ["Audit defense", "Stop IRS letters", "Reduce tax debt", "Affordable payment plans"],
     process: [
-      { step: "Analyze", description: "We look at your total tax debt and finances." },
+      { step: "Assess", description: "We review the IRS notices and your total debt." },
       { step: "Plan", description: "We find the best relief program for you." },
-      { step: "Negotiate", description: "We present the offer to the IRS." },
-      { step: "Settle", description: "We finalize the agreement to reduce your debt." }
+      { step: "Negotiate", description: "We talk to the IRS on your behalf." },
+      { step: "Settle", description: "We finalize the agreement to reduce your burden." }
     ],
     faqs: []
   },
-  "residential-design-drafting": {
+  "residential-design": {
     headline: "Beautiful Home Plans.",
     subheadline: "We create accurate blueprints and residential plans tailored to your vision for your next home project.",
     image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2071&auto=format&fit=crop",
@@ -188,7 +123,7 @@ const serviceDetails: Record<string, {
     ],
     faqs: []
   },
-  "interior-design-staging": {
+  "interior-staging": {
     headline: "Stunning Property Staging.",
     subheadline: "We provide beautiful 3D interior design and property staging that helps realtors and owners sell homes faster.",
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
@@ -214,6 +149,58 @@ const serviceDetails: Record<string, {
     ],
     faqs: []
   },
+  "digital-marketing": {
+    headline: "Reach More Customers.",
+    subheadline: "We run honest and effective marketing campaigns on social media and Google to bring real customers to your business.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+    benefits: ["Increase brand awareness", "Get more leads", "Honest reporting", "Targeted advertising"],
+    process: [
+      { step: "Strategy", description: "We find out where your best customers spend time." },
+      { step: "Create", description: "We make engaging ads and posts." },
+      { step: "Launch", description: "We start the campaigns with a set budget." },
+      { step: "Optimize", description: "We improve the ads daily to get better results." }
+    ],
+    faqs: []
+  },
+  "affiliate-marketing": {
+    headline: "Partnerships That Scale.",
+    subheadline: "End to end management of affiliate networks and publishers, tracking campaigns for maximum profitability.",
+    image: "https://images.unsplash.com/photo-1552581234-26160860f376?q=80&w=2070&auto=format&fit=crop",
+    benefits: ["Affiliate network setup", "Publisher recruitment", "Commission tracking", "Fraud prevention"],
+    process: [
+      { step: "Setup", description: "We configure your affiliate platform and tracking." },
+      { step: "Recruit", description: "We recruit top tier publishers for your offers." },
+      { step: "Manage", description: "Daily management of payouts and relationships." },
+      { step: "Scale", description: "We scale performing partners for more growth." }
+    ],
+    faqs: []
+  },
+  "media-buying": {
+    headline: "Paid Media Buying.",
+    subheadline: "Strategic media acquisition engineered to maximize reach, minimize waste, and deliver measurable results.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    benefits: ["Cross channel planning", "Real time bid optimization", "Audience targeting", "Transparent reporting"],
+    process: [
+      { step: "Plan", description: "We build a media plan aligned to your audience." },
+      { step: "Place", description: "Campaigns go live across premium inventory." },
+      { step: "Optimize", description: "Daily bid management and creative rotation." },
+      { step: "Report", description: "Weekly reports showing true return on investment." }
+    ],
+    faqs: []
+  },
+  "search-monetization": {
+    headline: "Search Monetization.",
+    subheadline: "Optimize domains and run high yield search arbitrage campaigns using top tier platforms.",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1974&auto=format&fit=crop",
+    benefits: ["Search arbitrage campaigns", "Domain portfolio optimization", "Real time reporting", "Maximum yield"],
+    process: [
+      { step: "Analyze", description: "We analyze your domain portfolio and traffic sources." },
+      { step: "Deploy", description: "We deploy optimized feeds and landing pages." },
+      { step: "Acquire", description: "We drive high intent traffic to your domains." },
+      { step: "Yield", description: "Daily optimization to maximize your revenue." }
+    ],
+    faqs: []
+  },
   "web-development": {
     headline: "Websites That Work.",
     subheadline: "We build fast, secure, and beautiful websites that represent your brand and are easy for your customers to use.",
@@ -227,16 +214,29 @@ const serviceDetails: Record<string, {
     ],
     faqs: []
   },
-  "digital-marketing": {
-    headline: "Reach More Customers.",
-    subheadline: "We run honest and effective marketing campaigns on social media and Google to bring real customers to your business.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
-    benefits: ["Increase brand awareness", "Get more leads", "Honest reporting", "Targeted advertising"],
+  "branding": {
+    headline: "Brand Systems That Lead.",
+    subheadline: "Define your company market positioning and create beautiful identity systems that command authority.",
+    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop",
+    benefits: ["Brand strategy", "Logo design", "Brand messaging", "Comprehensive guidelines"],
     process: [
-      { step: "Strategy", description: "We find out where your best customers spend time." },
-      { step: "Create", description: "We make engaging ads and posts." },
-      { step: "Launch", description: "We start the campaigns with a set budget." },
-      { step: "Optimize", description: "We improve the ads daily to get better results." }
+      { step: "Discover", description: "Deep dive into your company values and market gaps." },
+      { step: "Position", description: "We define your unique angle and message." },
+      { step: "Design", description: "We build the visual system to match the positioning." },
+      { step: "Apply", description: "Rollout across all digital and physical touchpoints." }
+    ],
+    faqs: []
+  },
+  "human-resources": {
+    headline: "Elite Talent Acquisition.",
+    subheadline: "Source, onboard, and manage remote talent and dedicated teams. We handle vetting so you can focus on building.",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
+    benefits: ["Global talent sourcing", "Remote team onboarding", "Payroll coordination", "Performance management"],
+    process: [
+      { step: "Profile", description: "We define the exact skills and culture fit you need." },
+      { step: "Source", description: "We headhunt top candidates globally." },
+      { step: "Screen", description: "Rigorous technical and cultural interviews." },
+      { step: "Onboard", description: "Seamless transition into your company workflow." }
     ],
     faqs: []
   },

@@ -8,10 +8,10 @@ import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/fade-up";
 
 export default function AboutPage() {
   const values = [
-    { icon: Zap, title: "Speed to Execution", desc: "We eliminate bureaucracy. We move from strategy to implementation in days, not months." },
-    { icon: Target, title: "Data-Driven Precision", desc: "No vanity metrics. Every campaign, every hire, every dollar spent is tracked to bottom-line ROI." },
-    { icon: Users, title: "Elite Talent Only", desc: "We source the top 1% of operators, media buyers, and developers. No B-teams." },
-    { icon: Shield, title: "Absolute Accountability", desc: "We act as owners. If something breaks, we fix it. If something scales, we push it harder." }
+    { icon: Zap, title: "Fast Execution", desc: "We eliminate delays. We move from planning to action in days, not months." },
+    { icon: Target, title: "Clear Precision", desc: "No guesswork. Every legal filing, tax return, and project is handled with exact precision." },
+    { icon: Users, title: "Dedicated Experts", desc: "We only work with the best attorneys, tax professionals, and business operators to ensure your success." },
+    { icon: Shield, title: "Absolute Accountability", desc: "We act as your true partner. If something needs fixing, we fix it. We are always by your side." }
   ];
 
   return (
@@ -29,12 +29,12 @@ export default function AboutPage() {
               <span className="text-red-600">About Us</span>
             </nav>
             <h1 className="text-4xl md:text-6xl lg:text-[7rem] font-heading font-black tracking-tighter text-black uppercase mb-6 leading-none max-w-5xl">
-              Not an agency. <br />
-              <span className="text-transparent" style={{ WebkitTextStroke: "2px #000" }}>A Growth Engine.</span>
+              Not just an agency. <br />
+              <span className="text-transparent" style={{ WebkitTextStroke: "2px #000" }}>A True Partner.</span>
             </h1>
             <p className="text-black/60 text-base md:text-lg max-w-2xl leading-relaxed font-medium">
-              Operated by {SITE_CONFIG.legalName}, {SITE_CONFIG.brand} was born out of frustration with traditional agencies. 
-              We couldn't find a partner that executed with speed, precision, and accountability—so we built one.
+              Operated by {SITE_CONFIG.legalName}, {SITE_CONFIG.brand} was born out of frustration with traditional service providers. 
+              We wanted a single trusted partner for legal, tax, design, and business operations, so we built exactly that.
             </p>
           </FadeUp>
         </div>
@@ -54,18 +54,18 @@ export default function AboutPage() {
               <FadeUp delay={0.2}>
                 <span className="text-xs uppercase tracking-widest text-red-600 font-bold block mb-4">Our Origin</span>
                 <h2 className="text-4xl md:text-5xl font-heading font-black text-black uppercase tracking-tighter mb-8 leading-none">
-                  Built by Operators,<br />
-                  For Operators.
+                  Built by Professionals,<br />
+                  For Your Business.
                 </h2>
                 <div className="space-y-6 text-black/65 text-base md:text-lg font-medium leading-relaxed">
                   <p>
-                    Most businesses are trapped in a cycle of hiring slow, expensive local talent, or outsourcing to agencies that care more about retainers than revenue.
+                    Most people are trapped trying to find a different professional for every problem. One for taxes, one for legal issues, and another for marketing. It becomes stressful and expensive.
                   </p>
                   <p>
-                    {SITE_CONFIG.brand} bridges that gap. We assemble highly specialized offshore teams, deploy cutting-edge infrastructure, and execute high-converting digital marketing campaigns. We give you enterprise-level capabilities at startup speed.
+                    {SITE_CONFIG.brand} bridges that gap. We bring together highly specialized teams under one roof. We give you professional capabilities and genuine support without the endless searching.
                   </p>
                   <p>
-                    Whether you need a full BPO call center, an outbound SDR pipeline, or a performance marketing overhaul, we embed ourselves into your business and drive measurable outcomes.
+                    Whether you need help with a living trust, corporate tax preparation, interior design for your real estate, or a new website, we embed ourselves as your true partner to drive real results.
                   </p>
                 </div>
               </FadeUp>
@@ -111,10 +111,10 @@ export default function AboutPage() {
               <span className="text-red-600">Scale Without Limits?</span>
             </h2>
             <p className="text-black/60 max-w-xl mx-auto mb-10 font-medium">
-              Join the businesses that have revolutionized their operations and accelerated their revenue with our dedicated teams.
+              Join the businesses and families that have trusted us to handle their most important matters with genuine care.
             </p>
             <Link href="/contact" className="inline-flex items-center gap-3 px-10 py-5 text-sm font-bold uppercase tracking-widest text-white bg-black rounded-full hover:bg-red-600 transition-colors duration-300">
-              Book Strategy Session <ArrowUpRight size={18} />
+              Get Started Today <ArrowUpRight size={18} />
             </Link>
           </FadeUp>
         </div>
