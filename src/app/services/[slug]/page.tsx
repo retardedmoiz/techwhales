@@ -275,6 +275,46 @@ export default async function ServiceDetailPage({ params }: Props) {
     faqs: []
   };
 
+  let formLabel = "What is your primary objective?";
+  let formOptions = ["Immediate Help", "Consultation", "Pricing info", "Long term Partnership"];
+
+  if (service.category === "Legal") {
+    formLabel = `What type of ${service.shortTitle} assistance do you need?`;
+    formOptions = ["Urgent Legal Help", "Document Preparation", "Dispute Resolution", "General Consultation"];
+  } else if (service.category === "Tax") {
+    formLabel = `What is your primary tax concern?`;
+    formOptions = ["Personal Tax Prep", "Business Taxes", "IRS Debt/Audit", "Tax Planning"];
+  } else if (service.category === "Design") {
+    formLabel = `What best describes your design project?`;
+    formOptions = ["New Construction", "Remodel/Renovation", "Virtual Staging", "Commercial Space"];
+  } else if (service.category === "Operations") {
+    formLabel = `Where do you need operational support?`;
+    formOptions = ["Remote Staffing", "HR & Recruiting", "Bookkeeping", "Process Outsourcing"];
+  } else if (service.category === "Marketing") {
+    formLabel = `What is your primary marketing goal?`;
+    formOptions = ["More Leads/Sales", "Brand Awareness", "Social Media Growth", "Affiliate Partnerships"];
+  } else if (service.category === "Technology") {
+    formLabel = `What type of technology project?`;
+    formOptions = ["New Website", "E-commerce Store", "Custom Web App", "Site Redesign"];
+  } else if (service.category === "Monetization") {
+    formLabel = `What is your primary monetization focus?`;
+    formOptions = ["Domain Parking", "Search Arbitrage", "Ad Revenue", "Portfolio Management"];
+  }
+  
+  if (slug === "family-law-divorce") {
+    formLabel = "What specific family matter do you need help with?";
+    formOptions = ["Filing for Divorce", "Child Custody", "Asset Division", "Mediation"];
+  } else if (slug === "real-estate-eviction") {
+    formLabel = "What real estate issue are you facing?";
+    formOptions = ["Evicting a Tenant", "Drafting Leases", "Property Dispute", "Deed Transfer"];
+  } else if (slug === "small-claims-disputes") {
+    formLabel = "What is the nature of your dispute?";
+    formOptions = ["Unpaid Debt", "Property Damage", "Breach of Contract", "Defending a Claim"];
+  } else if (slug === "tax-resolution-debt-relief") {
+    formLabel = "What tax issue are you facing?";
+    formOptions = ["IRS Audit", "Back Taxes Owed", "Wage Garnishment", "Unfiled Returns"];
+  }
+
   return (
     <div className="bg-white text-black min-h-screen">
       {/* HERO SECTION */}
@@ -415,11 +455,11 @@ export default async function ServiceDetailPage({ params }: Props) {
             </div>
 
             <div>
-              <label className="text-[0.7rem] font-bold uppercase tracking-widest text-white/50 block mb-4">What is your primary objective?</label>
+              <label className="text-[0.7rem] font-bold uppercase tracking-widest text-white/50 block mb-4">{formLabel}</label>
               <div className="grid grid-cols-2 gap-4">
-                {["Immediate Help", "Consultation", "Pricing info", "Long term Partnership"].map((opt) => (
+                {formOptions.map((opt) => (
                   <label key={opt} className="flex items-center gap-3 cursor-pointer group">
-                    <input type="radio" name="objective" className="accent-red-600 w-4 h-4 cursor-pointer" />
+                    <input type="radio" name="objective" value={opt} className="accent-red-600 w-4 h-4 cursor-pointer" />
                     <span className="text-sm text-white/70 group-hover:text-white transition-colors">{opt}</span>
                   </label>
                 ))}

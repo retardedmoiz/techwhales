@@ -190,18 +190,54 @@ export const SERVICES = [
 ];
 
 export const INDUSTRIES = [
-  { slug: "startups", title: "Startups", icon: "🚀" },
-  { slug: "medium-businesses", title: "Growing Businesses", icon: "🏢" },
-  { slug: "ecommerce", title: "Online Stores", icon: "🛒" },
-  { slug: "healthcare", title: "Healthcare", icon: "🏥" },
-  { slug: "legal", title: "Law Firms", icon: "⚖️" },
-  { slug: "agencies", title: "Agencies", icon: "📣" },
-  { slug: "small-businesses", title: "Local Shops", icon: "🏪" },
-  { slug: "enterprises", title: "Large Companies", icon: "🏭" },
-  { slug: "saas", title: "Software Companies", icon: "💻" },
-  { slug: "real-estate", title: "Real Estate", icon: "🏠" },
-  { slug: "financial", title: "Financial Groups", icon: "💳" },
-  { slug: "professional", title: "Service Providers", icon: "🤝" }
+  { 
+    slug: "startups-entrepreneurs", 
+    title: "Startups & Entrepreneurs", 
+    icon: "Rocket",
+    description: "Launch your new business with confidence. We handle your business formation, tax planning, and build your initial website so you can focus on your product.",
+    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=2072&auto=format&fit=crop",
+    services: ["Business Formation", "Tax Strategy", "Web Development", "Growth Marketing"]
+  },
+  { 
+    slug: "real-estate", 
+    title: "Real Estate & Property", 
+    icon: "Building",
+    description: "Comprehensive support for real estate professionals. From legal deed transfers and eviction support to beautiful 3D interior staging.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop",
+    services: ["Deed Services", "Eviction Legal Help", "Interior Staging", "Tax Prep"]
+  },
+  { 
+    slug: "ecommerce-retail", 
+    title: "E-Commerce & Retail", 
+    icon: "ShoppingCart",
+    description: "Scale your online store with our tailored services. We provide highly profitable digital marketing, clean bookkeeping, and customer support teams.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1973&auto=format&fit=crop",
+    services: ["Digital Marketing", "Bookkeeping", "Customer Support BPO", "Web Design"]
+  },
+  { 
+    slug: "healthcare-medical", 
+    title: "Healthcare & Medical", 
+    icon: "Stethoscope",
+    description: "Keep your private practice running smoothly. We manage your HR needs, financial bookkeeping, and local marketing to attract new patients safely.",
+    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop",
+    services: ["HR & Recruiting", "Financial Bookkeeping", "Local SEO", "Tax Resolution"]
+  },
+  { 
+    slug: "local-services", 
+    title: "Local Service Businesses", 
+    icon: "MapPin",
+    description: "Dominate your local market. We assist contractors and local shops with small claims, tax preparation, and digital marketing to beat the competition.",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop",
+    services: ["Small Claims", "Tax Preparation", "Local Advertising", "Web Development"]
+  },
+  { 
+    slug: "agencies-firms", 
+    title: "Agencies & Law Firms", 
+    icon: "Briefcase",
+    description: "Expand your firm's capabilities without the overhead. We provide white-label media buying, remote support staff, and specialized tax services.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
+    services: ["White-label Media Buying", "Remote Assistants", "Search Monetization", "Tax Services"]
+  }
 ];
 
 export const PORTFOLIO = [
