@@ -32,6 +32,64 @@ const serviceDetails: Record<string, {
   faqs: { q: string; a: string }[];
   image: string;
 }> = {
+  "legal-services": {
+    headline: "Protecting What Matters Most.",
+    subheadline: "From living trusts to family law, our network of expert attorneys handles your most critical legal needs with precision and care.",
+    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2070&auto=format&fit=crop",
+    benefits: [
+      "Expert representation across multiple disciplines",
+      "Confidential and secure document handling",
+      "Dedicated legal counsel",
+      "Comprehensive case management",
+    ],
+    process: [
+      { step: "Consult", description: "Initial confidential consultation to understand your legal needs." },
+      { step: "Strategize", description: "Develop a customized legal roadmap and strategy." },
+      { step: "Execute", description: "Filing, representation, and execution of legal documents." },
+      { step: "Resolve", description: "Achieving the best possible legal outcome." },
+    ],
+    faqs: [
+      { q: "What areas of law do you cover?", a: "We cover Living Trusts, Probate, Divorce, Family Law, Eviction, Small Claims, and Real Estate Law." },
+    ],
+  },
+  "tax-services": {
+    headline: "Maximum Returns. Minimum Liability.",
+    subheadline: "Expert tax preparation, resolution, and estate planning for businesses and individuals across all 50 states.",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2036&auto=format&fit=crop",
+    benefits: [
+      "Tax preparation for all 50 states",
+      "Corporate, LLC, and Partnership tax expertise",
+      "IRS Tax Representation & Debt Relief",
+      "Penalty abatement and offer in compromise",
+    ],
+    process: [
+      { step: "Analyze", description: "Complete review of your financial standing and past filings." },
+      { step: "Plan", description: "Tax strategy development to minimize liability." },
+      { step: "File", description: "Accurate and timely preparation and filing of returns." },
+      { step: "Resolve", description: "Handling any IRS issues, audits, or debt resolutions." },
+    ],
+    faqs: [
+      { q: "Do you handle back taxes?", a: "Yes, we specialize in back tax filing, delinquent tax problems, and IRS resolutions." },
+    ],
+  },
+  "architecture-design": {
+    headline: "Visualizing The Future.",
+    subheadline: "Professional residential drafting, 3D staging, and photorealistic property visualizations that sell before the foundation is poured.",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2071&auto=format&fit=crop",
+    benefits: [
+      "High-fidelity 3D interior staging",
+      "Accurate residential design and drafting",
+      "Realtor & property visualization packages",
+      "Rapid turnaround for market readiness",
+    ],
+    process: [
+      { step: "Concept", description: "Understanding the spatial requirements and aesthetic goals." },
+      { step: "Draft", description: "Creating precise 2D blueprints and floor plans." },
+      { step: "Render", description: "Developing photorealistic 3D models and staging." },
+      { step: "Deliver", description: "Final high-resolution assets delivered for marketing." },
+    ],
+    faqs: [],
+  },
   "business-process-outsourcing": {
     headline: "Enterprise BPO. Startup Agility.",
     subheadline: "Outsource your operations to a team that treats them like their own — with zero compromise on quality.",
@@ -327,26 +385,69 @@ export default async function ServiceDetailPage({ params }: Props) {
         </div>
       </section>
 
-      {/* BOTTOM CTA */}
-      <section className="py-32 bg-[#04070f] text-white text-center relative overflow-hidden">
+      {/* SERVICE INTAKE SURVEY */}
+      <section className="py-32 bg-[#04070f] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-20 pointer-events-none">
-          <Image src="/abstract-growth.png" alt="Texture" fill className="object-cover grayscale" />
+          <Image src="/abstract-growth.png" alt="Texture" fill className="object-cover grayscale mix-blend-overlay" />
         </div>
-        <div className="container mx-auto relative z-10">
-          <h2 className="text-4xl md:text-6xl font-heading font-black tracking-tighter uppercase mb-6">
-            Ready To Scale?
-          </h2>
-          <p className="text-white/60 mb-10 max-w-lg mx-auto">
-            Stop leaving revenue on the table. Let our team architect and execute your growth engine.
-          </p>
-          <CustomCursorTarget>
-            <Link 
-              href="/contact"
-              className="inline-flex items-center gap-3 px-10 py-5 text-sm font-bold uppercase tracking-widest text-black bg-white rounded-full hover:bg-red-600 hover:text-white transition-all duration-300"
-            >
-              Start The Conversation <ArrowUpRight size={18} />
-            </Link>
-          </CustomCursorTarget>
+        <div className="container mx-auto relative z-10 max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tighter uppercase mb-4 text-white">
+              Client Intake Survey
+            </h2>
+            <p className="text-white/60 text-sm md:text-base">
+              Secure priority placement for {service.title}. Complete the brief assessment below.
+            </p>
+          </div>
+
+          <form className="bg-white/5 border border-white/10 p-8 md:p-12 rounded-3xl backdrop-blur-md shadow-2xl space-y-8">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <label className="text-[0.7rem] font-bold uppercase tracking-widest text-white/50 block mb-2">Full Name</label>
+                <input 
+                  type="text" 
+                  className="w-full bg-black/50 border border-white/10 px-5 py-4 rounded-xl text-sm text-white focus:border-red-600 focus:outline-none transition-colors"
+                  placeholder="Jane Doe"
+                />
+              </div>
+              <div>
+                <label className="text-[0.7rem] font-bold uppercase tracking-widest text-white/50 block mb-2">Email Address</label>
+                <input 
+                  type="email" 
+                  className="w-full bg-black/50 border border-white/10 px-5 py-4 rounded-xl text-sm text-white focus:border-red-600 focus:outline-none transition-colors"
+                  placeholder="jane@example.com"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="text-[0.7rem] font-bold uppercase tracking-widest text-white/50 block mb-4">What is your primary objective?</label>
+              <div className="grid grid-cols-2 gap-4">
+                {["Immediate Assistance", "Consultation", "Pricing & Scoping", "Long-term Partnership"].map((opt) => (
+                  <label key={opt} className="flex items-center gap-3 cursor-pointer group">
+                    <input type="radio" name="objective" className="accent-red-600 w-4 h-4 cursor-pointer" />
+                    <span className="text-sm text-white/70 group-hover:text-white transition-colors">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="text-[0.7rem] font-bold uppercase tracking-widest text-white/50 block mb-2">Additional Details</label>
+              <textarea 
+                rows={4}
+                className="w-full bg-black/50 border border-white/10 px-5 py-4 rounded-xl text-sm text-white focus:border-red-600 focus:outline-none transition-colors resize-none"
+                placeholder="Briefly describe your current situation or requirements..."
+              />
+            </div>
+
+            <button className="w-full py-5 bg-white text-black font-bold uppercase tracking-widest text-sm rounded-xl hover:bg-red-600 hover:text-white transition-colors duration-300 flex items-center justify-center gap-3">
+              Submit Assessment <ArrowUpRight size={18} />
+            </button>
+            <p className="text-center text-[0.65rem] text-white/30 font-bold uppercase tracking-wider mt-4">
+              All information is securely encrypted and strictly confidential.
+            </p>
+          </form>
         </div>
       </section>
     </div>

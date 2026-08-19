@@ -7,16 +7,16 @@ export const SITE_CONFIG = {
   tagline: "Scale Without Limits",
   legalName: "United Tech LLC",
   owner: "Tariq Khan",
-  domain: "techwhales.com",
-  siteUrl: "https://techwhales.com",
+  domain: "techwhales.net",
+  siteUrl: "https://techwhales.net",
   address: "744 S Figueroa St, Los Angeles, CA 90017, USA",
   phone: "+1 (213) 555-0199", // placeholder phone matching LA area code
 
   contact: {
-    general: "Team@techwhales.com",
-    support: "Support@techwhales.com",
-    hr: "HR@techwhales.com",
-    billing: "billing@techwhales.com",
+    general: "Team@techwhales.net",
+    support: "Support@techwhales.net",
+    hr: "HR@techwhales.net",
+    billing: "billing@techwhales.net",
   },
 
   social: {
@@ -27,13 +27,46 @@ export const SITE_CONFIG = {
   },
 
   seo: {
-    title: "TechWhales | Premium Digital Growth & BPO Partner",
-    description: "TechWhales is the premier operations and marketing partner of United Tech LLC. We provide elite BPO, Outbound & Inbound Sales, Performance Marketing, Affiliate Marketing, Media Buying, Search Arbitrage, Web Development, HR, and Bookkeeping services.",
+    title: "TechWhales | Premium Digital Growth, Legal & Operations Partner",
+    description: "TechWhales is the premier operations and professional services partner of United Tech LLC. We provide elite Legal, Tax, Design, BPO, Marketing, and Web Development services.",
     ogImage: "/og-image.jpg",
   },
 };
 
 export const SERVICES = [
+  {
+    slug: "legal-services",
+    title: "Attorneys & Legal Services",
+    shortTitle: "Legal Services",
+    category: "professional",
+    description: "Comprehensive legal services provided by our network of expert attorneys, focusing on trust, family law, real estate, and dispute resolution.",
+    icon: "⚖️",
+    details: {
+      items: ["Living Trust", "Probate", "Deed Services", "Divorce", "Child Custody & Family Law", "Eviction", "Small Claim", "Real Estate Services"]
+    }
+  },
+  {
+    slug: "tax-services",
+    title: "Comprehensive Tax Services",
+    shortTitle: "Tax Services",
+    category: "professional",
+    description: "Expert tax preparation, resolution, and planning for businesses and individuals across all 50 states.",
+    icon: "📈",
+    details: {
+      items: ["Small & Medium Business Tax Return Preparation", "Corporate, LLC & Partnership Taxes", "Back Tax Filing & Delinquent Tax Problems", "Tax Resolutions & Audits", "Payment Plans & IRS Representation", "Payroll Tax Returns", "Tax Debt Relief", "Offer In Compromise", "Penalty Abatement", "Tax And Estate Planning"]
+    }
+  },
+  {
+    slug: "architecture-design",
+    title: "Architecture & 3D Design",
+    shortTitle: "Design & Drafting",
+    category: "creative",
+    description: "Professional residential drafting, 3D interior staging, and stunning property visualizations for realtors and developers.",
+    icon: "🏛️",
+    details: {
+      items: ["Residential Design & Drafting", "3D Interior Design & Staging", "Realtor & Property Visualizations"]
+    }
+  },
   {
     slug: "business-process-outsourcing",
     title: "Business Process Outsourcing (BPO)",
@@ -53,7 +86,7 @@ export const SERVICES = [
     shortTitle: "Marketing",
     category: "marketing",
     description: "Comprehensive marketing strategies, email marketing, social media outreach, and lead nurturing designed to connect your brand value with scalable revenue.",
-    icon: "📈",
+    icon: "🎯",
     details: {
       items: ["Digital Marketing", "Email Marketing", "Social Media Marketing", "Performance Marketing", "Marketing Strategy", "Campaign Management", "Lead Nurturing"]
     }
