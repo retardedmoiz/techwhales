@@ -36,11 +36,12 @@ export const metadata: Metadata = {
   description: SITE_CONFIG.seo.description,
   icons: {
     icon: [
-      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/logo-techwhales.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
     ],
-    shortcut: "/logo-techwhales.png",
-    apple: "/logo-techwhales.png",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   keywords: [
     "Healthcare BPO",
