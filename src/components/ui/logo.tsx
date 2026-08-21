@@ -1,4 +1,4 @@
-export function TechWhalesLogo({ className = "", width = 140 }: { className?: string; width?: number | string }) {
+export function TechWhalesLogo({ className = "", width = 180 }: { className?: string; width?: number | string }) {
   return (
     <img
       src="/logo-techwhales.png"
@@ -7,7 +7,7 @@ export function TechWhalesLogo({ className = "", width = 140 }: { className?: st
       style={{ 
         width: typeof width === 'number' ? `${width}px` : width,
         height: "auto",
-        maxHeight: "26px",
+        maxHeight: "36px",
         objectFit: "contain",
         display: "block"
       }}

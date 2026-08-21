@@ -60,17 +60,17 @@ export function GlassmorphismNavBar() {
   if (!mounted) return null;
 
   return (
-    <header className="fixed top-4 inset-x-0 z-50 pointer-events-none px-4 sm:px-8 max-w-7xl mx-auto flex items-center justify-between gap-4">
-      {/* Left Logo Capsule - Perfectly height aligned (h-11) */}
+    <header className="fixed top-4 inset-x-0 z-50 pointer-events-none px-4 sm:px-6 max-w-7xl mx-auto flex items-center justify-between gap-4">
+      {/* Left Logo Capsule - Prominently sized & perfectly height-aligned (h-14) */}
       <Link
         href="/"
-        className="pointer-events-auto flex items-center h-11 px-4 rounded-full bg-white/80 dark:bg-[#08080a]/80 backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-lg hover:border-red-600/50 transition-all duration-300 group flex-shrink-0"
+        className="pointer-events-auto flex items-center h-14 px-5 rounded-full bg-white/80 dark:bg-[#08080a]/80 backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-lg hover:border-red-600/50 transition-all duration-300 group flex-shrink-0"
       >
-        <TechWhalesLogo width={135} className="group-hover:scale-105 transition-transform duration-300" />
+        <TechWhalesLogo width={175} className="group-hover:scale-105 transition-transform duration-300" />
       </Link>
 
-      {/* Center Desktop Navigation Glass Capsule - Perfectly height aligned (h-11) */}
-      <nav className="pointer-events-auto hidden md:flex items-center h-11 px-2 rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-[#08080a]/80 backdrop-blur-xl shadow-xl transition-all duration-300">
+      {/* Center Desktop Navigation Glass Capsule - Height aligned (h-14) */}
+      <nav className="pointer-events-auto hidden md:flex items-center h-14 px-3 rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-[#08080a]/80 backdrop-blur-xl shadow-xl transition-all duration-300">
         <div className="flex items-center gap-1">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -81,13 +81,13 @@ export function GlassmorphismNavBar() {
                 key={item.name}
                 href={item.url}
                 className={cn(
-                  "relative cursor-pointer text-[0.7rem] uppercase tracking-wider font-bold px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5",
+                  "relative cursor-pointer text-xs uppercase tracking-wider font-bold px-4 py-2 rounded-full transition-all duration-300 flex items-center gap-2",
                   isActive
                     ? "text-red-600 dark:text-red-500 font-black"
                     : "text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white"
                 )}
               >
-                <Icon size={13} strokeWidth={2.2} />
+                <Icon size={15} strokeWidth={2.2} />
                 <span>{item.name}</span>
                 
                 {isActive && (
@@ -104,9 +104,9 @@ export function GlassmorphismNavBar() {
                       damping: 30,
                     }}
                   >
-                    <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-6 h-1 rounded-t-full bg-red-600">
-                      <div className="absolute w-10 h-4 rounded-full blur-md -top-2 -left-2 bg-red-600/40" />
-                      <div className="absolute w-6 h-4 rounded-full blur-sm -top-1 bg-red-600/50" />
+                    <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-1 rounded-t-full bg-red-600">
+                      <div className="absolute w-12 h-5 rounded-full blur-md -top-2 -left-2 bg-red-600/40" />
+                      <div className="absolute w-8 h-5 rounded-full blur-sm -top-1 bg-red-600/50" />
                     </div>
                   </motion.div>
                 )}
@@ -115,7 +115,7 @@ export function GlassmorphismNavBar() {
           })}
         </div>
 
-        <div className="w-px h-4 bg-black/10 dark:bg-white/10 mx-1.5" />
+        <div className="w-px h-5 bg-black/10 dark:bg-white/10 mx-2" />
 
         {/* Global Dark/Light Theme Toggle */}
         <button
@@ -123,7 +123,7 @@ export function GlassmorphismNavBar() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           className={cn(
-            "relative cursor-pointer p-1.5 rounded-full transition-all duration-300 flex items-center justify-center",
+            "relative cursor-pointer p-2 rounded-full transition-all duration-300 flex items-center justify-center",
             theme === "dark"
               ? "text-white/80 hover:text-white hover:bg-white/10"
               : "text-black/80 hover:text-black hover:bg-black/5"
@@ -144,9 +144,9 @@ export function GlassmorphismNavBar() {
             }}
           >
             {theme === "light" ? (
-              <Moon size={15} strokeWidth={2.2} className="text-black" />
+              <Moon size={17} strokeWidth={2.2} className="text-black" />
             ) : (
-              <Sun size={15} strokeWidth={2.2} className="text-yellow-400" />
+              <Sun size={17} strokeWidth={2.2} className="text-yellow-400" />
             )}
           </motion.div>
         </button>
@@ -156,18 +156,18 @@ export function GlassmorphismNavBar() {
       <div className="pointer-events-auto flex md:hidden items-center gap-2">
         <button
           onClick={toggleTheme}
-          className="h-11 w-11 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-[#08080a]/80 backdrop-blur-xl text-foreground shadow-lg"
+          className="h-14 w-14 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-[#08080a]/80 backdrop-blur-xl text-foreground shadow-lg"
           aria-label="Toggle Theme"
         >
-          {theme === "light" ? <Moon size={18} className="text-black" /> : <Sun size={18} className="text-yellow-400" />}
+          {theme === "light" ? <Moon size={20} className="text-black" /> : <Sun size={20} className="text-yellow-400" />}
         </button>
 
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="h-11 w-11 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-[#08080a]/80 backdrop-blur-xl text-foreground shadow-lg"
+          className="h-14 w-14 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-[#08080a]/80 backdrop-blur-xl text-foreground shadow-lg"
           aria-label="Toggle Menu"
         >
-          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
@@ -178,7 +178,7 @@ export function GlassmorphismNavBar() {
             initial={{ opacity: 0, y: -20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            className="pointer-events-auto fixed inset-x-4 top-20 z-50 bg-white/95 dark:bg-[#08080a]/95 border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-2xl backdrop-blur-2xl flex flex-col gap-3"
+            className="pointer-events-auto fixed inset-x-4 top-24 z-50 bg-white/95 dark:bg-[#08080a]/95 border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-2xl backdrop-blur-2xl flex flex-col gap-3"
           >
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -196,7 +196,7 @@ export function GlassmorphismNavBar() {
                       : "text-foreground/80 hover:bg-black/5 dark:hover:bg-white/5"
                   )}
                 >
-                  <Icon size={16} />
+                  <Icon size={18} />
                   <span>{item.name}</span>
                 </Link>
               );
