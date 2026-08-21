@@ -32,7 +32,6 @@ export function GlassmorphismNavBar() {
 
   useEffect(() => {
     setMounted(true);
-    // Initialize theme from localStorage or document class
     const savedTheme = localStorage.getItem("tw_theme") as "light" | "dark" | null;
     if (savedTheme) {
       setTheme(savedTheme);
@@ -42,7 +41,6 @@ export function GlassmorphismNavBar() {
         document.documentElement.classList.remove("dark");
       }
     } else {
-      // Default to dark theme for premium tech feel
       setTheme("dark");
       document.documentElement.classList.add("dark");
     }
@@ -62,57 +60,62 @@ export function GlassmorphismNavBar() {
   if (!mounted) return null;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-4 py-3 sm:py-4 flex justify-between items-center max-w-7xl mx-auto">
-      {/* Brand Logo */}
-      <Link href="/" className="pointer-events-auto flex items-center gap-2 group bg-background/60 backdrop-blur-xl border border-white/10 dark:border-white/10 px-4 py-2 rounded-full shadow-lg transition-all hover:scale-105">
-        <TechWhalesLogo width={150} className="text-foreground group-hover:text-red-600 transition-colors duration-300" />
+    <header className="fixed top-4 inset-x-0 z-50 pointer-events-none px-4 sm:px-8 max-w-7xl mx-auto flex items-center justify-between gap-4">
+      {/* Left Logo Capsule - Perfectly height aligned (h-11) */}
+      <Link
+        href="/"
+        className="pointer-events-auto flex items-center h-11 px-4 rounded-full bg-white/80 dark:bg-[#08080a]/80 backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-lg hover:border-red-600/50 transition-all duration-300 group flex-shrink-0"
+      >
+        <TechWhalesLogo width={135} className="group-hover:scale-105 transition-transform duration-300" />
       </Link>
 
-      {/* Glassmorphism Centered Navigation Bar (Desktop & Tablet) */}
-      <nav className="pointer-events-auto hidden md:flex items-center gap-1.5 py-1.5 px-3 rounded-full shadow-2xl transition-all duration-300 border border-white/10 dark:border-white/10 bg-background/50 dark:bg-background/40 backdrop-blur-xl">
-        {navItems.map((item) => {
-          const Icon = item.icon;
-          const isActive = pathname === item.url || (item.url !== "/" && pathname.startsWith(item.url));
+      {/* Center Desktop Navigation Glass Capsule - Perfectly height aligned (h-11) */}
+      <nav className="pointer-events-auto hidden md:flex items-center h-11 px-2 rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-[#08080a]/80 backdrop-blur-xl shadow-xl transition-all duration-300">
+        <div className="flex items-center gap-1">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = pathname === item.url || (item.url !== "/" && pathname.startsWith(item.url));
 
-          return (
-            <Link
-              key={item.name}
-              href={item.url}
-              className={cn(
-                "relative cursor-pointer text-xs uppercase tracking-wider font-bold px-4 py-2 rounded-full transition-all duration-300 flex items-center gap-2",
-                isActive
-                  ? "text-red-600 dark:text-red-500 font-black"
-                  : "text-foreground/70 hover:text-foreground dark:text-white/70 dark:hover:text-white"
-              )}
-            >
-              <Icon size={14} strokeWidth={2.5} />
-              <span>{item.name}</span>
-              
-              {isActive && (
-                <motion.div
-                  layoutId="lamp"
-                  className={cn(
-                    "absolute inset-0 w-full rounded-full -z-10",
-                    theme === "dark" ? "bg-white/10" : "bg-black/5"
-                  )}
-                  initial={false}
-                  transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 30,
-                  }}
-                >
-                  <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-6 h-1 rounded-t-full bg-red-600">
-                    <div className="absolute w-10 h-5 rounded-full blur-md -top-2 -left-2 bg-red-600/40" />
-                    <div className="absolute w-6 h-5 rounded-full blur-sm -top-1 bg-red-600/50" />
-                  </div>
-                </motion.div>
-              )}
-            </Link>
-          );
-        })}
+            return (
+              <Link
+                key={item.name}
+                href={item.url}
+                className={cn(
+                  "relative cursor-pointer text-[0.7rem] uppercase tracking-wider font-bold px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5",
+                  isActive
+                    ? "text-red-600 dark:text-red-500 font-black"
+                    : "text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white"
+                )}
+              >
+                <Icon size={13} strokeWidth={2.2} />
+                <span>{item.name}</span>
+                
+                {isActive && (
+                  <motion.div
+                    layoutId="lamp"
+                    className={cn(
+                      "absolute inset-0 w-full rounded-full -z-10",
+                      theme === "dark" ? "bg-white/10" : "bg-black/5"
+                    )}
+                    initial={false}
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 30,
+                    }}
+                  >
+                    <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-6 h-1 rounded-t-full bg-red-600">
+                      <div className="absolute w-10 h-4 rounded-full blur-md -top-2 -left-2 bg-red-600/40" />
+                      <div className="absolute w-6 h-4 rounded-full blur-sm -top-1 bg-red-600/50" />
+                    </div>
+                  </motion.div>
+                )}
+              </Link>
+            );
+          })}
+        </div>
 
-        <div className="w-px h-5 bg-border/40 mx-1" />
+        <div className="w-px h-4 bg-black/10 dark:bg-white/10 mx-1.5" />
 
         {/* Global Dark/Light Theme Toggle */}
         <button
@@ -120,7 +123,7 @@ export function GlassmorphismNavBar() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           className={cn(
-            "relative cursor-pointer p-2 rounded-full transition-all duration-300 flex items-center justify-center",
+            "relative cursor-pointer p-1.5 rounded-full transition-all duration-300 flex items-center justify-center",
             theme === "dark"
               ? "text-white/80 hover:text-white hover:bg-white/10"
               : "text-black/80 hover:text-black hover:bg-black/5"
@@ -141,41 +144,41 @@ export function GlassmorphismNavBar() {
             }}
           >
             {theme === "light" ? (
-              <Moon size={16} strokeWidth={2.5} className="text-black" />
+              <Moon size={15} strokeWidth={2.2} className="text-black" />
             ) : (
-              <Sun size={16} strokeWidth={2.5} className="text-yellow-400" />
+              <Sun size={15} strokeWidth={2.2} className="text-yellow-400" />
             )}
           </motion.div>
         </button>
       </nav>
 
-      {/* Mobile Right Bar (Theme Toggle + Menu Button) */}
+      {/* Mobile Controls (Theme Toggle & Menu Toggle) */}
       <div className="pointer-events-auto flex md:hidden items-center gap-2">
         <button
           onClick={toggleTheme}
-          className="p-2.5 rounded-full border border-white/10 bg-background/60 backdrop-blur-xl text-foreground"
+          className="h-11 w-11 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-[#08080a]/80 backdrop-blur-xl text-foreground shadow-lg"
           aria-label="Toggle Theme"
         >
-          {theme === "light" ? <Moon size={18} /> : <Sun size={18} className="text-yellow-400" />}
+          {theme === "light" ? <Moon size={18} className="text-black" /> : <Sun size={18} className="text-yellow-400" />}
         </button>
 
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="p-2.5 rounded-full border border-white/10 bg-background/60 backdrop-blur-xl text-foreground"
+          className="h-11 w-11 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-[#08080a]/80 backdrop-blur-xl text-foreground shadow-lg"
           aria-label="Toggle Menu"
         >
           {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="pointer-events-auto fixed inset-x-4 top-20 z-50 bg-background/95 border border-white/10 dark:border-white/10 rounded-3xl p-6 shadow-2xl backdrop-blur-2xl flex flex-col gap-3"
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.95 }}
+            className="pointer-events-auto fixed inset-x-4 top-20 z-50 bg-white/95 dark:bg-[#08080a]/95 border border-black/10 dark:border-white/10 rounded-3xl p-6 shadow-2xl backdrop-blur-2xl flex flex-col gap-3"
           >
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -187,13 +190,13 @@ export function GlassmorphismNavBar() {
                   href={item.url}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
-                    "flex items-center gap-3 p-3 rounded-2xl text-sm font-bold uppercase tracking-wider transition-all",
+                    "flex items-center gap-3 p-3.5 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all",
                     isActive
-                      ? "bg-red-600 text-white font-black"
-                      : "text-foreground/80 hover:bg-white/5"
+                      ? "bg-red-600 text-white font-black shadow-lg shadow-red-600/30"
+                      : "text-foreground/80 hover:bg-black/5 dark:hover:bg-white/5"
                   )}
                 >
-                  <Icon size={18} />
+                  <Icon size={16} />
                   <span>{item.name}</span>
                 </Link>
               );
