@@ -529,9 +529,9 @@ function ContactSection() {
 }
 
 /* ============================================================================
-   B2B MEDICARE CONTACT CENTER BANNER
+   B2B HEALTHCARE CONTACT CENTER BANNER
    ============================================================================ */
-function MedicareBPOBanner() {
+function HealthcareBPOBanner() {
   return (
     <section className="py-16 bg-[#04070f] text-white border-y border-white/10 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
@@ -542,10 +542,10 @@ function MedicareBPOBanner() {
               Enterprise Healthcare Operations
             </div>
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-heading font-black uppercase text-white tracking-tight mb-3">
-              Healthcare Contact Center & Medicare Operations
+              Healthcare Contact Center & Live Transfer Operations
             </h3>
             <p className="text-white/70 text-xs sm:text-sm leading-relaxed mb-0">
-              Dedicated contact-center capacity for healthcare and insurance organizations, including qualification, appointment setting and live-transfer workflows.
+              Dedicated contact-center capacity for healthcare and insurance organizations, including TCPA-compliant qualification, appointment setting and live-transfer workflows.
             </p>
           </div>
           <div className="relative z-10 flex-shrink-0">
@@ -553,7 +553,7 @@ function MedicareBPOBanner() {
               href="/medicare"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 text-xs font-bold uppercase tracking-widest text-white bg-red-600 rounded-full hover:bg-white hover:text-black transition-all shadow-lg shadow-red-600/30"
             >
-              <span>View Medicare BPO Solutions</span>
+              <span>View Healthcare BPO Solutions</span>
               <ArrowUpRight size={16} />
             </Link>
           </div>
@@ -574,7 +574,7 @@ export default function HomePage() {
       <AboutSection />
       <VisualBreakOne />
       <ServicesSection />
-      <MedicareBPOBanner />
+      <HealthcareBPOBanner />
       <PortfolioSection />
       <WhyPartnerSection />
       <IndustriesSection />

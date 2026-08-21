@@ -6,7 +6,7 @@ import { SERVICES, SITE_CONFIG } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: `Services & Capabilities | ${SITE_CONFIG.brand}`,
-  description: `Explore all ${SITE_CONFIG.brand} corporate solutions: Legal, Tax, Design, Marketing, Web Development, Healthcare Medicare BPO, and Business Operations.`,
+  description: `Explore all ${SITE_CONFIG.brand} corporate solutions: Legal, Tax, Design, Marketing, Web Development, Healthcare & Insurance BPO, and Business Operations.`,
 };
 
 export default function ServicesPage() {
@@ -40,7 +40,7 @@ export default function ServicesPage() {
           </h1>
 
           <p className="text-white/70 text-base md:text-xl max-w-3xl leading-relaxed font-normal">
-            Stop juggling multiple disjointed vendors and unreliable freelancers. TechWhales delivers an integrated suite of legal, tax, design, Medicare contact center BPO, operational, and performance marketing capabilities engineered for continuous business growth.
+            Stop juggling multiple disjointed vendors and unreliable freelancers. TechWhales delivers an integrated suite of legal, tax, design, healthcare contact center BPO, operational, and performance marketing capabilities engineered for continuous business growth.
           </p>
         </div>
       </section>
@@ -79,7 +79,7 @@ export default function ServicesPage() {
                         </div>
 
                         <h3 className="text-xl md:text-2xl font-heading font-black mb-3 text-white group-hover:text-red-500 transition-colors uppercase leading-tight">
-                          Healthcare & Medicare BPO Solutions
+                          Healthcare & Insurance BPO Solutions
                         </h3>
 
                         <p className="text-xs sm:text-sm text-white/70 leading-relaxed mb-8">

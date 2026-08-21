@@ -25,18 +25,19 @@ import {
 } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/config";
 import { CustomCursorTarget } from "@/components/ui/custom-cursor";
-import { MedicareLeadForm } from "@/components/ui/medicare-lead-form";
+import { HealthcareLeadForm } from "@/components/ui/medicare-lead-form";
 
 export const metadata: Metadata = {
-  title: "Medicare BPO & Live Transfer Solutions | TechWhales",
-  description: "US-based Medicare BPO and live-transfer contact-center operations with scalable dedicated teams, QA, reporting and controlled pilot programs.",
+  title: "Healthcare BPO & Live Transfer Contact Center Solutions | TechWhales",
+  description: "US-based Healthcare BPO and live-transfer contact-center operations with scalable dedicated teams, TCPA/DNC adherence, QA, reporting and controlled pilot programs.",
   keywords: [
-    "Medicare BPO",
-    "Medicare Live Transfers",
-    "Medicare BPO Services",
+    "Healthcare BPO",
+    "Healthcare Live Transfers",
+    "Healthcare BPO Services",
     "Healthcare Contact Center Outsourcing",
-    "Medicare Warm Transfers",
-    "US Medicare Call Center",
+    "Insurance Warm Transfers",
+    "US Healthcare Call Center",
+    "TCPA Compliant Contact Center",
     "BPO Operations Los Angeles",
     "TechWhales BPO",
   ],
@@ -50,8 +51,8 @@ export const metadata: Metadata = {
     canonical: "https://techwhales.net/medicare",
   },
   openGraph: {
-    title: "Medicare BPO & Live Transfer Solutions | TechWhales",
-    description: "US-based Medicare BPO and live-transfer contact-center operations with scalable dedicated teams, QA, reporting and controlled pilot programs.",
+    title: "Healthcare BPO & Live Transfer Contact Center Solutions | TechWhales",
+    description: "US-based Healthcare BPO and live-transfer contact-center operations with scalable dedicated teams, TCPA/DNC adherence, QA, reporting and controlled pilot programs.",
     url: "https://techwhales.net/medicare",
     siteName: "TechWhales",
     type: "website",
@@ -59,24 +60,32 @@ export const metadata: Metadata = {
   },
 };
 
-const medicareFaqJsonLd = {
+const healthcareFaqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
     {
       "@type": "Question",
-      name: "Do you provide licensed Medicare agents?",
+      name: "Do you provide licensed healthcare insurance agents?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "TechWhales operates as a contact-center and BPO partner. Where a campaign involves regulated insurance sales or enrollment, the receiving organization is responsible for appropriately licensed agents and the applicable sales process.",
+        text: "TechWhales operates strictly as a contact-center and BPO operational partner. Where a campaign involves regulated insurance sales or enrollment, the contracting US receiving organization is responsible for providing appropriately licensed agents and managing the sales process.",
       },
     },
     {
       "@type": "Question",
-      name: "Can you provide live Medicare transfers?",
+      name: "Can you provide live healthcare transfers?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We can configure live or warm-transfer workflows according to the contracting partner's campaign requirements, approved scripts, consent procedures and receiving-agent capacity.",
+        text: "We configure live or warm-transfer workflows according to the contracting partner's campaign parameters, approved scripts, TCPA consent procedures, and receiving-agent capacity.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do you maintain TCPA & US compliance?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Our contact center teams strictly adhere to partner-approved scripts, TCPA consent verification protocols, Do-Not-Call (DNC) list scrubs, call recording, and rigorous internal QA audits.",
       },
     },
     {
@@ -85,14 +94,6 @@ const medicareFaqJsonLd = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "Yes. Our recommended approach is a controlled pilot, typically beginning with a small 5-agent dedicated team before scaling.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can you scale to 20+ agents?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Staffing can be expanded based on campaign requirements, training, performance and receiving-agent capacity.",
       },
     },
     {
@@ -106,12 +107,12 @@ const medicareFaqJsonLd = {
   ],
 };
 
-export default function MedicareBPOPage() {
+export default function HealthcareBPOPage() {
   return (
     <div className="bg-[#08080a] text-white min-h-screen selection:bg-red-600 selection:text-white relative">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicareFaqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(healthcareFaqJsonLd) }}
       />
       
       {/* ============================================================================
@@ -127,7 +128,7 @@ export default function MedicareBPOPage() {
             <ChevronRight size={12} />
             <Link href="/services" className="hover:text-red-500 transition-colors">Services</Link>
             <ChevronRight size={12} />
-            <span className="text-white font-black">Medicare BPO</span>
+            <span className="text-white font-black">Healthcare BPO</span>
           </nav>
 
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -135,22 +136,22 @@ export default function MedicareBPOPage() {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-red-500/30 bg-red-500/10 text-red-500 text-xs font-bold uppercase tracking-wider mb-6">
                 <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-                B2B Healthcare Operations
+                B2B Healthcare Operations & TCPA Adherence
               </div>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-heading font-black leading-[1.03] tracking-tighter uppercase mb-6 text-white">
-                Medicare Contact Center & <br />
+                Healthcare Contact Center & <br />
                 <span className="text-transparent relative" style={{ WebkitTextStroke: "1.5px #fff" }}>
                   Live Transfer Operations
                 </span>
               </h1>
 
               <p className="text-red-500 text-sm sm:text-base font-bold uppercase tracking-wider mb-4">
-                US-based contracting. Dedicated offshore delivery. Scalable contact-center capacity for Medicare organizations.
+                US-based contracting. Dedicated offshore delivery. Scalable contact-center capacity for healthcare & insurance organizations.
               </p>
 
               <p className="text-white/70 text-base leading-relaxed mb-8">
-                TechWhales provides dedicated contact-center and live-transfer operations for US businesses through a US-based management structure and scalable offshore delivery teams. Launch with a controlled pilot and scale based on performance.
+                TechWhales provides dedicated contact-center and live-transfer operations for US businesses through a US-based management structure and scalable offshore delivery teams. Launch with a controlled pilot and scale based on validated performance.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 items-center mb-10">
@@ -176,7 +177,7 @@ export default function MedicareBPOPage() {
             <div className="lg:col-span-5 relative h-[380px] sm:h-[450px] lg:h-[520px] rounded-3xl overflow-hidden group shadow-2xl border border-white/15">
               <Image 
                 src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop" 
-                alt="Medicare Contact Center Operations Room" 
+                alt="Healthcare Contact Center Operations Room" 
                 fill 
                 className="object-cover group-hover:scale-105 transition-transform duration-1000"
                 priority
@@ -311,7 +312,7 @@ export default function MedicareBPOPage() {
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-red-500 block mb-3">STEP 01</span>
                 <h3 className="font-heading font-black text-lg uppercase text-white mb-2">Consumer Interaction</h3>
                 <p className="text-white/60 text-xs sm:text-sm leading-relaxed">
-                  Consumer engages through the approved campaign source and workflow.
+                  Consumer engages through the approved campaign source and compliant workflow.
                 </p>
               </div>
             </div>
@@ -321,7 +322,7 @@ export default function MedicareBPOPage() {
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-red-500 block mb-3">STEP 02</span>
                 <h3 className="font-heading font-black text-lg uppercase text-white mb-2">Initial Qualification</h3>
                 <p className="text-white/60 text-xs sm:text-sm leading-relaxed">
-                  Contact-center agents follow the contracting partner&apos;s approved qualification process.
+                  Contact-center agents follow the contracting partner&apos;s approved qualification process and script rules.
                 </p>
               </div>
             </div>
@@ -331,7 +332,7 @@ export default function MedicareBPOPage() {
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-red-500 block mb-3">STEP 03</span>
                 <h3 className="font-heading font-black text-lg uppercase text-white mb-2">Consent & Verification</h3>
                 <p className="text-white/60 text-xs sm:text-sm leading-relaxed">
-                  Required consent, disclosures and campaign-specific verification are handled according to the approved workflow.
+                  Required TCPA consent, disclosures and campaign-specific verification are handled according to the approved workflow.
                 </p>
               </div>
             </div>
@@ -341,7 +342,7 @@ export default function MedicareBPOPage() {
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-red-500 block mb-3">STEP 04</span>
                 <h3 className="font-heading font-black text-lg uppercase text-white mb-2">Warm Transfer</h3>
                 <p className="text-white/60 text-xs sm:text-sm leading-relaxed">
-                  The qualified consumer is connected to the receiving organization&apos;s designated agent.
+                  The qualified consumer is connected to the receiving organization&apos;s designated agent or queue.
                 </p>
               </div>
             </div>
@@ -351,7 +352,7 @@ export default function MedicareBPOPage() {
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-red-500 block mb-3">STEP 05</span>
                 <h3 className="font-heading font-black text-lg uppercase text-white mb-2">Licensed Agent</h3>
                 <p className="text-white/60 text-xs sm:text-sm leading-relaxed">
-                  The receiving organization&apos;s appropriately licensed agent handles the regulated insurance discussion and enrollment process.
+                  The receiving organization&apos;s appropriately licensed agent handles the regulated insurance or healthcare discussion.
                 </p>
               </div>
             </div>
@@ -361,15 +362,15 @@ export default function MedicareBPOPage() {
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-red-500 block mb-3">STEP 06</span>
                 <h3 className="font-heading font-black text-lg uppercase text-white mb-2">Reporting</h3>
                 <p className="text-white/60 text-xs sm:text-sm leading-relaxed">
-                  Campaign activity and transfer outcomes are tracked and reported to the contracting partner.
+                  Campaign activity and transfer outcomes are tracked and reported to the contracting partner in real time.
                 </p>
               </div>
             </div>
           </div>
 
           <div className="p-6 rounded-2xl bg-white/5 border border-white/10 max-w-4xl text-xs text-white/60 leading-relaxed">
-            <span className="font-bold text-white uppercase block mb-1">Operational Notice & Compliance Disclaimer:</span>
-            Final campaign workflows, scripts, consent requirements, transfer criteria, data handling procedures and agent responsibilities are established by agreement with the contracting partner and applicable regulatory requirements.
+            <span className="font-bold text-white uppercase block mb-1">Operational Notice & US Compliance Disclaimer:</span>
+            Final campaign workflows, scripts, TCPA consent requirements, transfer criteria, data handling procedures and agent responsibilities are established by agreement with the contracting partner and applicable federal/state regulatory requirements.
           </div>
         </div>
       </section>
@@ -550,15 +551,15 @@ export default function MedicareBPOPage() {
               Healthcare campaigns require disciplined workflows, documented procedures and clear responsibilities.
             </p>
             <p className="text-white/60 text-xs sm:text-sm leading-relaxed">
-              Our contact-center operations can be configured around the contracting partner&apos;s approved scripts, consent procedures, data-handling requirements, call-recording requirements, quality standards and escalation procedures.
+              Our contact-center operations are configured around the contracting partner&apos;s approved scripts, consent procedures, data-handling requirements, call-recording requirements, quality standards and escalation procedures.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
             {[
               { title: "Approved Campaign Scripts", desc: "Agents adhere strictly to partner-provided and approved scripts." },
-              { title: "Consent Documentation", desc: "Workflows record consumer consent according to campaign parameters." },
-              { title: "Call Recording", desc: "Comprehensive audio recording for quality auditing where required." },
+              { title: "TCPA Consent Verification", desc: "Workflows record consumer consent according to US TCPA rules." },
+              { title: "Call Recording Audit", desc: "Comprehensive audio recording for quality auditing where required." },
               { title: "Quality Assurance", desc: "Internal QA evaluation scorecards monitoring call interactions." },
               { title: "Controlled Data Access", desc: "Role-based system access protecting campaign data integrity." },
               { title: "Audit-Friendly Reporting", desc: "Clear activity logs and metrics available for partner review." }
@@ -572,7 +573,7 @@ export default function MedicareBPOPage() {
 
           <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-xs text-white/60 leading-relaxed max-w-4xl">
             <span className="font-bold text-white uppercase block mb-1">Notice on Compliance Frameworks:</span>
-            Compliance requirements vary by campaign, state, organization and business model. Final campaign procedures are established with the contracting partner and reviewed according to applicable requirements.
+            Compliance requirements vary by campaign, state, organization and business model. Final campaign procedures are established with the contracting partner and reviewed according to applicable US requirements.
           </div>
         </div>
       </section>
@@ -680,13 +681,13 @@ export default function MedicareBPOPage() {
 
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              "Medicare Agencies",
-              "FMOs & IMOs",
-              "TPMOs",
+              "Healthcare Agencies",
+              "Insurance Marketers",
+              "Licensed Agencies",
               "Insurance Organizations",
               "Lead Buyers",
               "Healthcare Contact Centers",
-              "Independent Agent Organizations",
+              "Independent Agent Groups",
               "High-Volume Sales Operations"
             ].map((target, idx) => (
               <div key={idx} className="p-6 rounded-2xl bg-[#121216] border border-white/10 text-center hover:border-red-500/40 transition-colors">
@@ -708,7 +709,7 @@ export default function MedicareBPOPage() {
               Looking for a Flexible Contact-Center Partner?
             </h2>
             <p className="text-white/70 text-sm sm:text-base leading-relaxed">
-              We are best suited for organizations that already have an established Medicare sales operation, licensed agents and a defined campaign workflow, but require additional contact-center capacity, qualification support or live-transfer volume.
+              We are best suited for organizations that already have an established sales operation, licensed agents and a defined campaign workflow, but require additional contact-center capacity, qualification support or live-transfer volume.
             </p>
           </div>
 
@@ -804,19 +805,19 @@ export default function MedicareBPOPage() {
           <div className="text-center mb-12">
             <span className="text-xs uppercase tracking-widest text-red-500 font-bold block mb-2">Start a Partnership</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-black tracking-tighter uppercase mb-4 text-white">
-              Request a Medicare BPO Pilot
+              Request a Healthcare BPO Pilot
             </h2>
             <p className="text-white/60 text-xs sm:text-base max-w-xl mx-auto">
               Discuss your campaign requirements, transfer model, and receiving agent capacity with our operations team.
             </p>
           </div>
 
-          <MedicareLeadForm />
+          <HealthcareLeadForm />
         </div>
       </section>
 
       {/* ============================================================================
-         13. MEDICARE BPO FAQ SECTION
+         13. HEALTHCARE BPO FAQ SECTION
          ============================================================================ */}
       <section className="py-20 md:py-28 bg-[#08080a] border-b border-white/10">
         <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
@@ -830,16 +831,20 @@ export default function MedicareBPOPage() {
           <div className="space-y-4">
             {[
               {
-                q: "Do you provide licensed Medicare agents?",
-                a: "TechWhales operates as a contact-center and BPO partner. Where a campaign involves regulated insurance sales or enrollment, the receiving organization is responsible for appropriately licensed agents and the applicable sales process."
+                q: "Do you provide licensed healthcare insurance agents?",
+                a: "TechWhales operates strictly as a contact-center and BPO operational partner. Where a campaign involves regulated insurance sales or enrollment, the contracting US receiving organization is responsible for providing appropriately licensed agents and managing the sales process."
               },
               {
-                q: "Can you provide live Medicare transfers?",
-                a: "We can configure live or warm-transfer workflows according to the contracting partner's campaign requirements, approved scripts, consent procedures and receiving-agent capacity."
+                q: "Can you provide live healthcare transfers?",
+                a: "We configure live or warm-transfer workflows according to the contracting partner's campaign parameters, approved scripts, TCPA consent procedures, and receiving-agent capacity."
+              },
+              {
+                q: "How do you ensure TCPA & US regulatory compliance?",
+                a: "Our contact center operations strictly enforce partner-approved scripts, TCPA consent documentation, Do-Not-Call (DNC) list scrubs, call recording, and rigorous internal QA audits."
               },
               {
                 q: "Can you start with a small team?",
-                a: "Yes. Our recommended approach is a controlled pilot, typically beginning with a small dedicated team before scaling."
+                a: "Yes. Our recommended approach is a controlled pilot, typically beginning with a small dedicated 5-agent team before scaling."
               },
               {
                 q: "Can you scale to 20+ agents?",
@@ -847,7 +852,7 @@ export default function MedicareBPOPage() {
               },
               {
                 q: "Where are your operations located?",
-                a: "We operate through a US-based business structure with scalable offshore delivery operations."
+                a: "We operate through a US-based business structure (United Tech LLC, Los Angeles, CA) with scalable offshore delivery operations."
               },
               {
                 q: "Do you provide call recordings?",
@@ -855,14 +860,10 @@ export default function MedicareBPOPage() {
               },
               {
                 q: "Can you work with our CRM?",
-                a: "We can evaluate CRM, dialer, routing and reporting requirements during campaign onboarding."
-              },
-              {
-                q: "Do you guarantee a certain number of Medicare enrollments?",
-                a: "No. Campaign performance depends on traffic source, qualification criteria, consumer demand, receiving-agent capacity and other variables. We focus on measurable operational performance and agreed campaign KPIs."
+                a: "We evaluate CRM, dialer, routing and reporting requirements during campaign onboarding."
               }
             ].map((faq, idx) => (
-              <div key={idx} className="p-6 rounded-2xl bg-[#121216] border border-white/10">
+              <div key={idx} className="p-6 rounded-2xl bg-[#121216] border border-white/10" key={idx}>
                 <h3 className="font-heading font-black text-base sm:text-lg uppercase text-white mb-3 flex items-start gap-3">
                   <HelpCircle size={20} className="text-red-500 flex-shrink-0 mt-0.5" />
                   <span>{faq.q}</span>
@@ -877,42 +878,16 @@ export default function MedicareBPOPage() {
       </section>
 
       {/* ============================================================================
-         14. TRUST / COMPANY SECTION
+         14. FOOTER DISCLAIMER
          ============================================================================ */}
-      <section className="py-16 bg-[#0c0c0e] border-b border-white/10 text-center">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h3 className="text-xl font-heading font-black text-white uppercase mb-2">Corporate Entity & Management</h3>
-          <p className="text-white/70 text-sm mb-4">
-            {SITE_CONFIG.brand} is operated by <span className="text-white font-bold">{SITE_CONFIG.legalName}</span>.
+      <section className="py-12 bg-[#04070f] border-t border-white/10 text-center text-white/50 text-[0.7rem] leading-relaxed">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <p className="uppercase tracking-wider font-bold mb-2 text-white/70">Legal & Operational Disclosure</p>
+          <p>
+            TechWhales provides business process outsourcing and contact-center services. Healthcare and insurance workflows are performed strictly according to the requirements and approved procedures of the contracting organization. TechWhales does not represent itself as an insurance carrier, plan sponsor, or government entity. Where regulated insurance activities are involved, appropriately licensed third parties are responsible for those activities in compliance with US state and federal laws.
           </p>
-          <div className="inline-flex items-center gap-2 text-xs text-white/50 bg-white/5 px-4 py-2 rounded-full border border-white/10">
-            <Building2 size={14} className="text-red-500" />
-            <span>US Business Office: {SITE_CONFIG.address}</span>
-          </div>
         </div>
       </section>
-
-      {/* ============================================================================
-         15. DISCREET FOOTER LEGAL DISCLAIMER
-         ============================================================================ */}
-      <footer className="py-8 bg-[#04070f] text-center px-4">
-        <div className="container mx-auto max-w-5xl">
-          <p className="text-[0.7rem] text-white/40 leading-relaxed">
-            TechWhales provides business process outsourcing and contact-center services. Medicare-related workflows are performed according to the requirements and approved procedures of the contracting organization. TechWhales does not represent itself as a Medicare Advantage plan, insurance carrier, or government entity. Where regulated insurance activities are involved, appropriately licensed parties are responsible for those activities.
-          </p>
-        </div>
-      </footer>
-
-      {/* STICKY BOTTOM BAR FOR MOBILE */}
-      <div className="md:hidden fixed bottom-4 left-4 right-4 z-40">
-        <a 
-          href="#pilot-form"
-          className="flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-full bg-red-600 text-white font-bold text-xs uppercase tracking-widest shadow-2xl shadow-red-600/50"
-        >
-          <span>Talk to Operations</span>
-          <ArrowUpRight size={16} />
-        </a>
-      </div>
 
     </div>
   );
