@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Briefcase, Building2, Info, UserCheck, Mail, Moon, Sun, Menu, X } from "lucide-react";
+import { Home, Briefcase, Building2, Info, UserCheck, Mail, Moon, Sun, Menu, X, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { TechWhalesLogo } from "@/components/ui/logo";
 
@@ -60,20 +60,19 @@ export function GlassmorphismNavBar() {
   if (!mounted) return null;
 
   return (
-    <header className="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none w-full max-w-7xl px-4 flex justify-center">
-      {/* Unified Center-Aligned Glassmorphism Navbar Capsule */}
-      <div className="pointer-events-auto flex items-center justify-between gap-3 md:gap-5 px-4 md:px-6 py-2.5 rounded-full border border-black/10 dark:border-white/15 bg-white/90 dark:bg-[#08080a]/90 backdrop-blur-2xl shadow-2xl transition-all duration-300 max-w-full">
-        
-        {/* Prominent Logo */}
-        <Link href="/" className="flex items-center group flex-shrink-0 pr-1">
-          <TechWhalesLogo width={190} className="group-hover:scale-105 transition-transform duration-300" />
-        </Link>
+    <header className="fixed top-4 left-0 right-0 z-50 pointer-events-none px-4 sm:px-8 max-w-7xl mx-auto flex items-center justify-between">
+      
+      {/* 1. Left Logo Capsule - Unconstrained, Prominent & Pure White in Dark Mode */}
+      <Link
+        href="/"
+        className="pointer-events-auto flex items-center h-12 px-5 rounded-full bg-white/90 dark:bg-[#08080a]/90 backdrop-blur-xl border border-black/10 dark:border-white/15 shadow-xl hover:border-red-600/50 transition-all duration-300 group"
+      >
+        <TechWhalesLogo width={180} className="group-hover:scale-105 transition-transform duration-300" />
+      </Link>
 
-        {/* Separator Divider */}
-        <div className="hidden lg:block w-px h-6 bg-black/10 dark:bg-white/15 flex-shrink-0" />
-
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-1.5">
+      {/* 2. Center Desktop Navigation Glass Pill (Truly Centered floating bar) */}
+      <nav className="pointer-events-auto hidden md:flex items-center h-12 px-3 rounded-full border border-black/10 dark:border-white/15 bg-white/90 dark:bg-[#08080a]/90 backdrop-blur-xl shadow-2xl transition-all duration-300">
+        <div className="flex items-center gap-1">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.url || (item.url !== "/" && pathname.startsWith(item.url));
@@ -83,7 +82,7 @@ export function GlassmorphismNavBar() {
                 key={item.name}
                 href={item.url}
                 className={cn(
-                  "relative cursor-pointer text-[0.72rem] uppercase tracking-wider font-bold px-3.5 py-2 rounded-full transition-all duration-300 flex items-center gap-1.5 whitespace-nowrap",
+                  "relative cursor-pointer text-[0.72rem] uppercase tracking-wider font-bold px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 whitespace-nowrap",
                   isActive
                     ? "text-red-600 dark:text-red-500 font-black"
                     : "text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white"
@@ -115,59 +114,76 @@ export function GlassmorphismNavBar() {
               </Link>
             );
           })}
-        </nav>
-
-        {/* Separator Divider */}
-        <div className="hidden lg:block w-px h-6 bg-black/10 dark:bg-white/15 flex-shrink-0" />
-
-        {/* Theme Toggle & Mobile Controls */}
-        <div className="flex items-center gap-2 flex-shrink-0">
-          <button
-            onClick={toggleTheme}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            className={cn(
-              "relative cursor-pointer p-2 rounded-full transition-all duration-300 flex items-center justify-center",
-              theme === "dark"
-                ? "text-white/80 hover:text-white hover:bg-white/10"
-                : "text-black/80 hover:text-black hover:bg-black/5"
-            )}
-            aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
-            title={theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
-          >
-            <motion.div
-              initial={false}
-              animate={{
-                scale: isHovered ? 1.15 : 1,
-                rotate: theme === "dark" ? 180 : 0,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 200,
-                damping: 15,
-              }}
-            >
-              {theme === "light" ? (
-                <Moon size={16} strokeWidth={2.2} className="text-black" />
-              ) : (
-                <Sun size={16} strokeWidth={2.2} className="text-yellow-400" />
-              )}
-            </motion.div>
-          </button>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-full text-foreground hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
-            aria-label="Toggle Menu"
-          >
-            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
         </div>
 
+        <div className="w-px h-5 bg-black/10 dark:bg-white/15 mx-2" />
+
+        {/* Global Dark/Light Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className={cn(
+            "relative cursor-pointer p-2 rounded-full transition-all duration-300 flex items-center justify-center",
+            theme === "dark"
+              ? "text-white/80 hover:text-white hover:bg-white/10"
+              : "text-black/80 hover:text-black hover:bg-black/5"
+          )}
+          aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+          title={theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
+        >
+          <motion.div
+            initial={false}
+            animate={{
+              scale: isHovered ? 1.15 : 1,
+              rotate: theme === "dark" ? 180 : 0,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 200,
+              damping: 15,
+            }}
+          >
+            {theme === "light" ? (
+              <Moon size={16} strokeWidth={2.2} className="text-black" />
+            ) : (
+              <Sun size={16} strokeWidth={2.2} className="text-yellow-400" />
+            )}
+          </motion.div>
+        </button>
+      </nav>
+
+      {/* 3. Right CTA Button (Desktop) & Mobile Toggle Controls */}
+      <div className="pointer-events-auto flex items-center gap-3">
+        {/* CTA Button for Desktop */}
+        <Link
+          href="/contact"
+          className="hidden md:inline-flex items-center justify-center gap-2 px-5 h-12 rounded-full bg-red-600 text-white text-[0.72rem] font-bold uppercase tracking-widest hover:bg-black hover:scale-105 shadow-lg shadow-red-600/25 transition-all duration-300"
+        >
+          <span>Let&apos;s Talk</span>
+          <ArrowUpRight size={15} />
+        </Link>
+
+        {/* Mobile Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          className="md:hidden h-11 w-11 flex items-center justify-center rounded-full border border-black/10 dark:border-white/15 bg-white/90 dark:bg-[#08080a]/90 backdrop-blur-xl text-foreground shadow-lg"
+          aria-label="Toggle Theme"
+        >
+          {theme === "light" ? <Moon size={18} className="text-black" /> : <Sun size={18} className="text-yellow-400" />}
+        </button>
+
+        {/* Mobile Drawer Trigger */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden h-11 w-11 flex items-center justify-center rounded-full border border-black/10 dark:border-white/15 bg-white/90 dark:bg-[#08080a]/90 backdrop-blur-xl text-foreground shadow-lg"
+          aria-label="Toggle Menu"
+        >
+          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </div>
 
-      {/* Mobile Menu Dropdown Card */}
+      {/* Mobile Drawer Dropdown Card */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -186,7 +202,7 @@ export function GlassmorphismNavBar() {
                   href={item.url}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
-                    "flex items-center gap-3 p-3 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all",
+                    "flex items-center gap-3 p-3.5 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all",
                     isActive
                       ? "bg-red-600 text-white font-black shadow-lg shadow-red-600/30"
                       : "text-foreground/80 hover:bg-black/5 dark:hover:bg-white/5"
@@ -197,6 +213,17 @@ export function GlassmorphismNavBar() {
                 </Link>
               );
             })}
+
+            <div className="pt-2 border-t border-black/10 dark:border-white/10 mt-1">
+              <Link
+                href="/contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 w-full py-3.5 text-xs font-bold uppercase tracking-widest text-white bg-red-600 rounded-2xl shadow-lg shadow-red-600/25"
+              >
+                <span>Let&apos;s Talk</span>
+                <ArrowUpRight size={16} />
+              </Link>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
