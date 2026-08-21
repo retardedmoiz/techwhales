@@ -35,85 +35,13 @@ export const SITE_CONFIG = {
 
 export const SERVICES = [
   {
-    slug: "living-trust-probate",
-    title: "Living Trust and Probate",
-    shortTitle: "Trust & Probate",
-    category: "Legal",
-    description: "Secure your assets and ensure your family is protected. We help you create clear living trusts and navigate probate court easily.",
-    icon: "ShieldCheck",
-    details: { items: ["Asset Protection", "Estate Planning", "Probate Navigation", "Document Preparation"] }
-  },
-  {
-    slug: "family-law-divorce",
-    title: "Family Law and Divorce",
-    shortTitle: "Family Law",
-    category: "Legal",
-    description: "Compassionate and professional legal help to guide you through divorce proceedings and child custody matters.",
-    icon: "Users",
-    details: { items: ["Divorce Filing", "Mediation", "Child Custody", "Asset Division"] }
-  },
-  {
-    slug: "real-estate-eviction",
-    title: "Real Estate and Eviction",
-    shortTitle: "Real Estate",
-    category: "Legal",
-    description: "Comprehensive legal assistance for property transfers, deed services, and lawful eviction processes.",
-    icon: "Home",
-    details: { items: ["Deed Transfers", "Contract Review", "Eviction Notices", "Property Disputes"] }
-  },
-  {
-    slug: "small-claims-disputes",
-    title: "Small Claims and Disputes",
-    shortTitle: "Small Claims",
-    category: "Legal",
-    description: "Resolve disputes quickly and fairly. We assist with filing and presenting your small claims case effectively.",
-    icon: "Scale",
-    details: { items: ["Case Preparation", "Legal Filing", "Dispute Resolution", "Court Assistance"] }
-  },
-  {
-    slug: "tax-preparation",
-    title: "Tax Preparation",
-    shortTitle: "Tax Prep",
-    category: "Tax",
-    description: "Accurate tax returns for individuals and businesses. We ensure you get the maximum return possible.",
-    icon: "FileText",
-    details: { items: ["Small Business Taxes", "Corporate Taxes", "LLC Returns", "Payroll Taxes"] }
-  },
-  {
-    slug: "tax-resolution-debt-relief",
-    title: "Tax Resolution and Debt Relief",
-    shortTitle: "Tax Resolution",
-    category: "Tax",
-    description: "Professional representation for IRS audits. We negotiate payment plans and offers to reduce your tax burden.",
-    icon: "Briefcase",
-    details: { items: ["IRS Representation", "Audit Defense", "Debt Negotiation", "Penalty Abatement"] }
-  },
-  {
-    slug: "residential-design",
-    title: "Residential Design and Drafting",
-    shortTitle: "Design",
-    category: "Design",
-    description: "Beautiful residential plans tailored to your vision. We provide accurate blueprints for your next project.",
-    icon: "PenTool",
-    details: { items: ["Custom Home Design", "Floor Plans", "Blueprint Drafting", "Renovation Planning"] }
-  },
-  {
-    slug: "interior-staging",
-    title: "3D Interior Staging and Visuals",
-    shortTitle: "Staging",
-    category: "Design",
-    description: "Stunning interior design and property staging. We create visual experiences that help sell homes faster.",
-    icon: "Image",
-    details: { items: ["3D Staging", "Property Visualizations", "Interior Planning", "Realtor Services"] }
-  },
-  {
-    slug: "business-outsourcing",
-    title: "Business Process Outsourcing",
-    shortTitle: "Outsourcing",
-    category: "Operations",
-    description: "Reduce operational costs and improve efficiency. We provide highly trained support and sales teams.",
-    icon: "Headphones",
-    details: { items: ["Customer Support", "Sales Teams", "Lead Generation", "Daily Operations"] }
+    slug: "web-development",
+    title: "Web and Custom App Development",
+    shortTitle: "Web Dev",
+    category: "Technology",
+    description: "Design and build modern websites and platforms focused on turning traffic into buyers.",
+    icon: "Code",
+    details: { items: ["Custom Websites", "Landing Pages", "Online Stores", "Platform Maintenance"] }
   },
   {
     slug: "digital-marketing",
@@ -123,15 +51,6 @@ export const SERVICES = [
     description: "Comprehensive marketing strategies designed to connect your brand value with scalable revenue.",
     icon: "Target",
     details: { items: ["Social Media", "Paid Advertising", "Email Campaigns", "Brand Awareness"] }
-  },
-  {
-    slug: "affiliate-marketing",
-    title: "Affiliate Marketing Management",
-    shortTitle: "Affiliate",
-    category: "Marketing",
-    description: "End to end management of affiliate networks, publisher recruitment, and payout configurations.",
-    icon: "Network",
-    details: { items: ["Program Setup", "Publisher Recruitment", "Performance Tracking", "Fraud Prevention"] }
   },
   {
     slug: "media-buying",
@@ -152,15 +71,6 @@ export const SERVICES = [
     details: { items: ["Campaign Management", "Domain Parking", "Creative Testing", "Traffic Acquisition"] }
   },
   {
-    slug: "web-development",
-    title: "Web and Custom App Development",
-    shortTitle: "Web Dev",
-    category: "Technology",
-    description: "Design and build modern websites and platforms focused on turning traffic into buyers.",
-    icon: "Code",
-    details: { items: ["Custom Websites", "Landing Pages", "Online Stores", "Platform Maintenance"] }
-  },
-  {
     slug: "branding",
     title: "Brand Strategy and Creative",
     shortTitle: "Branding",
@@ -168,6 +78,96 @@ export const SERVICES = [
     description: "Define your company market positioning and create beautiful identity systems that command authority.",
     icon: "Sparkles",
     details: { items: ["Brand Strategy", "Identity Development", "Market Positioning", "Reputation Management"] }
+  },
+  {
+    slug: "affiliate-marketing",
+    title: "Affiliate Marketing Management",
+    shortTitle: "Affiliate",
+    category: "Marketing",
+    description: "End to end management of affiliate networks, publisher recruitment, and payout configurations.",
+    icon: "Network",
+    details: { items: ["Program Setup", "Publisher Recruitment", "Performance Tracking", "Fraud Prevention"] }
+  },
+  {
+    slug: "business-outsourcing",
+    title: "Business Process Outsourcing",
+    shortTitle: "Outsourcing",
+    category: "Operations",
+    description: "Reduce operational costs and improve efficiency. We provide highly trained support and sales teams.",
+    icon: "Headphones",
+    details: { items: ["Customer Support", "Sales Teams", "Lead Generation", "Daily Operations"] }
+  },
+  {
+    slug: "living-trust-probate",
+    title: "Living Trust and Probate",
+    shortTitle: "Trust & Probate",
+    category: "Legal",
+    description: "Secure your assets and ensure your family is protected. We help you create clear living trusts and navigate probate court easily.",
+    icon: "ShieldCheck",
+    details: { items: ["Asset Protection", "Estate Planning", "Probate Navigation", "Document Preparation"] }
+  },
+  {
+    slug: "tax-preparation",
+    title: "Tax Preparation",
+    shortTitle: "Tax Prep",
+    category: "Tax",
+    description: "Accurate tax returns for individuals and businesses. We ensure you get the maximum return possible.",
+    icon: "FileText",
+    details: { items: ["Small Business Taxes", "Corporate Taxes", "LLC Returns", "Payroll Taxes"] }
+  },
+  {
+    slug: "tax-resolution-debt-relief",
+    title: "Tax Resolution and Debt Relief",
+    shortTitle: "Tax Resolution",
+    category: "Tax",
+    description: "Professional representation for IRS audits. We negotiate payment plans and offers to reduce your tax burden.",
+    icon: "Briefcase",
+    details: { items: ["IRS Representation", "Audit Defense", "Debt Negotiation", "Penalty Abatement"] }
+  },
+  {
+    slug: "real-estate-eviction",
+    title: "Real Estate and Eviction",
+    shortTitle: "Real Estate",
+    category: "Legal",
+    description: "Comprehensive legal assistance for property transfers, deed services, and lawful eviction processes.",
+    icon: "Home",
+    details: { items: ["Deed Transfers", "Contract Review", "Eviction Notices", "Property Disputes"] }
+  },
+  {
+    slug: "family-law-divorce",
+    title: "Family Law and Divorce",
+    shortTitle: "Family Law",
+    category: "Legal",
+    description: "Compassionate and professional legal help to guide you through divorce proceedings and child custody matters.",
+    icon: "Users",
+    details: { items: ["Divorce Filing", "Mediation", "Child Custody", "Asset Division"] }
+  },
+  {
+    slug: "small-claims-disputes",
+    title: "Small Claims and Disputes",
+    shortTitle: "Small Claims",
+    category: "Legal",
+    description: "Resolve disputes quickly and fairly. We assist with filing and presenting your small claims case effectively.",
+    icon: "Scale",
+    details: { items: ["Case Preparation", "Legal Filing", "Dispute Resolution", "Court Assistance"] }
+  },
+  {
+    slug: "residential-design",
+    title: "Residential Design and Drafting",
+    shortTitle: "Design",
+    category: "Design",
+    description: "Beautiful residential plans tailored to your vision. We provide accurate blueprints for your next project.",
+    icon: "PenTool",
+    details: { items: ["Custom Home Design", "Floor Plans", "Blueprint Drafting", "Renovation Planning"] }
+  },
+  {
+    slug: "interior-staging",
+    title: "3D Interior Staging and Visuals",
+    shortTitle: "Staging",
+    category: "Design",
+    description: "Stunning interior design and property staging. We create visual experiences that help sell homes faster.",
+    icon: "Image",
+    details: { items: ["3D Staging", "Property Visualizations", "Interior Planning", "Realtor Services"] }
   },
   {
     slug: "human-resources",

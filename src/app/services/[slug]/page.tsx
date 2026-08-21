@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowUpRight, Check, ChevronRight } from "lucide-react";
 import { SERVICES, SITE_CONFIG } from "@/lib/config";
 import { CustomCursorTarget } from "@/components/ui/custom-cursor";
+import { MultiStepForm } from "@/components/ui/multistep-form";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -420,68 +421,27 @@ export default async function ServiceDetailPage({ params }: Props) {
       </section>
 
       {/* SERVICE INTAKE SURVEY */}
-      <section className="py-32 bg-[#04070f] text-white relative overflow-hidden">
+      <section className="py-24 md:py-32 bg-[#04070f] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <Image src="/abstract-growth.png" alt="Texture" fill className="object-cover grayscale mix-blend-overlay" />
         </div>
-        <div className="container mx-auto relative z-10 max-w-4xl">
-          <div className="text-center mb-16">
+        <div className="container mx-auto relative z-10 max-w-4xl px-4">
+          <div className="text-center mb-12">
+            <span className="text-xs uppercase tracking-widest text-red-600 font-bold block mb-2">Priority Placement</span>
             <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tighter uppercase mb-4 text-white">
-              Client Intake Survey
+              Client Intake Assessment
             </h2>
-            <p className="text-white/60 text-sm md:text-base">
-              Secure priority placement for {service.title}. Complete the brief assessment below.
+            <p className="text-white/60 text-sm md:text-base max-w-xl mx-auto">
+              Complete the tailored assessment below for {service.title}. Our team will analyze your requirements and provide a direct proposal within 2 hours.
             </p>
           </div>
 
-          <form className="bg-white/5 border border-white/10 p-8 md:p-12 rounded-3xl backdrop-blur-md shadow-2xl space-y-8">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <label className="text-[0.7rem] font-bold uppercase tracking-widest text-white/50 block mb-2">Full Name</label>
-                <input 
-                  type="text" 
-                  className="w-full bg-black/50 border border-white/10 px-5 py-4 rounded-xl text-sm text-white focus:border-red-600 focus:outline-none transition-colors"
-                  placeholder="Jane Doe"
-                />
-              </div>
-              <div>
-                <label className="text-[0.7rem] font-bold uppercase tracking-widest text-white/50 block mb-2">Email Address</label>
-                <input 
-                  type="email" 
-                  className="w-full bg-black/50 border border-white/10 px-5 py-4 rounded-xl text-sm text-white focus:border-red-600 focus:outline-none transition-colors"
-                  placeholder="jane@example.com"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="text-[0.7rem] font-bold uppercase tracking-widest text-white/50 block mb-4">{formLabel}</label>
-              <div className="grid grid-cols-2 gap-4">
-                {formOptions.map((opt) => (
-                  <label key={opt} className="flex items-center gap-3 cursor-pointer group">
-                    <input type="radio" name="objective" value={opt} className="accent-red-600 w-4 h-4 cursor-pointer" />
-                    <span className="text-sm text-white/70 group-hover:text-white transition-colors">{opt}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <label className="text-[0.7rem] font-bold uppercase tracking-widest text-white/50 block mb-2">Additional Details</label>
-              <textarea 
-                rows={4}
-                className="w-full bg-black/50 border border-white/10 px-5 py-4 rounded-xl text-sm text-white focus:border-red-600 focus:outline-none transition-colors resize-none"
-                placeholder="Briefly describe your current situation or requirements..."
-              />
-            </div>
-
-            <button className="w-full py-5 bg-white text-black font-bold uppercase tracking-widest text-sm rounded-xl hover:bg-red-600 hover:text-white transition-colors duration-300 flex items-center justify-center gap-3">
-              Submit Assessment <ArrowUpRight size={18} />
-            </button>
-            <p className="text-center text-[0.65rem] text-white/30 font-bold uppercase tracking-wider mt-4">
-              All information is securely encrypted and strictly confidential.
-            </p>
-          </form>
+          <MultiStepForm 
+            serviceSlug={service.slug} 
+            title={`Request ${service.shortTitle} Strategy`}
+            subtitle={`Tailored solutions for ${service.title}`}
+            theme="dark"
+          />
         </div>
       </section>
     </div>

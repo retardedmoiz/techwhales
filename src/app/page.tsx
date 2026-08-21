@@ -12,6 +12,7 @@ import { Card } from "@/components/ui/card";
 import { Spotlight } from "@/components/ui/spotlight";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/fade-up";
 import TextBlockAnimation from "@/components/ui/text-block-animation";
+import { MultiStepForm } from "@/components/ui/multistep-form";
 
 /* ============================================================================
    MICRO-ANIMATION: SCROLL TEXT REVEAL
@@ -50,17 +51,17 @@ function ScrollTextReveal({ text }: { text: string }) {
 function Hero() {
   return (
     <section className="relative bg-white pt-24 pb-12 overflow-hidden">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <Card className="w-full min-h-[600px] md:h-[700px] bg-[#08080a] border-none relative overflow-hidden flex flex-col md:flex-row items-center rounded-3xl p-6 md:p-12 shadow-2xl group">
+          <Card className="w-full min-h-[500px] md:min-h-[600px] md:h-[700px] bg-[#08080a] border-none relative overflow-hidden flex flex-col md:flex-row items-center rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl group">
             <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
             
             {/* Left content */}
-            <div className="flex-1 relative z-10 flex flex-col justify-center text-white h-full pr-0 md:pr-8 py-8 md:py-0">
+            <div className="flex-1 relative z-10 flex flex-col justify-center text-white h-full pr-0 md:pr-8 py-4 md:py-0 w-full">
               <FadeUp delay={0.2}>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[0.7rem] font-bold uppercase tracking-wider mb-6 w-fit">
                   <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
@@ -69,7 +70,7 @@ function Hero() {
               </FadeUp>
               
               <FadeUp delay={0.3}>
-                <h1 className="text-[2.5rem] md:text-[5rem] font-heading font-black leading-[0.9] tracking-tighter uppercase mb-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+                <h1 className="text-[2.2rem] sm:text-[3rem] md:text-[5rem] font-heading font-black leading-[0.95] md:leading-[0.9] tracking-tighter uppercase mb-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
                   Grow Your <br />
                   <span className="text-transparent relative" style={{ WebkitTextStroke: "1.5px #fff" }}>
                     Business Now.
@@ -85,7 +86,7 @@ function Hero() {
               
               <FadeUp delay={0.4}>
                 <p className="text-neutral-400 text-sm md:text-base max-w-lg leading-relaxed mb-8">
-                  TechWhales is your dedicated partner for legal support, tax resolution, design, and operations. We provide genuine, professional services to help your business succeed without the stress.
+                  TechWhales is your dedicated partner for legal support, tax resolution, web development, and digital operations. We provide genuine, professional services to help your business succeed without the stress.
                 </p>
               </FadeUp>
               
@@ -102,8 +103,8 @@ function Hero() {
               </FadeUp>
             </div>
 
-            {/* Right content - Spline Scene */}
-            <FadeUp delay={0.6} className="flex-1 w-full h-[300px] md:h-full relative min-h-[300px] z-10 opacity-90 group-hover:opacity-100 transition-opacity duration-700">
+            {/* Right content - Spline Scene (Desktop only to guarantee 100% responsive layout on mobile) */}
+            <FadeUp delay={0.6} className="hidden md:flex flex-1 w-full h-[300px] md:h-full relative min-h-[300px] z-10 opacity-90 group-hover:opacity-100 transition-opacity duration-700">
               <SplineScene 
                 scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                 className="w-full h-full scale-110"
@@ -512,64 +513,13 @@ function ContactSection() {
             </FadeUp>
           </div>
 
-          <FadeUp delay={0.2}>
-            <form 
-              onSubmit={(e) => e.preventDefault()}
-              className="space-y-6 bg-white border border-black/10 p-8 md:p-12 rounded-3xl shadow-2xl shadow-black/5 relative overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-black via-red-600 to-black" />
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="text-[0.7rem] font-bold uppercase tracking-widest text-black/60 block mb-2">Executive Name</label>
-                  <input 
-                    type="text" 
-                    placeholder="John Doe" 
-                    className="w-full bg-[#fafafa] border border-black/10 px-5 py-4 rounded-xl text-sm text-black font-medium focus:outline-none focus:border-red-600 focus:bg-white transition-all shadow-inner"
-                  />
-                </div>
-                <div>
-                  <label className="text-[0.7rem] font-bold uppercase tracking-widest text-black/60 block mb-2">Corporate Email</label>
-                  <input 
-                    type="email" 
-                    placeholder="john@company.com" 
-                    className="w-full bg-[#fafafa] border border-black/10 px-5 py-4 rounded-xl text-sm text-black font-medium focus:outline-none focus:border-red-600 focus:bg-white transition-all shadow-inner"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="text-[0.7rem] font-bold uppercase tracking-widest text-black/60 block mb-2">How can we help?</label>
-                <select 
-                  className="w-full bg-[#fafafa] border border-black/10 px-5 py-4 rounded-xl text-sm text-black font-medium focus:outline-none focus:border-red-600 focus:bg-white transition-all shadow-inner appearance-none cursor-pointer"
-                >
-                  <option>Legal Services</option>
-                  <option>Tax Preparation and Resolution</option>
-                  <option>Architecture and Design</option>
-                  <option>Business Outsourcing</option>
-                  <option>Web Development or Marketing</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="text-[0.7rem] font-bold uppercase tracking-widest text-black/60 block mb-2">Message</label>
-                <textarea 
-                  rows={4}
-                  placeholder="Please describe what you need help with..." 
-                  className="w-full bg-[#fafafa] border border-black/10 px-5 py-4 rounded-xl text-sm text-black font-medium focus:outline-none focus:border-red-600 focus:bg-white transition-all shadow-inner resize-none"
-                />
-              </div>
-
-              <button 
-                type="submit" 
-                className="group w-full py-5 text-xs font-bold uppercase tracking-widest text-white bg-black rounded-xl hover:bg-red-600 transition-all duration-300 flex items-center justify-center gap-3 mt-4"
-              >
-                Submit Inquiry <ArrowUpRight size={18} className="group-hover:rotate-45 transition-transform" />
-              </button>
-              <p className="text-center text-[0.65rem] text-black/40 font-bold uppercase tracking-wider mt-4">
-                Secure SSL Encrypted Transmission
-              </p>
-            </form>
+          <FadeUp delay={0.2} className="w-full flex justify-center">
+            <MultiStepForm 
+              theme="light" 
+              title="Partner With TechWhales" 
+              subtitle="Complete our 4-step assessment for tailored business solutions."
+              className="max-w-xl w-full"
+            />
           </FadeUp>
         </div>
       </div>

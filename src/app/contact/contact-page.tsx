@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Clock, MapPin, Send, CheckCircle, ChevronDown } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/config";
+import { MultiStepForm } from "@/components/ui/multistep-form";
 
 const faqs = [
   { q: "How quickly do you respond to inquiries?", a: "We respond to all inquiries within 24 hours on business days. For urgent matters, email general operations at team@techwhales.com." },
@@ -101,105 +102,14 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="lg:col-span-2">
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="border border-black/10 bg-[#fafafa] rounded-3xl p-12 text-center h-full flex flex-col items-center justify-center"
-                >
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6 bg-green-50 border border-green-200">
-                    <CheckCircle size={28} className="text-green-600" />
-                  </div>
-                  <h2 className="text-2xl font-heading font-black uppercase mb-3">Message Received!</h2>
-                  <p className="text-black/60 text-sm max-w-sm mb-6">
-                    Tariq and the operations team will review your inquiry and get back to you within 24 hours.
-                  </p>
-                  <button onClick={() => setSubmitted(false)}
-                    className="text-xs font-bold uppercase tracking-widest text-black border-b border-black pb-0.5 hover:text-black/60 transition-colors">
-                    Send another message
-                  </button>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="border border-black/10 bg-[#fafafa] rounded-3xl p-8 md:p-12 space-y-6">
-                  <h2 className="text-xl font-heading font-black uppercase text-black border-b border-black/5 pb-4">
-                    Get a Free Consultation
-                  </h2>
-
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="contact-name" className="block text-[0.65rem] font-bold tracking-widest uppercase text-black/50 mb-2">Full Name *</label>
-                      <input id="contact-name" type="text" required
-                        value={formState.name}
-                        onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                        placeholder="John Smith"
-                        className="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-black focus:outline-none focus:border-black transition-colors" />
-                    </div>
-                    <div>
-                      <label htmlFor="contact-email" className="block text-[0.65rem] font-bold tracking-widest uppercase text-black/50 mb-2">Email Address *</label>
-                      <input id="contact-email" type="email" required
-                        value={formState.email}
-                        onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                        placeholder="john@company.com"
-                        className="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-black focus:outline-none focus:border-black transition-colors" />
-                    </div>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="contact-company" className="block text-[0.65rem] font-bold tracking-widest uppercase text-black/50 mb-2">Company Name</label>
-                      <input id="contact-company" type="text"
-                        value={formState.company}
-                        onChange={(e) => setFormState({ ...formState, company: e.target.value })}
-                        placeholder="Acme Corp"
-                        className="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-black focus:outline-none focus:border-black transition-colors" />
-                    </div>
-                    <div>
-                      <label htmlFor="contact-service" className="block text-[0.65rem] font-bold tracking-widest uppercase text-black/50 mb-2">Primary Need</label>
-                      <select id="contact-service"
-                        value={formState.service}
-                        onChange={(e) => setFormState({ ...formState, service: e.target.value })}
-                        className="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-black/80 focus:outline-none focus:border-black transition-colors">
-                        <option value="">Select a service...</option>
-                        {services.map((s) => <option key={s} value={s}>{s}</option>)}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="contact-budget" className="block text-[0.65rem] font-bold tracking-widest uppercase text-black/50 mb-2">Monthly Budget Range</label>
-                    <select id="contact-budget"
-                      value={formState.budget}
-                      onChange={(e) => setFormState({ ...formState, budget: e.target.value })}
-                      className="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-black/80 focus:outline-none focus:border-black transition-colors">
-                      <option value="">Select budget range...</option>
-                      <option>Under $2,000/mo</option>
-                      <option>$2,000 – $5,000/mo</option>
-                      <option>$5,000 – $15,000/mo</option>
-                      <option>$15,000+/mo</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="contact-message" className="block text-[0.65rem] font-bold tracking-widest uppercase text-black/50 mb-2">Goals & Details *</label>
-                    <textarea id="contact-message" required rows={5}
-                      value={formState.message}
-                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      placeholder="Describe the operations or marketing needs you are looking to address..."
-                      className="w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-black focus:outline-none focus:border-black transition-colors resize-none" />
-                  </div>
-
-                  <button type="submit"
-                    className="w-full py-4 font-bold uppercase tracking-widest text-white bg-black hover:bg-black/90 rounded-xl transition-colors text-xs"
-                  >
-                    Send Inquiry
-                  </button>
-                  <p className="text-center text-[0.65rem] text-black/40">
-                    By submitting, you agree to our <Link href="/legal" className="underline hover:text-black">Privacy Policy</Link>.
-                  </p>
-                </form>
-              )}
+            {/* MultiStep Interactive Form */}
+            <div className="lg:col-span-2 flex justify-center">
+              <MultiStepForm 
+                theme="light" 
+                title="Get a Free Strategy Consultation" 
+                subtitle="Answer 4 quick questions so our leadership team can prepare your solution."
+                className="max-w-xl w-full"
+              />
             </div>
           </div>
         </div>
