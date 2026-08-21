@@ -82,13 +82,13 @@ export const TeamSection = React.forwardRef<HTMLDivElement, TeamSectionProps>(
           {/* Header Section */}
           <div className="relative z-10 flex w-full flex-col items-center justify-between gap-4 md:flex-row md:items-start md:text-left lg:gap-8">
             <div className="grid gap-4 text-center md:text-left">
-              <h2 className="text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl text-black uppercase font-heading">
+              <h2 className="text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl text-white uppercase font-heading">
                 <span className="text-red-600 block text-lg sm:text-xl md:text-2xl font-bold tracking-widest mb-2">
                   L E A D E R S H I P
                 </span>
                 {title}
               </h2>
-              <p className="max-w-[700px] text-black/60 md:text-xl/relaxed lg:text-lg/relaxed xl:text-xl/relaxed font-medium">
+              <p className="max-w-[700px] text-white/70 md:text-xl/relaxed lg:text-lg/relaxed xl:text-xl/relaxed font-medium">
                 {description}
               </p>
             </div>
@@ -241,7 +241,7 @@ export const TeamSection = React.forwardRef<HTMLDivElement, TeamSectionProps>(
           {directors && directors.length > 0 && (
             <div className="mt-20 w-full">
               <div className="mb-12 flex flex-col items-center justify-center">
-                <h3 className="text-3xl md:text-4xl font-black uppercase font-heading text-black tracking-tighter border-b-4 border-red-600 pb-2">
+                <h3 className="text-3xl md:text-4xl font-black uppercase font-heading text-white tracking-tighter border-b-4 border-red-600 pb-2">
                   Directors
                 </h3>
               </div>
