@@ -1,95 +1,102 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import * as LucideIcons from "lucide-react";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, ChevronRight } from "lucide-react";
 import { SERVICES, SITE_CONFIG } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: `Services | ${SITE_CONFIG.brand}`,
-  description: `Explore all ${SITE_CONFIG.brand} services: Legal, Tax, Design, Marketing, Web Development, and Operations.`,
+  title: `Services & Capabilities | ${SITE_CONFIG.brand}`,
+  description: `Explore all ${SITE_CONFIG.brand} corporate solutions: Legal, Tax, Design, Marketing, Web Development, and Business Operations.`,
 };
 
 export default function ServicesPage() {
   const categories = ["Legal", "Tax", "Design", "Operations", "Marketing", "Monetization", "Technology"];
   const categoryLabels: Record<string, string> = {
-    Legal: "Legal Services",
-    Tax: "Tax Preparation & Resolution",
-    Design: "Architecture & Design",
-    Operations: "Business Operations",
-    Marketing: "Marketing & Strategy",
-    Monetization: "Search Monetization",
-    Technology: "Web & Technology",
+    Legal: "Legal & Estate Practice",
+    Tax: "Tax Strategy & Resolution",
+    Design: "Architectural & Interior Design",
+    Operations: "Business Operations & BPO",
+    Marketing: "Performance Marketing & Growth",
+    Monetization: "Search & Media Monetization",
+    Technology: "Web Development & Custom Apps",
   };
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-[#08080a] text-white min-h-screen">
       {/* Hero */}
-      <section className="relative bg-[#fafafa] border-b border-black/10 py-24 md:py-32">
-        <div className="container mx-auto">
-          <nav className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-black/40 mb-8">
-            <Link href="/" className="hover:text-black transition-colors">Home</Link>
-            <span>/</span>
-            <span className="text-red-600">Services</span>
+      <section className="relative bg-[#0c0c0e] border-b border-white/10 py-28 md:py-36">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+          <nav className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/50 mb-8">
+            <Link href="/" className="hover:text-red-500 transition-colors">Home</Link>
+            <ChevronRight size={12} />
+            <span className="text-red-500 font-black">Services</span>
           </nav>
-          <h1 className="text-4xl md:text-6xl lg:text-[7rem] font-heading font-black tracking-tighter text-black uppercase mb-6 leading-[0.9] max-w-5xl">
+
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[6.5rem] font-heading font-black tracking-tighter text-white uppercase mb-6 leading-[0.95] max-w-5xl">
             17 Services. <br />
-            <span className="text-transparent" style={{ WebkitTextStroke: "2px #000" }}>One Partner.</span>
+            <span className="text-transparent relative" style={{ WebkitTextStroke: "1.5px #fff" }}>
+              One Trusted Partner.
+            </span>
           </h1>
-          <p className="text-black/60 text-base md:text-lg max-w-2xl leading-relaxed font-medium">
-            Stop juggling multiple agencies and disjointed tools. We provide an integrated suite of legal, tax, design, operational, and marketing capabilities engineered for your success.
+
+          <p className="text-white/70 text-base md:text-xl max-w-3xl leading-relaxed font-normal">
+            Stop juggling multiple disjointed vendors and unreliable freelancers. TechWhales delivers an integrated suite of legal, tax, design, operational, and performance marketing capabilities engineered for continuous business growth.
           </p>
         </div>
       </section>
 
       {/* Service Grid by Category */}
-      <section className="py-20 md:py-32 bg-white">
-        <div className="container mx-auto">
+      <section className="py-20 md:py-32 bg-[#08080a]">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
           {categories.map((cat) => {
             const catServices = SERVICES.filter((s) => s.category === cat);
             if (!catServices.length) return null;
             return (
               <div key={cat} className="mb-24 last:mb-0">
-                <div className="flex items-center gap-6 mb-12">
-                  <h2 className="text-xl md:text-2xl font-heading font-black uppercase tracking-widest text-black">
+                <div className="flex items-center gap-6 mb-10">
+                  <h2 className="text-xl md:text-2xl font-heading font-black uppercase tracking-widest text-white">
                     {categoryLabels[cat]}
                   </h2>
-                  <div className="flex-1 h-px bg-black/10" />
+                  <div className="flex-1 h-px bg-white/10" />
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {catServices.map((service) => {
                     const Icon = (LucideIcons as any)[service.icon] || LucideIcons.Circle;
                     return (
-                    <Link
-                      key={service.slug}
-                      href={`/services/${service.slug}`}
-                      className="group block bg-[#fafafa] border border-black/10 rounded-3xl p-8 md:p-10 hover:bg-white hover:border-red-600/30 hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 relative overflow-hidden"
-                    >
-                      <div className="absolute top-8 right-8 w-10 h-10 rounded-full bg-white border border-black/5 flex items-center justify-center opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                        <ArrowUpRight size={16} className="text-red-600" />
-                      </div>
-                      
-                      <div className="mb-6 block group-hover:scale-110 transition-transform origin-left text-black/40 group-hover:text-red-600">
-                        <Icon size={40} strokeWidth={1.5} />
-                      </div>
-                      
-                      <h3 className="text-xl md:text-2xl font-heading font-black mb-4 text-black group-hover:text-red-600 transition-colors uppercase leading-tight">
-                        {service.title}
-                      </h3>
-                      
-                      <p className="text-sm text-black/60 font-medium leading-relaxed mb-8 h-[60px] line-clamp-3">
-                        {service.description}
-                      </p>
-                      
-                      <div className="space-y-3 pt-6 border-t border-black/5">
-                        {((service.details as any).items || []).slice(0, 3).map((detail: string, idx: number) => (
-                          <div key={idx} className="flex items-start gap-2 text-[0.7rem] font-bold uppercase tracking-wider text-black/50 group-hover:text-black/70">
-                            <CheckCircle2 size={12} className="mt-0.5 text-red-600 flex-shrink-0" />
-                            <span>{detail}</span>
+                      <Link
+                        key={service.slug}
+                        href={`/services/${service.slug}`}
+                        className="group block bg-[#121216] border border-white/10 rounded-3xl p-8 md:p-10 hover:border-red-500/50 hover:shadow-2xl hover:shadow-red-600/10 transition-all duration-500 relative overflow-hidden flex flex-col justify-between"
+                      >
+                        <div>
+                          <div className="flex items-center justify-between mb-6">
+                            <div className="text-white/50 group-hover:text-red-500 transition-colors">
+                              <Icon size={36} strokeWidth={1.5} />
+                            </div>
+                            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all">
+                              <ArrowUpRight size={16} />
+                            </div>
                           </div>
-                        ))}
-                      </div>
-                    </Link>
+
+                          <h3 className="text-xl md:text-2xl font-heading font-black mb-4 text-white group-hover:text-red-500 transition-colors uppercase leading-tight">
+                            {service.title}
+                          </h3>
+
+                          <p className="text-xs sm:text-sm text-white/60 leading-relaxed mb-8">
+                            {service.description}
+                          </p>
+                        </div>
+                        
+                        <div className="space-y-2.5 pt-6 border-t border-white/10">
+                          {((service.details as any).items || []).slice(0, 3).map((detail: string, idx: number) => (
+                            <div key={idx} className="flex items-center gap-2 text-[0.72rem] font-bold uppercase tracking-wider text-white/60 group-hover:text-white">
+                              <CheckCircle2 size={12} className="text-red-500 flex-shrink-0" />
+                              <span>{detail}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </Link>
                     );
                   })}
                 </div>
@@ -99,22 +106,21 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-[#fafafa] border-t border-black/10 text-center">
-        <div className="container mx-auto">
-          <span className="text-xs uppercase tracking-widest text-red-600 font-bold block mb-4">Strategic Mapping</span>
-          <h2 className="text-4xl md:text-6xl font-heading font-black tracking-tighter text-black uppercase mb-6 leading-none">
-            Not Sure Which <br />
-            <span className="text-transparent" style={{ WebkitTextStroke: "1.5px #000" }}>Service Fits?</span>
+      {/* CTA Bottom Banner */}
+      <section className="py-20 bg-[#04070f] border-t border-white/10 text-center">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <span className="text-xs uppercase tracking-widest text-red-500 font-bold block mb-3">Custom Requirements?</span>
+          <h2 className="text-3xl md:text-5xl font-heading font-black tracking-tighter uppercase mb-6 text-white">
+            Need a Tailored Corporate Solution?
           </h2>
-          <p className="text-black/60 max-w-xl mx-auto mb-10 font-medium text-lg">
-            Book a strategy session. We'll audit your current infrastructure and map out the exact capabilities you need to scale.
+          <p className="text-white/70 text-sm md:text-base mb-8 max-w-xl mx-auto">
+            Our senior partners consult directly with your executive team to design custom operational, legal, and growth workflows.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 px-10 py-5 text-sm font-bold uppercase tracking-widest text-white bg-black rounded-full hover:bg-red-600 transition-colors duration-300"
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-widest text-white bg-red-600 rounded-full hover:bg-white hover:text-black transition-all shadow-lg shadow-red-600/30"
           >
-            Request Audit <ArrowUpRight size={18} />
+            Request Custom Proposal <ArrowUpRight size={16} />
           </Link>
         </div>
       </section>
