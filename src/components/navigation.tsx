@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Briefcase, ShieldCheck, Building2, Info, UserCheck, Mail, Menu, X, ArrowUpRight } from "lucide-react";
+import { Home, Briefcase, Building2, Info, UserCheck, Mail, Menu, X, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { TechWhalesLogo } from "@/components/ui/logo";
 
@@ -17,7 +17,6 @@ interface NavItem {
 const navItems: NavItem[] = [
   { name: "Home", url: "/", icon: Home },
   { name: "Services", url: "/services", icon: Briefcase },
-  { name: "Medicare BPO", url: "/medicare", icon: ShieldCheck },
   { name: "Industries", url: "/industries", icon: Building2 },
   { name: "About", url: "/about", icon: Info },
   { name: "Careers", url: "/careers", icon: UserCheck },
@@ -51,7 +50,7 @@ export function GlassmorphismNavBar() {
                 key={item.name}
                 href={item.url}
                 className={cn(
-                  "relative cursor-pointer text-[0.72rem] uppercase tracking-wider font-bold px-3 py-2 rounded-full transition-all duration-300 flex items-center gap-1.5 whitespace-nowrap",
+                  "relative cursor-pointer text-[0.72rem] uppercase tracking-wider font-bold px-4 py-2 rounded-full transition-all duration-300 flex items-center gap-1.5 whitespace-nowrap",
                   isActive
                     ? "text-red-500 font-black"
                     : "text-white/70 hover:text-white"
@@ -87,10 +86,10 @@ export function GlassmorphismNavBar() {
       <div className="pointer-events-auto flex items-center gap-3">
         {/* CTA Button for Desktop */}
         <Link
-          href="/medicare"
+          href="/contact"
           className="hidden lg:inline-flex items-center justify-center gap-2 px-6 h-14 rounded-full bg-red-600 text-white text-[0.72rem] font-bold uppercase tracking-widest hover:bg-white hover:text-black hover:scale-105 shadow-lg shadow-red-600/25 transition-all duration-300"
         >
-          <span>Medicare Pilot</span>
+          <span>Contact Us</span>
           <ArrowUpRight size={15} />
         </Link>
 
@@ -137,11 +136,11 @@ export function GlassmorphismNavBar() {
 
             <div className="pt-2 border-t border-white/10 mt-1">
               <Link
-                href="/medicare"
+                href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="flex items-center justify-center gap-2 w-full py-3.5 text-xs font-bold uppercase tracking-widest text-white bg-red-600 rounded-2xl shadow-lg shadow-red-600/25"
               >
-                <span>Request 5-Agent Pilot</span>
+                <span>Contact Us</span>
                 <ArrowUpRight size={16} />
               </Link>
             </div>

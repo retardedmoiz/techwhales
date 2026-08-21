@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import * as LucideIcons from "lucide-react";
-import { ArrowUpRight, CheckCircle2, ChevronRight } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, ChevronRight, ShieldCheck } from "lucide-react";
 import { SERVICES, SITE_CONFIG } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: `Services & Capabilities | ${SITE_CONFIG.brand}`,
-  description: `Explore all ${SITE_CONFIG.brand} corporate solutions: Legal, Tax, Design, Marketing, Web Development, and Business Operations.`,
+  description: `Explore all ${SITE_CONFIG.brand} corporate solutions: Legal, Tax, Design, Marketing, Web Development, Healthcare Medicare BPO, and Business Operations.`,
 };
 
 export default function ServicesPage() {
@@ -15,7 +15,7 @@ export default function ServicesPage() {
     Legal: "Legal & Estate Practice",
     Tax: "Tax Strategy & Resolution",
     Design: "Architectural & Interior Design",
-    Operations: "Business Operations & BPO",
+    Operations: "Business Operations & BPO Solutions",
     Marketing: "Performance Marketing & Growth",
     Monetization: "Search & Media Monetization",
     Technology: "Web Development & Custom Apps",
@@ -33,14 +33,14 @@ export default function ServicesPage() {
           </nav>
 
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[6.5rem] font-heading font-black tracking-tighter text-white uppercase mb-6 leading-[0.95] max-w-5xl">
-            17 Services. <br />
+            Corporate <br />
             <span className="text-transparent relative" style={{ WebkitTextStroke: "1.5px #fff" }}>
-              One Trusted Partner.
+              BPO & Operations.
             </span>
           </h1>
 
           <p className="text-white/70 text-base md:text-xl max-w-3xl leading-relaxed font-normal">
-            Stop juggling multiple disjointed vendors and unreliable freelancers. TechWhales delivers an integrated suite of legal, tax, design, operational, and performance marketing capabilities engineered for continuous business growth.
+            Stop juggling multiple disjointed vendors and unreliable freelancers. TechWhales delivers an integrated suite of legal, tax, design, Medicare contact center BPO, operational, and performance marketing capabilities engineered for continuous business growth.
           </p>
         </div>
       </section>
@@ -61,6 +61,43 @@ export default function ServicesPage() {
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {/* For Operations category: Insert Medicare BPO Feature Card First */}
+                  {cat === "Operations" && (
+                    <Link
+                      href="/medicare"
+                      className="group block bg-[#0c0c10] border-2 border-red-600/50 rounded-3xl p-8 md:p-10 hover:border-red-500 hover:shadow-2xl hover:shadow-red-600/20 transition-all duration-500 relative overflow-hidden flex flex-col justify-between"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between mb-6">
+                          <div className="text-red-500">
+                            <ShieldCheck size={38} strokeWidth={1.8} />
+                          </div>
+                          <div className="px-3 py-1 rounded-full bg-red-600/20 border border-red-500/40 text-[0.68rem] font-bold text-red-500 uppercase tracking-wider flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
+                            Specialized BPO Practice
+                          </div>
+                        </div>
+
+                        <h3 className="text-xl md:text-2xl font-heading font-black mb-3 text-white group-hover:text-red-500 transition-colors uppercase leading-tight">
+                          Healthcare & Medicare BPO Solutions
+                        </h3>
+
+                        <p className="text-xs sm:text-sm text-white/70 leading-relaxed mb-8">
+                          Dedicated contact-center teams supporting healthcare, insurance agencies, and FMOs with qualification, appointment setting, and warm live-transfer operations.
+                        </p>
+                      </div>
+
+                      <div className="space-y-2.5 pt-6 border-t border-white/10">
+                        {["Live & Warm Transfer Models", "US Management + Offshore Delivery", "Controlled 5-Agent Pilot Program"].map((detail, idx) => (
+                          <div key={idx} className="flex items-center gap-2 text-[0.72rem] font-bold uppercase tracking-wider text-white">
+                            <CheckCircle2 size={12} className="text-red-500 flex-shrink-0" />
+                            <span>{detail}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </Link>
+                  )}
+
                   {catServices.map((service) => {
                     const Icon = (LucideIcons as any)[service.icon] || LucideIcons.Circle;
                     return (
