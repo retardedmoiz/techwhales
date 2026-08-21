@@ -30,6 +30,22 @@ import { MedicareLeadForm } from "@/components/ui/medicare-lead-form";
 export const metadata: Metadata = {
   title: "Medicare BPO & Live Transfer Solutions | TechWhales",
   description: "US-based Medicare BPO and live-transfer contact-center operations with scalable dedicated teams, QA, reporting and controlled pilot programs.",
+  keywords: [
+    "Medicare BPO",
+    "Medicare Live Transfers",
+    "Medicare BPO Services",
+    "Healthcare Contact Center Outsourcing",
+    "Medicare Warm Transfers",
+    "US Medicare Call Center",
+    "BPO Operations Los Angeles",
+    "TechWhales BPO",
+  ],
+  other: {
+    "geo.region": "US-CA",
+    "geo.placename": "Los Angeles, California",
+    "geo.position": "34.0482;-118.2612",
+    "ICBM": "34.0482, -118.2612",
+  },
   alternates: {
     canonical: "https://techwhales.net/medicare",
   },
@@ -39,12 +55,64 @@ export const metadata: Metadata = {
     url: "https://techwhales.net/medicare",
     siteName: "TechWhales",
     type: "website",
+    images: [{ url: "https://techwhales.net/logo-techwhales.png", width: 1200, height: 630 }],
   },
+};
+
+const medicareFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Do you provide licensed Medicare agents?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "TechWhales operates as a contact-center and BPO partner. Where a campaign involves regulated insurance sales or enrollment, the receiving organization is responsible for appropriately licensed agents and the applicable sales process.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can you provide live Medicare transfers?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We can configure live or warm-transfer workflows according to the contracting partner's campaign requirements, approved scripts, consent procedures and receiving-agent capacity.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can you start with a small team?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Our recommended approach is a controlled pilot, typically beginning with a small 5-agent dedicated team before scaling.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can you scale to 20+ agents?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Staffing can be expanded based on campaign requirements, training, performance and receiving-agent capacity.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Where are your operations located?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We operate through a US-based business structure (United Tech LLC, Los Angeles, CA) with scalable offshore delivery operations.",
+      },
+    },
+  ],
 };
 
 export default function MedicareBPOPage() {
   return (
     <div className="bg-[#08080a] text-white min-h-screen selection:bg-red-600 selection:text-white relative">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicareFaqJsonLd) }}
+      />
       
       {/* ============================================================================
          1. HERO SECTION WITH ENTERPRISE IMAGE
