@@ -863,7 +863,7 @@ export default function HealthcareBPOPage() {
                 a: "We evaluate CRM, dialer, routing and reporting requirements during campaign onboarding."
               }
             ].map((faq, idx) => (
-              <div key={idx} className="p-6 rounded-2xl bg-[#121216] border border-white/10" key={idx}>
+              <div key={idx} className="p-6 rounded-2xl bg-[#121216] border border-white/10">
                 <h3 className="font-heading font-black text-base sm:text-lg uppercase text-white mb-3 flex items-start gap-3">
                   <HelpCircle size={20} className="text-red-500 flex-shrink-0 mt-0.5" />
                   <span>{faq.q}</span>
