@@ -251,7 +251,7 @@ export function MultiStepForm({
         {/* Header */}
         <div className="mb-6 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/10 border border-red-600/20 text-[0.65rem] font-bold uppercase tracking-widest text-red-600 mb-3">
-            <Sparkles size={12} /> Lead Generation Form
+            <Sparkles size={12} /> Strategic Intake Portal
           </div>
           <h3 className="text-xl md:text-2xl font-heading font-black uppercase tracking-tight leading-tight">
             {title}

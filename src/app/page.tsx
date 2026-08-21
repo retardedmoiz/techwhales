@@ -13,6 +13,7 @@ import { Spotlight } from "@/components/ui/spotlight";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/fade-up";
 import TextBlockAnimation from "@/components/ui/text-block-animation";
 import { MultiStepForm } from "@/components/ui/multistep-form";
+import TextRevealBlur from "@/components/ui/blob-text-reveal";
 
 /* ============================================================================
    MICRO-ANIMATION: SCROLL TEXT REVEAL
@@ -66,15 +67,15 @@ function Hero() {
               <FadeUp delay={0.2}>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[0.7rem] font-bold uppercase tracking-wider mb-6 w-fit">
                   <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
-                  Premium Business Solutions
+                  Strategic Operations & Contact Centers
                 </div>
               </FadeUp>
               
               <FadeUp delay={0.3}>
-                <h1 className="text-[2rem] sm:text-[3rem] md:text-[5rem] font-heading font-black leading-[1] md:leading-[0.9] tracking-tighter uppercase mb-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 break-words">
-                  Grow Your <br />
+                <h1 className="text-[2rem] sm:text-[3rem] md:text-[4.5rem] font-heading font-black leading-[1] md:leading-[0.95] tracking-tighter uppercase mb-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 break-words">
+                  Accelerate <br />
                   <span className="text-transparent relative block sm:inline-block" style={{ WebkitTextStroke: "1.5px #fff" }}>
-                    Business Now.
+                    Scale & Delivery.
                     <motion.div 
                       className="absolute -bottom-2 left-0 h-1 bg-red-600"
                       initial={{ width: 0 }}
@@ -83,6 +84,23 @@ function Hero() {
                     />
                   </span>
                 </h1>
+                <div className="mb-6 max-w-xl">
+                  <TextRevealBlur 
+                    texts={["HEALTHCARE BPO", "CONTACT CENTERS", "LIVE TRANSFERS", "DIGITAL GROWTH"]}
+                    font={{
+                      fontSize: "1.5rem",
+                      fontWeight: 800,
+                      fontFamily: "var(--font-heading), sans-serif",
+                      letterSpacing: "0.02em",
+                      lineHeight: "1.2"
+                    }}
+                    color="#EF4444"
+                    revealColor="#DC2626"
+                    wipeColor="#FFFFFF"
+                    blobSize={10}
+                    blur={12}
+                  />
+                </div>
               </FadeUp>
               
               <FadeUp delay={0.4}>
