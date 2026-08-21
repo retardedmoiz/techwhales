@@ -13,12 +13,14 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
   return (
     <Suspense
       fallback={
-        <div className="w-full h-full flex items-center justify-center bg-black/5">
-          <div className="w-8 h-8 border-2 border-black/20 border-t-black rounded-full animate-spin"></div>
+        <div className="w-full h-full flex items-center justify-center bg-white/5">
+          <div className="w-8 h-8 border-2 border-white/20 border-t-red-600 rounded-full animate-spin"></div>
         </div>
       }
     >
-      <Spline scene={scene} className={className} />
+      <div className="w-full h-full max-w-full overflow-hidden flex items-center justify-center">
+        <Spline scene={scene} className={className} />
+      </div>
     </Suspense>
   );
 }

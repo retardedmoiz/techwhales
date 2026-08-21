@@ -50,18 +50,19 @@ function ScrollTextReveal({ text }: { text: string }) {
    ============================================================================ */
 function Hero() {
   return (
-    <section className="relative bg-white pt-24 pb-12 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section className="relative bg-[#08080a] pt-24 pb-12 overflow-hidden w-full max-w-full">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl w-full">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full max-w-full"
         >
-          <Card className="w-full min-h-[500px] md:min-h-[600px] md:h-[700px] bg-[#08080a] border-none relative overflow-hidden flex flex-col md:flex-row items-center rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl group">
+          <Card className="w-full max-w-full min-h-[500px] md:min-h-[600px] md:h-[700px] bg-[#08080a] border-none relative overflow-hidden flex flex-col md:flex-row items-center rounded-3xl p-5 sm:p-8 md:p-12 shadow-2xl group">
             <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
             
             {/* Left content */}
-            <div className="flex-1 relative z-10 flex flex-col justify-center text-white h-full pr-0 md:pr-8 py-4 md:py-0 w-full">
+            <div className="flex-1 relative z-10 flex flex-col justify-center text-white h-full pr-0 md:pr-8 py-4 md:py-0 w-full max-w-full">
               <FadeUp delay={0.2}>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-[0.7rem] font-bold uppercase tracking-wider mb-6 w-fit">
                   <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
@@ -70,9 +71,9 @@ function Hero() {
               </FadeUp>
               
               <FadeUp delay={0.3}>
-                <h1 className="text-[2.2rem] sm:text-[3rem] md:text-[5rem] font-heading font-black leading-[0.95] md:leading-[0.9] tracking-tighter uppercase mb-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+                <h1 className="text-[2rem] sm:text-[3rem] md:text-[5rem] font-heading font-black leading-[1] md:leading-[0.9] tracking-tighter uppercase mb-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 break-words">
                   Grow Your <br />
-                  <span className="text-transparent relative" style={{ WebkitTextStroke: "1.5px #fff" }}>
+                  <span className="text-transparent relative block sm:inline-block" style={{ WebkitTextStroke: "1.5px #fff" }}>
                     Business Now.
                     <motion.div 
                       className="absolute -bottom-2 left-0 h-1 bg-red-600"
@@ -91,7 +92,7 @@ function Hero() {
               </FadeUp>
               
               <FadeUp delay={0.5}>
-                <div className="flex flex-col sm:flex-row gap-4 items-center">
+                <div className="flex flex-col sm:flex-row gap-4 items-center w-full">
                   <Link href="/contact" className="group/btn w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-widest text-black bg-white rounded-full hover:bg-red-600 hover:text-white transition-all duration-300">
                     Get Started
                     <ArrowUpRight size={16} className="group-hover/btn:rotate-45 group-hover/btn:scale-110 transition-transform duration-300" />
@@ -104,7 +105,7 @@ function Hero() {
             </div>
 
             {/* Right content - Spline Scene (Fully responsive on mobile & desktop) */}
-            <FadeUp delay={0.6} className="flex flex-1 w-full h-[300px] sm:h-[400px] md:h-full relative min-h-[280px] z-10 opacity-95 group-hover:opacity-100 transition-opacity duration-700 mt-4 md:mt-0">
+            <FadeUp delay={0.6} className="flex flex-1 w-full max-w-full h-[280px] sm:h-[380px] md:h-full relative z-10 opacity-95 group-hover:opacity-100 transition-opacity duration-700 mt-4 md:mt-0 overflow-hidden">
               <SplineScene 
                 scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                 className="w-full h-full scale-100 md:scale-110 pointer-events-auto"
