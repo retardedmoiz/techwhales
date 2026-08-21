@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import * as LucideIcons from "lucide-react";
-import { ArrowUpRight, Check, Shield, TrendingUp, Users, Target, Zap, Activity } from "lucide-react";
+import { ArrowUpRight, Check, Shield, ShieldCheck, TrendingUp, Users, Target, Zap, Activity } from "lucide-react";
 import { SITE_CONFIG, SERVICES, PORTFOLIO, INDUSTRIES } from "@/lib/config";
 import { SplineScene } from "@/components/ui/spline";
 import { Card } from "@/components/ui/card";
@@ -529,6 +529,41 @@ function ContactSection() {
 }
 
 /* ============================================================================
+   B2B MEDICARE CONTACT CENTER BANNER
+   ============================================================================ */
+function MedicareBPOBanner() {
+  return (
+    <section className="py-16 bg-[#04070f] text-white border-y border-white/10 relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+        <div className="bg-[#0c0c10] border border-white/15 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+          <div className="max-w-2xl relative z-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/10 border border-red-500/30 text-red-500 text-[0.7rem] font-bold uppercase tracking-wider mb-4">
+              <ShieldCheck size={14} />
+              Enterprise Healthcare Operations
+            </div>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-heading font-black uppercase text-white tracking-tight mb-3">
+              Healthcare Contact Center & Medicare Operations
+            </h3>
+            <p className="text-white/70 text-xs sm:text-sm leading-relaxed mb-0">
+              Dedicated contact-center capacity for healthcare and insurance organizations, including qualification, appointment setting and live-transfer workflows.
+            </p>
+          </div>
+          <div className="relative z-10 flex-shrink-0">
+            <Link
+              href="/medicare"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-xs font-bold uppercase tracking-widest text-white bg-red-600 rounded-full hover:bg-white hover:text-black transition-all shadow-lg shadow-red-600/30"
+            >
+              <span>View Medicare BPO Solutions</span>
+              <ArrowUpRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================================
    PAGE CONTAINER
    ============================================================================ */
 export default function HomePage() {
@@ -539,6 +574,7 @@ export default function HomePage() {
       <AboutSection />
       <VisualBreakOne />
       <ServicesSection />
+      <MedicareBPOBanner />
       <PortfolioSection />
       <WhyPartnerSection />
       <IndustriesSection />
