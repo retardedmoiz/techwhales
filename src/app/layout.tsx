@@ -20,6 +20,13 @@ const syne = Syne({
   display: "swap",
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.siteUrl),
   title: {

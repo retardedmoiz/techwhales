@@ -103,11 +103,11 @@ function Hero() {
               </FadeUp>
             </div>
 
-            {/* Right content - Spline Scene (Desktop only to guarantee 100% responsive layout on mobile) */}
-            <FadeUp delay={0.6} className="hidden md:flex flex-1 w-full h-[300px] md:h-full relative min-h-[300px] z-10 opacity-90 group-hover:opacity-100 transition-opacity duration-700">
+            {/* Right content - Spline Scene (Fully responsive on mobile & desktop) */}
+            <FadeUp delay={0.6} className="flex flex-1 w-full h-[300px] sm:h-[400px] md:h-full relative min-h-[280px] z-10 opacity-95 group-hover:opacity-100 transition-opacity duration-700 mt-4 md:mt-0">
               <SplineScene 
                 scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                className="w-full h-full scale-110"
+                className="w-full h-full scale-100 md:scale-110 pointer-events-auto"
               />
             </FadeUp>
           </Card>
