@@ -27,9 +27,9 @@ export const SITE_CONFIG = {
   },
 
   seo: {
-    title: "TechWhales | Legal Tax and Business Operations",
-    description: "TechWhales is the premier business partner of United Tech LLC. We provide Legal, Tax, Design, Marketing, and Web Development services in an easy and professional way.",
-    ogImage: "/ogimage.jpg",
+    title: "TechWhales | Enterprise BPO & Corporate Solutions",
+    description: "Enterprise BPO, legal, tax, design, and performance marketing solutions by United Tech LLC. Built for scalable corporate operations.",
+    ogImage: "/logo-techwhales.png",
   },
 };
 

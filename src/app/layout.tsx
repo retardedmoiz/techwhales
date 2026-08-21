@@ -34,6 +34,14 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.brand}`,
   },
   description: SITE_CONFIG.seo.description,
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/logo-techwhales.png", type: "image/png" },
+    ],
+    shortcut: "/logo-techwhales.png",
+    apple: "/logo-techwhales.png",
+  },
   keywords: [
     "BPO",
     "Business Process Outsourcing",
